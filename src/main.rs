@@ -21,7 +21,6 @@ fn read_mops_registry_dump() -> Result<Vec<MopsManifest>> {
 
 fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     let deleted_repos = vec!["origyn-nft", "origyn-nft-next", "testpkg", "simplem"];
-
     let broken_repos = vec![
         // References a non-existing tag
         "motoko-crc",
@@ -32,7 +31,6 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         // References "" repository,
         "hello",
     ];
-
     // Added to MOPS by different authors and not kept up with the original library
     let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];
 
@@ -43,15 +41,6 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         return None;
     }
 
-    // The "base" package on Mops is bogus
-    if manifest.name == "base" {
-        return Some(MopsManifest {
-            name: "base".to_string(),
-            dependencies: vec![],
-            repository: "https://github.com/dfinity/motoko-base".to_string(),
-            version: "moc-0.14.9".to_string(),
-        });
-    }
     // Libraries that have actually tagged X.Y.Z rather than vX.Y.Z
     let non_v_tags = vec![
         "icrc-84",
@@ -258,7 +247,7 @@ fn cleanup_dependency(dependency: String) -> String {
 }
 
 fn format_dhall_output(manifests: Vec<MopsManifest>) -> String {
-    let mut result = "[".to_string();
+    let mut result = "[\n".to_string();
     for manifest in manifests {
         let name = manifest.name;
         let repo = manifest.repository;
@@ -269,7 +258,7 @@ fn format_dhall_output(manifests: Vec<MopsManifest>) -> String {
             .map(|d| format!("\"{d}\""))
             .collect::<Vec<_>>()
             .join(", ");
-        result.push_str(&format!("{{ name = \"{name}\", repo = \"{repo}\", version = \"{version}\", dependencies = [{dependencies}] : List Text }},"));
+        result.push_str(&format!("{{ name = \"{name}\", repo = \"{repo}\", version = \"{version}\", dependencies = [{dependencies}] : List Text }},\n"));
     }
     result.push(']');
     result
