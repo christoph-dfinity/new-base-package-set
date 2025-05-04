@@ -1,6 +1,6 @@
 [ { name = "ovs-ledger"
   , repo = "https://github.com/icdevsorg/ovs-ledger"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "base"
         , "ic-certification"
@@ -12,7 +12,7 @@
         , "stable-write-only"
         , "sha2"
         , "candy"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "principal-ext"
         , "timer-tool"
         ]
@@ -20,27 +20,27 @@
   }
 , { name = "nm"
   , repo = "https://github.com/dr-montasir/nm"
-  , version = "1.1.1"
+  , version = "v.1.1.0"
   , dependencies = [] : List Text
   }
 , { name = "time"
   , repo = "https://github.com/ArielRobotti/time"
-  , version = "1.0.7"
+  , version = "2918224d2cb8f73d113ae3380f5f575156f9357c"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "tweetnacl"
   , repo = "https://github.com/nirvana369/tweetnacl/"
-  , version = "1.1.1"
+  , version = "v1.1.1"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "xtended-numbers"
   , repo = "https://github.com/edjCase/motoko_numbers"
-  , version = "0.4.0"
+  , version = "0a036877112d5f0cbb6903678d43abb6574c617e"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "jwt"
   , repo = "https://github.com/edjcase/motoko_jwt"
-  , version = "0.2.0"
+  , version = "0130a82978bedc62617a622e1044071b69a39b09"
   , dependencies =
         [ "base"
         , "new-base"
@@ -56,12 +56,12 @@
   }
 , { name = "concurrent"
   , repo = "https://github.com/vporton/ic-concurrent"
-  , version = "0.1.2"
+  , version = "v0.1.2"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "icrc-fungible"
   , repo = "https://github.com/PanIndustrial-Org/ICRC_fungible"
-  , version = "0.0.5"
+  , version = "v0.0.5"
   , dependencies =
         [ "base"
         , "ic-certification"
@@ -74,62 +74,62 @@
   }
 , { name = "test"
   , repo = "https://github.com/ZenVoich/test"
-  , version = "2.1.1"
+  , version = "e87a718eba50c0c5d2bd8b52320ed3c51f67e2cf"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "math"
   , repo = "https://github.com/ArielRobotti/math"
-  , version = "1.0.3"
+  , version = "7cafbe9b858d31062e4ff6a1d5ca7977be6388ec"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "ecdsa"
   , repo = "https://github.com/edjCase/motoko_ecdsa"
-  , version = "5.0.1"
+  , version = "f1cfc1edb3a51ce97459ff764441aa33ba952e20"
   , dependencies =
       [ "sha2", "asn1", "xtended-numbers", "base-x-encoder" ] : List Text
   }
 , { name = "assets"
   , repo = "https://github.com/krpeacock/assets"
-  , version = "0.2.2"
+  , version = "b3b5788a136695cea1b3877f5356f3b8bc205d14"
   , dependencies = [ "test" ] : List Text
   }
 , { name = "server"
   , repo = "https://github.com/krpeacock/server"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies =
         [ "certified-cache", "test", "base", "assets", "http-parser", "serde" ]
       : List Text
   }
 , { name = "certified-cache"
   , repo = "https://github.com/krpeacock/certified-cache"
-  , version = "0.3.0"
+  , version = "96ef8a3f05669641506fb90faf01ac55dde9721d"
   , dependencies =
       [ "base", "ic-certification", "StableHashMap", "sha2" ] : List Text
   }
 , { name = "glob"
   , repo = "https://github.com/edjcase/motoko_glob"
-  , version = "0.0.1"
+  , version = "b1d90e0e981820be0bc283f10b9518656322cd44"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "random"
   , repo = "https://github.com/ArielRobotti/random"
-  , version = "1.0.2"
+  , version = "Fix"
   , dependencies = [] : List Text
   }
 , { name = "tecdsa"
   , repo = "https://github.com/bittoko/tecdsa"
-  , version = "0.0.4"
+  , version = "v0.0.4"
   , dependencies =
       [ "test", "sha2", "base", "utilities", "stable-buffer" ] : List Text
   }
 , { name = "account"
   , repo = "https://github.com/letmejustputthishere/account"
-  , version = "1.0.1"
+  , version = "v1.0.1"
   , dependencies = [ "array", "base", "itertools" ] : List Text
   }
 , { name = "liminal"
   , repo = "https://github.com/edjcase/liminal"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "new-base"
         , "itertools"
@@ -148,7 +148,7 @@
   }
 , { name = "icrc4-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc4.mo"
-  , version = "0.0.5"
+  , version = "v0.0.5"
   , dependencies =
         [ "base"
         , "array"
@@ -166,57 +166,52 @@
   }
 , { name = "xrc-types"
   , repo = "https://github.com/ZenVoich/xrc-types"
-  , version = "1.0.0"
+  , version = "aabaee6f2d2b070fbe081f895a4491875f34bac8"
   , dependencies = [] : List Text
   }
 , { name = "make-rules"
   , repo = "https://github.com/vporton/icp-make-rules"
-  , version = "0.0.3"
+  , version = "v0.0.3"
   , dependencies = [] : List Text
   }
 , { name = "stable-enum"
   , repo = "https://github.com/bittoko/stable-enum"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies = [ "base", "stable-buffer" ] : List Text
   }
 , { name = "random-class"
   , repo = "https://github.com/ArielRobotti/RandomClass"
-  , version = "1.0.2"
-  , dependencies = [ "base" ] : List Text
-  }
-, { name = "stablehashmap"
-  , repo = "https://github.com/canscale/StableHashMap"
-  , version = "1.0.0"
+  , version = "de45e5844206f1e17d34ee1ebb90fcc4b43fe3fd"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "base-x-encoder"
   , repo = "https://github.com/edjcase/motoko_base_x"
-  , version = "0.0.1"
+  , version = "47e9ac57b04f0b9918c4446b88cdc93e1c5aeccf"
   , dependencies = [ "new-base", "base" ] : List Text
   }
 , { name = "fuzz"
   , repo = "https://github.com/ZenVoich/fuzz"
-  , version = "0.2.1"
+  , version = "23952c2e69a7c6470a7249133c3632dc58cd8ce7"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "prng"
   , repo = "https://github.com/research-ag/prng"
-  , version = "0.0.5"
+  , version = "e003702521d688f1149c2ffdb3e440b6c201dd8b"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "hash"
   , repo = "https://github.com/aviate-labs/hash.mo"
-  , version = "1.0.0"
+  , version = "v0.1.1"
   , dependencies = [ "base", "array" ] : List Text
   }
 , { name = "sha2"
   , repo = "https://github.com/research-ag/sha2"
-  , version = "0.1.4"
+  , version = "3e14010cc9d23df409452e4776f5b8a29652441b"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "serde"
   , repo = "https://github.com/NatLabs/serde"
-  , version = "3.2.2"
+  , version = "ddeb5cf7b14283f12b576d9d3da77e5218602aec"
   , dependencies =
         [ "base"
         , "itertools"
@@ -232,29 +227,29 @@
   }
 , { name = "neuro"
   , repo = "https://github.com/jesssekeogh/neuro"
-  , version = "0.7.5"
+  , version = "v0.7.5"
   , dependencies = [ "sha2", "encoding", "account-identifier" ] : List Text
   }
 , { name = "bench"
   , repo = "https://github.com/ZenVoich/bench"
-  , version = "1.0.0"
+  , version = "d4ce879cf251a27fa7167b523eee622baca42a53"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "icrc1"
   , repo = "https://github.com/NatLabs/icrc1"
-  , version = "0.0.2"
+  , version = "v0.0.2"
   , dependencies =
         [ "base", "array", "StableTrieMap", "StableBuffer", "itertools" ]
       : List Text
   }
 , { name = "csprng"
   , repo = "https://github.com/temokoki/IC_CSPRNG"
-  , version = "1.1.0"
+  , version = "3ae7cdc1a1ecb6c78a335ba49aea1b09e3371bfb"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "stream"
   , repo = "https://github.com/research-ag/stream"
-  , version = "0.0.1"
+  , version = "141bec30d1f78d2a31dac81c66306c399727c3db"
   , dependencies = [ "base", "swb", "vector", "promtracker" ] : List Text
   }
 , { name = "icrc-84"
@@ -264,7 +259,7 @@
   }
 , { name = "icrc1-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc1.mo"
-  , version = "0.0.15"
+  , version = "v0.0.15"
   , dependencies =
         [ "base"
         , "array"
@@ -281,12 +276,12 @@
   }
 , { name = "lrucache"
   , repo = "https://github.com/Demali-876/lru-cache"
-  , version = "1.0.3"
+  , version = "e4021f823d3a9ce54ea6a992d51ab8239a3f52a2"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "icrc2-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc2.mo"
-  , version = "0.0.13"
+  , version = "v0.0.13"
   , dependencies =
         [ "base"
         , "array"
@@ -304,10 +299,10 @@
   }
 , { name = "new-candb"
   , repo = "https://github.com/ORIGYN-SA/CanDB/tree/main"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies =
         [ "base"
-        , "stable-hash-map"
+        , "StableHashMap"
         , "stable-rbtree"
         , "stable-buffer"
         , "json"
@@ -319,22 +314,22 @@
   }
 , { name = "bitbuffer"
   , repo = "https://github.com/NatLabs/BitBuffer"
-  , version = "1.2.0"
+  , version = "5622d4d7572ca9da87b0448f0b9d0e407df9d2e4"
   , dependencies = [ "base", "buffer-deque" ] : List Text
   }
 , { name = "icrc2-types"
   , repo = "https://github.com/ZenVoich/icrc2-types"
-  , version = "1.1.0"
+  , version = "808ead8a7b9d6e6e8f966038db5ca7e5a9601e03"
   , dependencies = [] : List Text
   }
 , { name = "icrc1-types"
   , repo = "https://github.com/ZenVoich/icrc1-types"
-  , version = "1.0.0"
+  , version = "effd430c62a99e5ab68d17dd5fcdaec30c0c5adc"
   , dependencies = [] : List Text
   }
 , { name = "http-assets"
   , repo = "https://github.com/edjcase/ic-assets"
-  , version = "0.0.6"
+  , version = "v0.0.6"
   , dependencies =
         [ "base"
         , "http-types"
@@ -352,12 +347,12 @@
   }
 , { name = "time-consts"
   , repo = "https://github.com/ZenVoich/time-consts"
-  , version = "1.0.1"
+  , version = "360295b4c1b969332c07aed299df2ce416ec844f"
   , dependencies = [] : List Text
   }
 , { name = "icrc2-batch"
   , repo = "https://github.com/MemeFighterCo/icrc2-batch"
-  , version = "1.0.1"
+  , version = "v1.0.1"
   , dependencies = [ "testing", "base" ] : List Text
   }
 , { name = "promtracker"
@@ -367,33 +362,33 @@
   }
 , { name = "buffer-deque"
   , repo = "https://github.com/NatLabs/BufferDeque"
-  , version = "0.1.0"
+  , version = "2ebdc1200a7c932e076f042695c1a976f0f5638b"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "ledger-types"
   , repo = "https://github.com/ZenVoich/ledger-types"
-  , version = "1.0.0"
+  , version = "40a14199e72286ba4db86b01c669f51d7469de2d"
   , dependencies = [] : List Text
   }
 , { name = "token-handler"
   , repo = "https://github.com/research-ag/token-handler"
-  , version = "0.0.4"
+  , version = "439010ace0769aded1a7118fa3e82bd32dcb6ca2"
   , dependencies = [ "base", "icrc-84" ] : List Text
   }
 , { name = "memory-buffer"
   , repo = "https://github.com/NatLabs/memory-buffer"
-  , version = "0.1.0"
+  , version = "a98abe76b54272a4aeba8e133d78161f5399ca47"
   , dependencies = [ "base", "itertools", "memory-region" ] : List Text
   }
 , { name = "nacdb-reorder"
   , repo = "https://github.com/vporton/nacdb-reorder"
-  , version = "3.2.1"
+  , version = "v3.2.1"
   , dependencies =
         [ "base"
         , "nacdb"
         , "StableBuffer"
         , "map"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "itertools"
         , "xtended-numbers"
         ]
@@ -401,14 +396,14 @@
   }
 , { name = "stable-buffer"
   , repo = "https://github.com/bittoko/stable-buffer"
-  , version = "1.0.1"
+  , version = "v1.0.1"
   , dependencies = [ "base", "test" ] : List Text
   }
 , { name = "memory-region"
   , repo = "https://github.com/NatLabs/memory-region"
-  , version = "1.2.4"
+  , version = "c8d5e0c4ed4f9b106d0ed2fdf82f01b3273e8eb0"
   , dependencies =
-        [ "base", "itertools", "stableheapbtreemap", "map", "augmented-btrees" ]
+        [ "base", "itertools", "StableHeapBTreeMap", "map", "augmented-btrees" ]
       : List Text
   }
 , { name = "ckbtc-address"
@@ -418,7 +413,7 @@
   }
 , { name = "passport-client"
   , repo = "https://github.com/vporton/passport-client-dfinity"
-  , version = "0.4.9"
+  , version = "v0.4.9"
   , dependencies =
         [ "base"
         , "sequence"
@@ -434,7 +429,7 @@
   }
 , { name = "af-role-rotator"
   , repo = "https://github.com/icdevsorg/af-role-rotator"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "base"
         , "map"
@@ -450,19 +445,19 @@
         , "ovs-fixed"
         , "candy"
         , "icrc1-mo"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "icrc104-mo"
         ]
       : List Text
   }
 , { name = "augmented-btrees"
   , repo = "https://github.com/NatLabs/augmented-btrees"
-  , version = "0.5.2"
+  , version = "4aa19673ff4bce8588490af743b99670b22e5e36"
   , dependencies = [ "base", "buffer-deque", "itertools" ] : List Text
   }
 , { name = "memory-hashtable"
   , repo = "https://github.com/fGhost713/memory-HashTable"
-  , version = "1.0.5"
+  , version = "v1.0.5"
   , dependencies =
         [ "base"
         , "memory-region"
@@ -475,7 +470,7 @@
   }
 , { name = "memory-collection"
   , repo = "https://github.com/NatLabs/memory-collection"
-  , version = "0.0.4"
+  , version = "v0.0.4"
   , dependencies =
         [ "base"
         , "itertools"
@@ -487,17 +482,12 @@
   }
 , { name = "account-identifier"
   , repo = "https://github.com/letmejustputthishere/account-identifiers"
-  , version = "1.0.2"
+  , version = "d07f70f572fc0d4cfe44333276c92611de3e0d44"
   , dependencies = [ "sha2", "hash" ] : List Text
-  }
-, { name = "stableheapbtreemap"
-  , repo = "https://github.com/canscale/StableHeapBTreeMap"
-  , version = "1.5.0"
-  , dependencies = [ "base" ] : List Text
   }
 , { name = "dao-proposal-engine"
   , repo = "https://github.com/edjcase/motoko_proposal_engine"
-  , version = "0.1.3"
+  , version = "a80694ced5339bac2f67204b6a9b6c58983bab87"
   , dependencies = [ "base", "itertools" ] : List Text
   }
 , { name = "swb"
@@ -507,34 +497,34 @@
   }
 , { name = "ekvm"
   , repo = "https://github.com/BarFTW/Ekvm"
-  , version = "0.1.0"
-  , dependencies = [ "stableheapbtreemap", "base" ] : List Text
+  , version = "115eff129e31d305a9ef65a5a3ce59729abc7d9f"
+  , dependencies = [ "StableHeapBTreeMap", "base" ] : List Text
   }
 , { name = "asn1"
   , repo = "https://github.com/edjcase/motoko_asn1"
-  , version = "2.0.2"
+  , version = "a32d730a36f01c48e86c40d02f6cf226d224a66b"
   , dependencies =
       [ "base", "new-base", "itertools", "xtended-numbers" ] : List Text
   }
 , { name = "sha3"
   , repo = "https://github.com/hanbu97/motoko-sha3"
-  , version = "0.1.1"
+  , version = "v0.1.1"
   , dependencies = [ "base", "iterext" ] : List Text
   }
 , { name = "json"
   , repo = "https://github.com/Demali-876/json"
-  , version = "1.1.1"
+  , version = "1402c1bb961e42dc28b583eed7a61823f2fcc954"
   , dependencies = [ "xtended-numbers" ] : List Text
   }
 , { name = "regex"
   , repo = "https://github.com/Demali-876/motoko_regex_engine"
-  , version = "2.7.1"
+  , version = "v2.7.1"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "geecs"
   , repo = "https://github.com/jneums/geecs"
-  , version = "1.0.0"
-  , dependencies = [ "base", "stable-hash-map", "vector" ] : List Text
+  , version = "2c506fd0dda38db81ec6ab599799d9821bd388db"
+  , dependencies = [ "base", "StableHashMap", "vector" ] : List Text
   }
 , { name = "vector"
   , repo = "https://github.com/research-ag/vector"
@@ -543,12 +533,12 @@
   }
 , { name = "base64"
   , repo = "https://github.com/nirvana369/base64"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies = [ "test", "bench" ] : List Text
   }
 , { name = "backup"
   , repo = "https://github.com/ZenVoich/backup"
-  , version = "3.0.0"
+  , version = "01ba874188744e674b23d81b49b3ca971f26d381"
   , dependencies =
         [ "base"
         , "map"
@@ -561,7 +551,7 @@
   }
 , { name = "deflate"
   , repo = "https://github.com/NatLabs/deflate.mo"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies =
         [ "base"
         , "itertools"
@@ -575,7 +565,7 @@
   }
 , { name = "rechain"
   , repo = "https://github.com/neutrinomic/rechain"
-  , version = "1.1.5"
+  , version = "v1.1.5"
   , dependencies =
         [ "base"
         , "map"
@@ -590,34 +580,29 @@
         ]
       : List Text
   }
-, { name = "hash-map"
-  , repo = "https://github.com/fury02/stable-hash-map"
-  , version = "0.0.2"
-  , dependencies = [] : List Text
-  }
 , { name = "datetime"
   , repo = "https://github.com/edjcase/motoko_datetime"
-  , version = "0.3.0"
+  , version = "178f107b65230c718f6eda4677502e0b02b841ba"
   , dependencies = [ "base", "xtended-text" ] : List Text
   }
 , { name = "generics"
   , repo = "https://github.com/research-ag/generics"
-  , version = "0.0.2"
+  , version = "35299790eca2192280da9a0610551759f3d3939b"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "swbstable"
   , repo = "https://github.com/infu/swb"
-  , version = "1.1.1"
+  , version = "8f68ed961ac5e4b2d9eed95ff68d33e2a98890b2"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "utilities"
   , repo = "https://github.com/bittoko/utils"
-  , version = "2.0.2"
+  , version = "v2.0.2"
   , dependencies = [ "test", "xtended-numbers", "base", "map" ] : List Text
   }
 , { name = "ic-assets"
   , repo = "https://github.com/NatLabs/ic-assets"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies =
         [ "base"
         , "http-types"
@@ -634,17 +619,17 @@
   }
 , { name = "date-time"
   , repo = "https://github.com/toshakparmar/date-time-motoko"
-  , version = "1.0.2"
+  , version = "aa6f3428af02b360e557fc68759d4bf5aa133e6a"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "async-test"
   , repo = "https://github.com/research-ag/async-test"
-  , version = "0.0.1"
+  , version = "193f25e9fa223c96361c1da941974ebe3c695a8d"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "icrc104-mo"
   , repo = "https://github.com/icdevsorg/icrc104.mo"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "base"
         , "vector"
@@ -664,23 +649,23 @@
   }
 , { name = "http-types"
   , repo = "https://github.com/ZenVoich/http-types"
-  , version = "1.0.1"
+  , version = "v1.0.1"
   , dependencies = [] : List Text
   }
 , { name = "candb-multi"
   , repo = "https://github.com/vporton/candb-multi"
-  , version = "0.11.8"
+  , version = "v0.11.8"
   , dependencies =
       [ "candb", "stable-rbtree", "StableBuffer", "base" ] : List Text
   }
 , { name = "ordered-map"
   , repo = "https://github.com/vporton/ordered-map.mo"
-  , version = "0.2.2"
+  , version = "v0.2.2"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "compression"
   , repo = "https://github.com/edjcase/motoko_compression"
-  , version = "0.2.0"
+  , version = "85464ea13990574633f396324028be3ffae4802f"
   , dependencies =
         [ "base"
         , "itertools"
@@ -693,32 +678,27 @@
   }
 , { name = "file-uploader"
   , repo = "https://github.com/ArielRobotti/file-uploader"
-  , version = "1.0.2"
+  , version = "df41d5b53cc4ff69fb4e5d132ac79a82f3e91d7c"
   , dependencies = [ "map" ] : List Text
   }
 , { name = "cycles-simple"
   , repo = "https://github.com/vporton/cycles-simple"
-  , version = "0.11.4"
-  , dependencies = [ "stablehashmap", "base" ] : List Text
+  , version = "v0.11.4"
+  , dependencies = [ "StableHashMap", "base" ] : List Text
   }
 , { name = "football-types"
   , repo = "https://github.com/JohnNixon6972/FootballTypes"
-  , version = "1.0.1"
+  , version = "c02095944568b3113805fdec23bf1dd141e1c01d"
   , dependencies = [ "base" ] : List Text
-  }
-, { name = "stable-hash-map"
-  , repo = "https://github.com/fury02/stable-hash-map"
-  , version = "0.0.1"
-  , dependencies = [] : List Text
   }
 , { name = "circular-buffer"
   , repo = "https://github.com/NatLabs/CircularBuffer"
-  , version = "0.0.1"
+  , version = "eecd121f4c2347563699266b5a0fb6bff6960ec4"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "openchat-bot-sdk"
   , repo = "https://github.com/open-chat-labs/open-chat-bots"
-  , version = "0.2.1"
+  , version = "v0.2.1"
   , dependencies =
         [ "base"
         , "base64"
@@ -733,32 +713,32 @@
   }
 , { name = "ic-websocket-cdk"
   , repo = "https://github.com/omnia-network/ic-websocket-cdk-mo"
-  , version = "0.4.1"
+  , version = "v0.4.1"
   , dependencies = [ "ic-certification", "sha2", "cbor", "base" ] : List Text
   }
 , { name = "devefi-jes1-snsneuron"
   , repo = "https://github.com/jesssekeogh/devefi_jes1_snsneuron"
-  , version = "0.1.3"
+  , version = "v0.1.3"
   , dependencies = [ "base", "map", "neuro" ] : List Text
   }
 , { name = "devefi-jes1-icpneuron"
   , repo = "https://github.com/jesssekeogh/devefi_jes1_icpneuron"
-  , version = "0.2.3"
+  , version = "v0.2.3"
   , dependencies = [ "base", "neuro", "map" ] : List Text
   }
 , { name = "ic"
   , repo = "https://github.com/ZenVoich/ic"
-  , version = "2.0.0"
+  , version = "640250866d038ac7f8aea0afc82fc96d780d97ae"
   , dependencies = [] : List Text
   }
 , { name = "llm"
   , repo = "https://github.com/dfinity/llm"
-  , version = "1.2.0"
+  , version = "v0.1.2"
   , dependencies = [] : List Text
   }
 , { name = "rsa"
   , repo = "https://github.com/edjcase/motoko_rsa"
-  , version = "0.0.2"
+  , version = "2315e05e524a5d1b3c8e4201de16ec681db5a5d9"
   , dependencies =
         [ "base"
         , "new-base"
@@ -772,17 +752,17 @@
   }
 , { name = "splay"
   , repo = "https://github.com/chenyan2002/motoko-splay"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies = [] : List Text
   }
 , { name = "noise"
   , repo = "https://github.com/jneums/noise"
-  , version = "0.1.0"
+  , version = "cc25a93d055e01b1f6b64448ad7f64d551e96886"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "icrc45"
   , repo = "https://github.com/Neutrinomic/icrc45.mo"
-  , version = "0.1.0"
+  , version = "831c49784dc32eb3103f604a4a288c67b91fcabd"
   , dependencies = [ "base", "vector" ] : List Text
   }
 , { name = "auction"
@@ -792,23 +772,18 @@
   }
 , { name = "ed25519"
   , repo = "https://github.com/imsk17/ed25519"
-  , version = "0.1.0"
+  , version = "0848a4a455f4cd5121ed28ab3a0b76d79344f0a2"
   , dependencies = [ "base" ] : List Text
-  }
-, { name = "testpkg"
-  , repo = "https://github.com/dr-montasir/testpkg"
-  , version = "1.0.1"
-  , dependencies = [] : List Text
   }
 , { name = "bit-map"
   , repo = "https://github.com/NatLabs/BitMap"
-  , version = "0.1.2"
+  , version = "v0.1.2"
   , dependencies =
       [ "base", "map", "itertools", "augmented-btrees" ] : List Text
   }
 , { name = "icrc3-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc3.mo"
-  , version = "0.3.0"
+  , version = "v0.3.0"
   , dependencies =
         [ "base"
         , "stable-write-only"
@@ -823,17 +798,17 @@
   }
 , { name = "icrc10-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc10.mo"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies = [ "base", "map" ] : List Text
   }
 , { name = "lru-cache"
   , repo = "https://github.com/NatLabs/lru-cache"
-  , version = "1.0.0"
+  , version = "9782fe76c0ec0a404a9a64c19d9b7dbe96fffa9c"
   , dependencies = [ "base", "map", "linked-list" ] : List Text
   }
 , { name = "icrc75-mo"
   , repo = "https://github.com/icdevsorg/icrc75.mo"
-  , version = "0.2.0"
+  , version = "v0.2.0"
   , dependencies =
         [ "map"
         , "map"
@@ -841,7 +816,7 @@
         , "star"
         , "icrc1-mo"
         , "candy"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "ovs-fixed"
         , "timer-tool"
         , "ic-certification"
@@ -853,34 +828,29 @@
   }
 , { name = "class-plus"
   , repo = "https://github.com/icdevsorg/class-plus"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies = [ "base" ] : List Text
-  }
-, { name = "motoko-crc"
-  , repo = "https://github.com/stephenandrews/motoko-crc/tree/master"
-  , version = "1.0.0"
-  , dependencies = [] : List Text
   }
 , { name = "assets-api"
   , repo = "https://github.com/vporton/assets_api.mo"
-  , version = "1.0.1"
+  , version = "v1.0.1"
   , dependencies = [] : List Text
   }
 , { name = "linked-list"
   , repo = "https://github.com/NatLabs/linked-list"
-  , version = "0.1.0"
+  , version = "1e128c7a1fba63ec32a9673f9fc430fc1aebbece"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "rbac-motoko"
   , repo = "https://github.com/fury02/rbac-motoko"
-  , version = "0.1.3"
+  , version = "v0.1.3"
   , dependencies =
         [ "base", "map", "time-consts", "fuzz", "certified-cache", "serde" ]
       : List Text
   }
 , { name = "http-loopback"
   , repo = "https://github.com/bittoko/http-loopback"
-  , version = "0.2.1"
+  , version = "v0.2.1"
   , dependencies =
         [ "base"
         , "cbor"
@@ -896,12 +866,12 @@
   }
 , { name = "xtended-random"
   , repo = "https://github.com/edjcase/motoko_random"
-  , version = "1.0.1"
+  , version = "be6749cfe5c07f37d84b74fb7ed2346730ee3393"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "memory-hashlist"
   , repo = "https://github.com/fGhost713/Memory-HashList"
-  , version = "2.0.0"
+  , version = "v2.0.0"
   , dependencies =
         [ "base"
         , "memory-region"
@@ -917,7 +887,7 @@
   }
 , { name = "certified-assets"
   , repo = "https://github.com/NatLabs/certified-assets"
-  , version = "0.5.1"
+  , version = "v0.5.1"
   , dependencies =
         [ "base"
         , "ic-certification"
@@ -933,38 +903,38 @@
   }
 , { name = "bitcoin-address-utils"
   , repo = "https://github.com/Universelle-io/bitcoin-address-utils"
-  , version = "1.0.6"
+  , version = "9d4eaba755660ccf5848c38374291721871ad9d9"
   , dependencies = [ "bitcoin", "sha2", "base16" ] : List Text
   }
 , { name = "maf"
   , repo = "https://github.com/fury02/async-data-deliveries"
-  , version = "0.0.29"
-  , dependencies = [ "base", "fuzz", "stable-hash-map" ] : List Text
+  , version = "30e7a579a599ab8e687e5fe9855f477a6670f9fa"
+  , dependencies = [ "base", "fuzz", "StableHashMap" ] : List Text
   }
 , { name = "mal"
   , repo = "https://github.com/fury02/async-data-deliveries"
-  , version = "0.0.26"
-  , dependencies = [ "base", "fuzz", "stable-hash-map" ] : List Text
+  , version = "30e7a579a599ab8e687e5fe9855f477a6670f9fa"
+  , dependencies = [ "base", "fuzz", "StableHashMap" ] : List Text
   }
 , { name = "hmac"
   , repo = "https://github.com/edjCase/motoko_hmac"
-  , version = "0.0.1"
+  , version = "74deeb9ee34011ed70d19fa264c46959c9077d30"
   , dependencies = [ "sha2" ] : List Text
   }
 , { name = "cbor"
   , repo = "https://github.com/edjcase/motoko_cbor"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies = [ "base", "xtended-numbers" ] : List Text
   }
 , { name = "nacdb"
   , repo = "https://github.com/vporton/NacDB"
-  , version = "0.14.3"
+  , version = "v0.14.3"
   , dependencies =
         [ "base"
         , "stable-rbtree"
         , "stable-buffer"
         , "prng"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "sha2"
         , "cycles-simple"
         , "StableBuffer"
@@ -973,7 +943,7 @@
   }
 , { name = "web-io"
   , repo = "https://github.com/NatLabs/web-io"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "base"
         , "itertools"
@@ -988,12 +958,12 @@
   }
 , { name = "base16"
   , repo = "https://github.com/diodechain/motoko_base16"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "web-api"
   , repo = "https://github.com/NatLabs/web-io"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "base"
         , "itertools"
@@ -1008,12 +978,12 @@
   }
 , { name = "ovs-fixed"
   , repo = "https://github.com/icdevsorg/ovs-fixed"
-  , version = "0.1.4"
+  , version = "v0.1.4"
   , dependencies = [ "base", "star", "map" ] : List Text
   }
 , { name = "simplemath"
   , repo = "https://github.com/sam-thetutor/simpleMath"
-  , version = "1.0.0"
+  , version = "1c4bd07f007cdc3698fcf6289851e1d13889d9d2"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "enumeration"
@@ -1028,29 +998,29 @@
   }
 , { name = "http-server"
   , repo = "https://github.com/sazalo101/http-server"
-  , version = "1.0.2"
+  , version = "v1.0.2"
   , dependencies = [ "base", "http-server" ] : List Text
   }
 , { name = "rep-indy-hash"
   , repo = "https://github.com/skilesare/RepIndyHash.mo"
-  , version = "0.1.1"
+  , version = "v0.1.1"
   , dependencies =
         [ "base", "vector", "sha2", "encoding", "array", "xtended-numbers" ]
       : List Text
   }
 , { name = "waterway-mops"
   , repo = "https://github.com/jamesbeadle/waterway-mops"
-  , version = "2.8.9"
+  , version = "98ccbfa61fa3ee583980cd3456c3d41f97efe828"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "idempotency-keys"
   , repo = "https://github.com/Demali-876/idempotency-keys"
-  , version = "1.0.2"
+  , version = "83ffffcc4823592784942ed0845a8d1d9532507c"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "xml"
   , repo = "https://github.com/edjcase/motoko_xml"
-  , version = "1.0.0"
+  , version = "acb9815b88e835425e24ab64eb19076eec6a3c06"
   , dependencies = [ "base", "xtended-numbers", "xtended-text" ] : List Text
   }
 , { name = "base"
@@ -1060,32 +1030,27 @@
   }
 , { name = "uuid"
   , repo = "https://github.com/aviate-labs/uuid.mo"
-  , version = "1.0.0"
+  , version = "v1.0.0"
   , dependencies = [ "base", "encoding", "io" ] : List Text
   }
 , { name = "candid"
   , repo = "https://github.com/edjcase/motoko_candid"
-  , version = "1.1.1"
+  , version = "2c58aa3665f3cffc0b7083133c80eee32f5517d7"
   , dependencies = [ "base", "xtended-numbers" ] : List Text
-  }
-, { name = "simplem"
-  , repo = "https://github.com/sam-thetutor/mopsTestPackage"
-  , version = "1.0.0"
-  , dependencies = [ "base" ] : List Text
   }
 , { name = "bitcoin"
   , repo = "https://github.com/dfinity/motoko-bitcoin"
-  , version = "0.1.1"
+  , version = "v0.1.1"
   , dependencies = [ "base", "sha2" ] : List Text
   }
 , { name = "testpack"
   , repo = "https://github.com/sam-thetutor/mopspackage"
-  , version = "1.0.0"
+  , version = "8160ee5edf6408141f017d649f46cc48edc43c7e"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "icrc7-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc7.mo"
-  , version = "0.5.0"
+  , version = "v0.5.0"
   , dependencies =
         [ "base"
         , "base"
@@ -1102,12 +1067,12 @@
   }
 , { name = "new-base"
   , repo = "https://github.com/dfinity/new-motoko-base"
-  , version = "0.4.0"
+  , version = "preview-0.4.0"
   , dependencies = [] : List Text
   }
 , { name = "icrc30-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc30.mo"
-  , version = "0.3.1"
+  , version = "v0.3.1"
   , dependencies =
         [ "base"
         , "base"
@@ -1124,7 +1089,7 @@
   }
 , { name = "icrc37-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc37.mo"
-  , version = "0.5.1"
+  , version = "v0.5.1"
   , dependencies =
         [ "base"
         , "base"
@@ -1143,14 +1108,14 @@
   }
 , { name = "icrc79-mo"
   , repo = "https://github.com/PanIndustrial-org/icrc79.mo"
-  , version = "0.2.2"
+  , version = "v0.2.2"
   , dependencies =
         [ "base"
         , "map"
         , "vector"
         , "timer-tool"
         , "star"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "sha2"
         , "candy"
         , "ovs-fixed"
@@ -1160,10 +1125,10 @@
   }
 , { name = "timer-tool"
   , repo = "https://github.com/PanIndustrial-Org/timerTool"
-  , version = "0.1.1"
+  , version = "v0.1.1"
   , dependencies =
         [ "base"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "star"
         , "map"
         , "ovs-fixed"
@@ -1173,7 +1138,7 @@
   }
 , { name = "icrc-nft-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc_nft.mo"
-  , version = "0.5.0"
+  , version = "v0.5.0"
   , dependencies =
         [ "base"
         , "base"
@@ -1195,32 +1160,32 @@
   }
 , { name = "testpackage"
   , repo = "https://github.com/sam-thetutor/testpackage"
-  , version = "1.0.0"
+  , version = "ff3fb56c69d2548840df151c2f241897c3d43dd0"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "xtended-text"
   , repo = "https://github.com/edjcase/motoko_text"
-  , version = "1.0.0"
+  , version = "c5a2538b71b9a77cb2b22a529a2990dd6142e0d2"
   , dependencies = [ "base", "xtended-numbers" ] : List Text
   }
 , { name = "stable-rbtree"
   , repo = "https://github.com/canscale/StableRBTree"
-  , version = "1.0.0"
+  , version = "v0.6.1"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "principal-ext"
   , repo = "https://github.com/icdevsorg/principal-ext.mo"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "incremental-ids"
   , repo = "https://github.com/NatLabs/incremental-ids"
-  , version = "0.0.1"
+  , version = "68607808489cb7ff63663a392a974e0cb328d1fa"
   , dependencies = [ "base", "map" ] : List Text
   }
 , { name = "stable-local-log"
   , repo = "https://github.com/PanIndustrial-Org/stable-local-log-mo"
-  , version = "0.1.2"
+  , version = "v0.1.2"
   , dependencies =
         [ "base"
         , "ovs-fixed"
@@ -1235,12 +1200,12 @@
   }
 , { name = "ussd-menu-builder"
   , repo = "https://github.com/akimau/motoko-ussd-menu-builder"
-  , version = "1.0.2"
+  , version = "1c38e6facf425ff77d72998840b3dd9da83993ec"
   , dependencies = [ "map", "base", "serde" ] : List Text
   }
 , { name = "icrc37-mo-lordrio"
   , repo = "https://github.com/lordrio/icrc37.mo"
-  , version = "0.4.3"
+  , version = "v0.4.3"
   , dependencies =
         [ "base"
         , "base"
@@ -1257,10 +1222,10 @@
   }
 , { name = "icrc72-subscriber-mo"
   , repo = "https://github.com/PanIndustrial-Org/icrc72-subscriber-mo"
-  , version = "0.0.1"
+  , version = "v0.0.1"
   , dependencies =
         [ "base"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "star"
         , "map"
         , "vector"
@@ -1273,28 +1238,28 @@
   }
 , { name = "kyc"
   , repo = "https://github.com/ORIGYN_SA/kyc.mo"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies =
       [ "base", "candy", "map", "StableBuffer", "map", "matchers" ] : List Text
   }
 , { name = "map"
   , repo = "https://github.com/ZhenyaUsenko/motoko-hash-map"
-  , version = "9.0.1"
+  , version = "v9.0.1"
   , dependencies = [] : List Text
   }
 , { name = "rxmo"
   , repo = "https://github.com/infu/rxmo"
-  , version = "0.3.0"
+  , version = "ab65cdca2f286f3f6dbfc3e2c5efc83d80366b6b"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "star"
   , repo = "https://github.com/icdevs/star.mo"
-  , version = "0.1.1"
+  , version = "v0.1.1"
   , dependencies = [ "base", "matchers" ] : List Text
   }
 , { name = "candy"
   , repo = "https://github.com/icdevs/candy_library"
-  , version = "0.3.1"
+  , version = "v0.3.1"
   , dependencies =
         [ "matchers"
         , "candid"
@@ -1314,28 +1279,23 @@
   }
 , { name = "eddsa"
   , repo = "https://github.com/edjcase/motoko_eddsa"
-  , version = "0.0.1"
+  , version = "c5d787aa94f82d153a3fdde190e24a58abb6e6ed"
   , dependencies =
         [ "base", "new-base", "base-x-encoder", "asn1", "sha2", "tweetnacl" ]
       : List Text
   }
 , { name = "mosup"
   , repo = "https://github.com/Neutrinomic/mosup"
-  , version = "0.1.1"
-  , dependencies = [] : List Text
-  }
-, { name = "hello"
-  , repo = ""
-  , version = "0.1.1"
+  , version = "239aa664e7c4e2353b465fb4802ff537d03f4245"
   , dependencies = [] : List Text
   }
 , { name = "candb"
   , repo = "https://github.com/ORIGYN-SA/CanDB"
-  , version = "1.0.8"
+  , version = "v1.0.8"
   , dependencies =
         [ "base"
-        , "stable-hash-map"
-        , "btree"
+        , "StableHashMap"
+        , "StableHeapBTreeMap"
         , "array"
         , "encoding"
         , "stable-rbtree"
@@ -1349,7 +1309,7 @@
   }
 , { name = "devefi"
   , repo = "https://github.com/Neutrinomic/devefi"
-  , version = "0.3.22"
+  , version = "v0.3.22"
   , dependencies =
         [ "vector"
         , "map"
@@ -1366,53 +1326,53 @@
   }
 , { name = "rxmodb"
   , repo = "https://github.com/infu/rxmodb"
-  , version = "0.2.0"
+  , version = "a3b55e054336323477e3608440c6f48cfac5b754"
   , dependencies =
-      [ "base", "rxmo", "stableheapbtreemap", "vector", "test" ] : List Text
+      [ "base", "rxmo", "StableHeapBTreeMap", "vector", "test" ] : List Text
   }
 , { name = "json.mo"
   , repo = "https://github.com/aviate-labs/json.mo"
-  , version = "0.1.2"
+  , version = "v0.1.2"
   , dependencies = [ "base", "parser-combinators" ] : List Text
   }
 , { name = "evm-txs"
   , repo = "https://github.com/av1ctor/evm-txs.mo"
-  , version = "0.1.3"
+  , version = "v0.1.3"
   , dependencies = [ "base", "rlp", "libsecp256k1", "sha3" ] : List Text
   }
 , { name = "itertools"
   , repo = "https://github.com/NatLabs/Itertools"
-  , version = "0.2.2"
+  , version = "f7d59dfcdff5162828f41af81b5762607806d82b"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "candy-utils"
   , repo = "https://github.com/ZhenyaUsenko/motoko-candy-utils"
-  , version = "0.7.0"
+  , version = "v0.7.0"
   , dependencies = [ "base", "candy", "StableBuffer", "map" ] : List Text
   }
 , { name = "ckbtc-types"
   , repo = "https://github.com/ZenVoich/ckbtc-types"
-  , version = "0.1.2"
+  , version = "0e73c03e0a4588600773d01463701c53ba0ab145"
   , dependencies = [] : List Text
   }
 , { name = "http-parser"
   , repo = "https://github.com/NatLabs/http-parser.mo"
-  , version = "0.3.4"
+  , version = "0.3.0"
   , dependencies = [ "base", "json.mo", "encoding" ] : List Text
   }
 , { name = "libsecp256k1"
   , repo = "https://github.com/av1ctor/libsecp256k1.mo"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "canistergeek"
   , repo = "https://github.com/usergeek/canistergeek-ic-motoko"
-  , version = "0.0.8"
+  , version = "32d1f3a48b1bc12d727b896a69b08bb5f3e5860d"
   , dependencies = [] : List Text
   }
 , { name = "motoko-serde"
   , repo = "https://github.com/NatLabs/serde"
-  , version = "0.1.4"
+  , version = "v0.1.4"
   , dependencies =
         [ "base"
         , "json"
@@ -1425,41 +1385,36 @@
   }
 , { name = "chronotrinite"
   , repo = "https://github.com/Neutrinomic/devefi_chronotrinite"
-  , version = "0.1.0"
+  , version = "v0.1.0"
   , dependencies =
-        [ "base", "stableheapbtreemap", "vector", "mosup", "swbstable", "map" ]
+        [ "base", "StableHeapBTreeMap", "vector", "mosup", "swbstable", "map" ]
       : List Text
   }
 , { name = "certified-http"
   , repo = "https://github.com/infu/certified-http"
-  , version = "0.1.6"
+  , version = "514314a95ecd5e2afd28dcbba632b33868d62702"
   , dependencies =
-      [ "base", "ic-certification", "sha2", "stableheapbtreemap" ] : List Text
-  }
-, { name = "base-unofficial"
-  , repo = "https://github.com/dfinity/motoko-base"
-  , version = "0.7.3"
-  , dependencies = [] : List Text
+      [ "base", "ic-certification", "sha2", "StableHeapBTreeMap" ] : List Text
   }
 , { name = "ic-certification"
   , repo = "https://github.com/nomeata/ic-certification"
-  , version = "0.1.3"
+  , version = "v0.1.3"
   , dependencies = [ "sha2", "cbor" ] : List Text
   }
 , { name = "candid_stringify"
   , repo = "https://github.com/ORIGYN-SA/candid_stringify"
-  , version = "0.1.1"
+  , version = "ebaf64b98e9010a4a6a38e520ad5271e3f1b7085"
   , dependencies =
       [ "base", "candid", "itertools", "xtended-numbers" ] : List Text
   }
 , { name = "devefi-icp-ledger"
   , repo = "https://github.com/Neutrinomic/devefi_icp_ledger"
-  , version = "1.5.8"
+  , version = "v1.5.8"
   , dependencies =
         [ "vector"
         , "map"
         , "swb"
-        , "stableheapbtreemap"
+        , "StableHeapBTreeMap"
         , "itertools"
         , "base"
         , "mosup"
@@ -1468,36 +1423,36 @@
   }
 , { name = "devefi-icrc-sender"
   , repo = "https://github.com/Neutrinomic/devefi_icrc_sender"
-  , version = "1.0.7"
-  , dependencies = [ "vector", "stableheapbtreemap" ] : List Text
+  , version = "0b89d790458d041603b5d440396ffaa694b8e8ed"
+  , dependencies = [ "vector", "StableHeapBTreeMap" ] : List Text
   }
 , { name = "devefi-icrc-reader"
   , repo = "https://github.com/Neutrinomic/devefi_icrc_reader"
-  , version = "1.0.5"
+  , version = "36cc9af5e85714a9d2de3f3859ea266f1f1d5627"
   , dependencies = [ "vector" ] : List Text
   }
 , { name = "devefi-icrc-ledger"
   , repo = "https://github.com/Neutrinomic/devefi_icrc_ledger"
-  , version = "1.5.8"
+  , version = "v1.5.8"
   , dependencies =
-        [ "vector", "map", "swb", "stableheapbtreemap", "base", "mosup" ]
+        [ "vector", "map", "swb", "StableHeapBTreeMap", "base", "mosup" ]
       : List Text
   }
 , { name = "evm-proof-verifier"
   , repo = "https://github.com/horizonx-tech/evm-proof-verifier-motoko"
-  , version = "0.0.1"
+  , version = "eb7463789813c7879451776d68f93dc3d524595a"
   , dependencies = [ "base", "rlp", "sha3", "merkle-patricia-trie" ] : List Text
   }
 , { name = "merkle-patricia-trie"
   , repo = "https://github.com/f0i/merkle-patricia-trie.mo"
-  , version = "1.0.0"
+  , version = "c7829dc9c0577953ad567c910500a7c3aace521e"
   , dependencies = [ "base", "rlp", "sha3" ] : List Text
   }
 , { name = "motoko-certified-assets"
   , repo = "https://github.com/fermartz/motoko-certified-assets"
-  , version = "1.0.1"
+  , version = "51f3d373e2bf0fb4b5facf4caa2bacf2efd0bd8d"
   , dependencies =
-        [ "base", "ic-certification", "sha2", "stableheapbtreemap", "map" ]
+        [ "base", "ic-certification", "sha2", "StableHeapBTreeMap", "map" ]
       : List Text
   }
 , { name = "stable-write-only"
@@ -1505,9 +1460,9 @@
   , version = "v0.1.0"
   , dependencies = [ "base", "vector" ] : List Text
   }
-, { name = "btree"
+, { name = "StableHeapBTreeMap"
   , repo = "https://github.com/canscale/StableHeapBTreeMap"
-  , version = "v0.3.2"
+  , version = "v0.3.4"
   , dependencies = [ "base" ] : List Text
   }
 , { name = "sequence"

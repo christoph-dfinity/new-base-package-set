@@ -1,7 +1,7 @@
-use std::fs;
+use std::{collections::HashMap, fs};
 
 use anyhow::Result;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use serde_json;
 
 #[derive(Debug, Deserialize)]
@@ -19,8 +19,26 @@ fn read_mops_registry_dump() -> Result<Vec<MopsManifest>> {
 }
 
 fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
-    let deleted_repos = vec!["origyn-nft", "origyn-nft-next"];
-    if deleted_repos.contains(&manifest.name.as_str()) {
+    let deleted_repos = vec!["origyn-nft", "origyn-nft-next", "testpkg", "simplem"];
+
+    let broken_repos = vec![
+        // References a non-existing tag
+        "motoko-crc",
+        // References a non-existing tag on base
+        "base-unofficial",
+        // Squatted and references a non-existing tag
+        "stablehashmap",
+        // References "" repository,
+        "hello",
+    ];
+
+    // Added to MOPS by different authors and not kept up with the original library
+    let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];
+
+    if deleted_repos.contains(&manifest.name.as_str())
+        || broken_repos.contains(&manifest.name.as_str())
+        || squatted.contains(&manifest.name.as_str())
+    {
         return None;
     }
 
@@ -32,6 +50,153 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
             repository: "https://github.com/dfinity/motoko-base".to_string(),
             version: "moc-0.14.9".to_string(),
         });
+    }
+    let non_v_tags = vec![
+        "icrc-84",
+        "auction",
+        "vector",
+        "stable-trie",
+        "swb",
+        "enumeration",
+        "promtracker",
+        "ckbtc-address",
+        "http-parser",
+    ];
+
+    // Seems to be a version number, without `v` prefix
+    if !non_v_tags.contains(&manifest.name.as_str())
+        && manifest.version.contains('.')
+        && !manifest.version.starts_with('v')
+        && manifest.version.chars().next().unwrap().is_digit(10)
+    {
+        manifest.version = format!("v{}", manifest.version)
+    }
+
+    let mut bogus_versions = HashMap::new();
+    bogus_versions.insert("base", "moc-0.14.9");
+    bogus_versions.insert("ic", "640250866d038ac7f8aea0afc82fc96d780d97ae");
+    bogus_versions.insert("icrc1-types", "effd430c62a99e5ab68d17dd5fcdaec30c0c5adc");
+    bogus_versions.insert("icrc2-types", "808ead8a7b9d6e6e8f966038db5ca7e5a9601e03");
+    bogus_versions.insert("ckbtc-types", "0e73c03e0a4588600773d01463701c53ba0ab145");
+    bogus_versions.insert("xrc-types", "aabaee6f2d2b070fbe081f895a4491875f34bac8");
+    bogus_versions.insert("time-consts", "360295b4c1b969332c07aed299df2ce416ec844f");
+    bogus_versions.insert("random", "Fix");
+    bogus_versions.insert("nm", "v.1.1.0");
+    bogus_versions.insert("date-time", "aa6f3428af02b360e557fc68759d4bf5aa133e6a");
+    bogus_versions.insert("ledger-types", "40a14199e72286ba4db86b01c669f51d7469de2d");
+    bogus_versions.insert("canistergeek", "32d1f3a48b1bc12d727b896a69b08bb5f3e5860d");
+    bogus_versions.insert("sha2", "3e14010cc9d23df409452e4776f5b8a29652441b");
+    bogus_versions.insert("mosup", "239aa664e7c4e2353b465fb4802ff537d03f4245");
+    bogus_versions.insert("llm", "v0.1.2");
+    bogus_versions.insert("new-base", "preview-0.4.0");
+    bogus_versions.insert(
+        "idempotency-keys",
+        "83ffffcc4823592784942ed0845a8d1d9532507c",
+    );
+    bogus_versions.insert("base-x-encoder", "47e9ac57b04f0b9918c4446b88cdc93e1c5aeccf");
+    bogus_versions.insert("file-uploader", "df41d5b53cc4ff69fb4e5d132ac79a82f3e91d7c");
+    bogus_versions.insert(
+        "xtended-numbers",
+        "0a036877112d5f0cbb6903678d43abb6574c617e",
+    );
+    bogus_versions.insert("generics", "35299790eca2192280da9a0610551759f3d3939b");
+    bogus_versions.insert("math", "7cafbe9b858d31062e4ff6a1d5ca7977be6388ec");
+    bogus_versions.insert("fuzz", "23952c2e69a7c6470a7249133c3632dc58cd8ce7");
+    bogus_versions.insert("async-test", "193f25e9fa223c96361c1da941974ebe3c695a8d");
+    bogus_versions.insert("waterway-mops", "98ccbfa61fa3ee583980cd3456c3d41f97efe828");
+    bogus_versions.insert("football-types", "c02095944568b3113805fdec23bf1dd141e1c01d");
+    bogus_versions.insert("time", "2918224d2cb8f73d113ae3380f5f575156f9357c");
+    bogus_versions.insert("bench", "d4ce879cf251a27fa7167b523eee622baca42a53");
+    bogus_versions.insert("test", "e87a718eba50c0c5d2bd8b52320ed3c51f67e2cf");
+    bogus_versions.insert("csprng", "3ae7cdc1a1ecb6c78a335ba49aea1b09e3371bfb");
+    bogus_versions.insert("random-class", "de45e5844206f1e17d34ee1ebb90fcc4b43fe3fd");
+    bogus_versions.insert("hmac", "74deeb9ee34011ed70d19fa264c46959c9077d30");
+    bogus_versions.insert("simplemath", "1c4bd07f007cdc3698fcf6289851e1d13889d9d2");
+    bogus_versions.insert("ed25519", "0848a4a455f4cd5121ed28ab3a0b76d79344f0a2");
+    bogus_versions.insert("glob", "b1d90e0e981820be0bc283f10b9518656322cd44");
+    bogus_versions.insert("assets", "b3b5788a136695cea1b3877f5356f3b8bc205d14");
+    bogus_versions.insert("xtended-random", "be6749cfe5c07f37d84b74fb7ed2346730ee3393");
+    bogus_versions.insert("swbstable", "8f68ed961ac5e4b2d9eed95ff68d33e2a98890b2");
+    bogus_versions.insert("linked-list", "1e128c7a1fba63ec32a9673f9fc430fc1aebbece");
+    bogus_versions.insert("itertools", "f7d59dfcdff5162828f41af81b5762607806d82b");
+    bogus_versions.insert("noise", "cc25a93d055e01b1f6b64448ad7f64d551e96886");
+    bogus_versions.insert("testpack", "8160ee5edf6408141f017d649f46cc48edc43c7e");
+    bogus_versions.insert("testpackage", "ff3fb56c69d2548840df151c2f241897c3d43dd0");
+    bogus_versions.insert(
+        "incremental-ids",
+        "68607808489cb7ff63663a392a974e0cb328d1fa",
+    );
+    bogus_versions.insert("lrucache", "e4021f823d3a9ce54ea6a992d51ab8239a3f52a2");
+    bogus_versions.insert(
+        "circular-buffer",
+        "eecd121f4c2347563699266b5a0fb6bff6960ec4",
+    );
+    bogus_versions.insert("buffer-deque", "2ebdc1200a7c932e076f042695c1a976f0f5638b");
+    bogus_versions.insert("rxmo", "ab65cdca2f286f3f6dbfc3e2c5efc83d80366b6b");
+    bogus_versions.insert("ekvm", "115eff129e31d305a9ef65a5a3ce59729abc7d9f");
+    bogus_versions.insert("stable-rbtree", "v0.6.1");
+    bogus_versions.insert("mal", "30e7a579a599ab8e687e5fe9855f477a6670f9fa");
+    bogus_versions.insert("maf", "30e7a579a599ab8e687e5fe9855f477a6670f9fa");
+    bogus_versions.insert("bitbuffer", "5622d4d7572ca9da87b0448f0b9d0e407df9d2e4");
+    bogus_versions.insert("prng", "e003702521d688f1149c2ffdb3e440b6c201dd8b");
+    bogus_versions.insert("lru-cache", "9782fe76c0ec0a404a9a64c19d9b7dbe96fffa9c");
+    bogus_versions.insert(
+        "devefi-icrc-reader",
+        "36cc9af5e85714a9d2de3f3859ea266f1f1d5627",
+    );
+    bogus_versions.insert(
+        "certified-cache",
+        "96ef8a3f05669641506fb90faf01ac55dde9721d",
+    );
+    bogus_versions.insert(
+        "dao-proposal-engine",
+        "a80694ced5339bac2f67204b6a9b6c58983bab87",
+    );
+    bogus_versions.insert("xtended-text", "c5a2538b71b9a77cb2b22a529a2990dd6142e0d2");
+    bogus_versions.insert("token-handler", "439010ace0769aded1a7118fa3e82bd32dcb6ca2");
+    bogus_versions.insert(
+        "account-identifier",
+        "d07f70f572fc0d4cfe44333276c92611de3e0d44",
+    );
+    bogus_versions.insert(
+        "merkle-patricia-trie",
+        "c7829dc9c0577953ad567c910500a7c3aace521e",
+    );
+    bogus_versions.insert(
+        "devefi-icrc-sender",
+        "0b89d790458d041603b5d440396ffaa694b8e8ed",
+    );
+    bogus_versions.insert("candid", "2c58aa3665f3cffc0b7083133c80eee32f5517d7");
+    bogus_versions.insert("augmented-btrees", "4aa19673ff4bce8588490af743b99670b22e5e36");
+    bogus_versions.insert("icrc45", "831c49784dc32eb3103f604a4a288c67b91fcabd");
+    bogus_versions.insert("geecs", "2c506fd0dda38db81ec6ab599799d9821bd388db");
+    bogus_versions.insert("hash", "v0.1.1");
+    bogus_versions.insert("datetime", "178f107b65230c718f6eda4677502e0b02b841ba");
+    bogus_versions.insert("bitcoin-address-utils", "9d4eaba755660ccf5848c38374291721871ad9d9");
+    bogus_versions.insert("json", "1402c1bb961e42dc28b583eed7a61823f2fcc954");
+    bogus_versions.insert("xml", "acb9815b88e835425e24ab64eb19076eec6a3c06");
+    bogus_versions.insert("http-parser", "0.3.0");
+    bogus_versions.insert("asn1", "a32d730a36f01c48e86c40d02f6cf226d224a66b");
+    bogus_versions.insert("memory-buffer", "a98abe76b54272a4aeba8e133d78161f5399ca47");
+    bogus_versions.insert("stream", "141bec30d1f78d2a31dac81c66306c399727c3db");
+    bogus_versions.insert("rxmodb", "a3b55e054336323477e3608440c6f48cfac5b754");
+    bogus_versions.insert("evm-proof-verifier", "eb7463789813c7879451776d68f93dc3d524595a");
+    bogus_versions.insert("backup", "01ba874188744e674b23d81b49b3ca971f26d381");
+    bogus_versions.insert("ecdsa", "f1cfc1edb3a51ce97459ff764441aa33ba952e20");
+    bogus_versions.insert("memory-region", "c8d5e0c4ed4f9b106d0ed2fdf82f01b3273e8eb0");
+    bogus_versions.insert("motoko-certified-assets", "51f3d373e2bf0fb4b5facf4caa2bacf2efd0bd8d");
+    bogus_versions.insert("candid_stringify", "ebaf64b98e9010a4a6a38e520ad5271e3f1b7085");
+    bogus_versions.insert("eddsa", "c5d787aa94f82d153a3fdde190e24a58abb6e6ed");
+    // Squatted?
+    bogus_versions.insert("certified-http", "514314a95ecd5e2afd28dcbba632b33868d62702");
+    bogus_versions.insert("compression", "85464ea13990574633f396324028be3ffae4802f");
+    bogus_versions.insert("ussd-menu-builder", "1c38e6facf425ff77d72998840b3dd9da83993ec");
+    bogus_versions.insert("rsa", "2315e05e524a5d1b3c8e4201de16ec681db5a5d9");
+    bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
+    bogus_versions.insert("jwt", "0130a82978bedc62617a622e1044071b69a39b09");
+
+    if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
+        manifest.version = actual_version.to_string();
     }
 
     manifest.dependencies = manifest
@@ -55,9 +220,14 @@ fn cleanup_dependency(dependency: String) -> String {
         "motoko_numbers" => "xtended-numbers".to_string(),
         "xtendedNumbers" => "xtended-numbers".to_string(),
         "stablebuffer" => "StableBuffer".to_string(),
+        "stable-hash-map" => "StableHashMap".to_string(),
+        "stablehashmap" => "StableHashMap".to_string(),
         "stablebuffer_1_3_0" => "StableBuffer".to_string(),
         "stable_buffer" => "StableBuffer".to_string(),
+        "btree" => "StableHeapBTreeMap".to_string(),
+        "stableheapbtreemap" => "StableHeapBTreeMap".to_string(),
         "base-0.7.3" => "base".to_string(),
+        "base-unofficial" => "base".to_string(),
         "candid-old" => "candid".to_string(),
         "gt-json" => "json.mo".to_string(),
         "gt-encoding" => "encoding".to_string(),
@@ -91,9 +261,9 @@ fn extra_manifests() -> Vec<MopsManifest> {
         repository: "https://github.com/skilesare/StableWriteOnly.mo".to_string(),
         dependencies: vec!["base".to_string(), "vector".to_string()],
     };
-    let btree = MopsManifest {
-        name: "btree".to_string(),
-        version: "v0.3.2".to_string(),
+    let stable_heap_btree_map = MopsManifest {
+        name: "StableHeapBTreeMap".to_string(),
+        version: "v0.3.4".to_string(),
         repository: "https://github.com/canscale/StableHeapBTreeMap".to_string(),
         dependencies: vec!["base".to_string()],
     };
@@ -191,7 +361,7 @@ fn extra_manifests() -> Vec<MopsManifest> {
             "fmt.mo".to_string(),
             "itertools".to_string(),
             "xtended-numbers".to_string(),
-        ]
+        ],
     };
     let motoko_date_time = MopsManifest {
         name: "motoko-datetime".to_string(),
@@ -200,11 +370,11 @@ fn extra_manifests() -> Vec<MopsManifest> {
         dependencies: vec!["base".to_string()],
     };
     let rlp = MopsManifest {
-      name: "rlp".to_string(),
-      // Seems to be ahead of horizonx-tech/rlp-motoko
-      repository: "https://github.com/relaxed04/rlp-motoko".to_string(),
-      version: "16ee578b1315dd160718f1379a7e20c1f33c7d0d".to_string(),
-      dependencies: vec!["base".to_string()],
+        name: "rlp".to_string(),
+        // Seems to be ahead of horizonx-tech/rlp-motoko
+        repository: "https://github.com/relaxed04/rlp-motoko".to_string(),
+        version: "16ee578b1315dd160718f1379a7e20c1f33c7d0d".to_string(),
+        dependencies: vec!["base".to_string()],
     };
     let iterext = MopsManifest {
         name: "iterext".to_string(),
@@ -214,10 +384,10 @@ fn extra_manifests() -> Vec<MopsManifest> {
     };
     // references an unmerged branch (used in the "serde" package)
     let json_float = MopsManifest {
-      name: "json-float".to_string(),
-      repository: "https://github.com/NatLabs/json.mo".to_string(),
-      version: "f3c8e7d418a7a8f2d6c0d7e2d276a0a82c2046ff".to_string(),
-      dependencies: vec!["base".to_string(), "parser-combinators".to_string()],
+        name: "json-float".to_string(),
+        repository: "https://github.com/NatLabs/json.mo".to_string(),
+        version: "f3c8e7d418a7a8f2d6c0d7e2d276a0a82c2046ff".to_string(),
+        dependencies: vec!["base".to_string(), "parser-combinators".to_string()],
     };
 
     let matchers = MopsManifest {
@@ -229,7 +399,7 @@ fn extra_manifests() -> Vec<MopsManifest> {
 
     vec![
         stable_write_only,
-        btree,
+        stable_heap_btree_map,
         sequence,
         motoko_sequence,
         encoding,
@@ -252,15 +422,6 @@ fn extra_manifests() -> Vec<MopsManifest> {
         matchers,
     ]
 }
-
-// stable-hash-map = "https://github.com/canscale/StableHashMap#v0.2.1"
-// btree = "https://github.com/canscale/StableHeapBTreeMap#v0.3.2"
-// array = "https://github.com/aviate-labs/array.mo#v0.2.0"
-// encoding = "https://github.com/aviate-labs/encoding.mo#v0.3.2"
-// stable-rbtree = "https://github.com/canscale/StableRBTree#v0.6.1"
-// stablebuffer = "https://github.com/skilesare/StableBuffer#v0.2.0"
-// map = "https://github.com/ZhenyaUsenko/motoko-hash-map#v7.0.0"
-// candy = "https://github.com/icdevs/candy_library#0.3.0"
 
 fn main() -> Result<()> {
     let mut manifests: Vec<MopsManifest> = read_mops_registry_dump()?;
