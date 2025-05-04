@@ -204,6 +204,8 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("rsa", "2315e05e524a5d1b3c8e4201de16ec681db5a5d9");
     bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
     bogus_versions.insert("jwt", "0130a82978bedc62617a622e1044071b69a39b09");
+    bogus_versions.insert("icrc1", "0800c7ac03026a4c5a72eeb357cbbd0aca2f0fb4");
+    bogus_versions.insert("account", "a718d61a8a4086ce13056681567535f975ac0ddf");
 
     if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
         manifest.version = actual_version.to_string();
