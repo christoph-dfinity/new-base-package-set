@@ -1,6 +1,6 @@
 use std::{collections::HashMap, fs};
 
-use anyhow::Result;
+use anyhow::{Context, Result};
 use serde::Deserialize;
 use serde_json;
 
@@ -13,7 +13,8 @@ struct MopsManifest {
 }
 
 fn read_mops_registry_dump() -> Result<Vec<MopsManifest>> {
-    let file = fs::read_to_string("../mops-manifests.json")?;
+    let file =
+        fs::read_to_string("mops-manifests.json").context("Failed to read mops-manifests.json")?;
     let manifests = serde_json::from_str(&file)?;
     Ok(manifests)
 }
@@ -51,6 +52,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
             version: "moc-0.14.9".to_string(),
         });
     }
+    // Libraries that have actually tagged X.Y.Z rather than vX.Y.Z
     let non_v_tags = vec![
         "icrc-84",
         "auction",
@@ -72,6 +74,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         manifest.version = format!("v{}", manifest.version)
     }
 
+    // Libraries with versions that aren't actually tagged in their respective repos
     let mut bogus_versions = HashMap::new();
     bogus_versions.insert("base", "moc-0.14.9");
     bogus_versions.insert("ic", "640250866d038ac7f8aea0afc82fc96d780d97ae");
@@ -167,12 +170,18 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "0b89d790458d041603b5d440396ffaa694b8e8ed",
     );
     bogus_versions.insert("candid", "2c58aa3665f3cffc0b7083133c80eee32f5517d7");
-    bogus_versions.insert("augmented-btrees", "4aa19673ff4bce8588490af743b99670b22e5e36");
+    bogus_versions.insert(
+        "augmented-btrees",
+        "4aa19673ff4bce8588490af743b99670b22e5e36",
+    );
     bogus_versions.insert("icrc45", "831c49784dc32eb3103f604a4a288c67b91fcabd");
     bogus_versions.insert("geecs", "2c506fd0dda38db81ec6ab599799d9821bd388db");
     bogus_versions.insert("hash", "v0.1.1");
     bogus_versions.insert("datetime", "178f107b65230c718f6eda4677502e0b02b841ba");
-    bogus_versions.insert("bitcoin-address-utils", "9d4eaba755660ccf5848c38374291721871ad9d9");
+    bogus_versions.insert(
+        "bitcoin-address-utils",
+        "9d4eaba755660ccf5848c38374291721871ad9d9",
+    );
     bogus_versions.insert("json", "1402c1bb961e42dc28b583eed7a61823f2fcc954");
     bogus_versions.insert("xml", "acb9815b88e835425e24ab64eb19076eec6a3c06");
     bogus_versions.insert("http-parser", "0.3.0");
@@ -180,17 +189,29 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("memory-buffer", "a98abe76b54272a4aeba8e133d78161f5399ca47");
     bogus_versions.insert("stream", "141bec30d1f78d2a31dac81c66306c399727c3db");
     bogus_versions.insert("rxmodb", "a3b55e054336323477e3608440c6f48cfac5b754");
-    bogus_versions.insert("evm-proof-verifier", "eb7463789813c7879451776d68f93dc3d524595a");
+    bogus_versions.insert(
+        "evm-proof-verifier",
+        "eb7463789813c7879451776d68f93dc3d524595a",
+    );
     bogus_versions.insert("backup", "01ba874188744e674b23d81b49b3ca971f26d381");
     bogus_versions.insert("ecdsa", "f1cfc1edb3a51ce97459ff764441aa33ba952e20");
     bogus_versions.insert("memory-region", "c8d5e0c4ed4f9b106d0ed2fdf82f01b3273e8eb0");
-    bogus_versions.insert("motoko-certified-assets", "51f3d373e2bf0fb4b5facf4caa2bacf2efd0bd8d");
-    bogus_versions.insert("candid_stringify", "ebaf64b98e9010a4a6a38e520ad5271e3f1b7085");
+    bogus_versions.insert(
+        "motoko-certified-assets",
+        "51f3d373e2bf0fb4b5facf4caa2bacf2efd0bd8d",
+    );
+    bogus_versions.insert(
+        "candid_stringify",
+        "ebaf64b98e9010a4a6a38e520ad5271e3f1b7085",
+    );
     bogus_versions.insert("eddsa", "c5d787aa94f82d153a3fdde190e24a58abb6e6ed");
     // Squatted?
     bogus_versions.insert("certified-http", "514314a95ecd5e2afd28dcbba632b33868d62702");
     bogus_versions.insert("compression", "85464ea13990574633f396324028be3ffae4802f");
-    bogus_versions.insert("ussd-menu-builder", "1c38e6facf425ff77d72998840b3dd9da83993ec");
+    bogus_versions.insert(
+        "ussd-menu-builder",
+        "1c38e6facf425ff77d72998840b3dd9da83993ec",
+    );
     bogus_versions.insert("rsa", "2315e05e524a5d1b3c8e4201de16ec681db5a5d9");
     bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
     bogus_versions.insert("jwt", "0130a82978bedc62617a622e1044071b69a39b09");
