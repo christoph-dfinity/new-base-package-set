@@ -1,4 +1,10 @@
-use std::{collections::HashMap, fs};
+use std::{
+    collections::HashMap,
+    env, fs,
+    path::PathBuf,
+    process::{self, Command},
+    str::FromStr,
+};
 
 use anyhow::{Context, Result};
 use serde::Deserialize;
@@ -206,9 +212,18 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("jwt", "0130a82978bedc62617a622e1044071b69a39b09");
     bogus_versions.insert("icrc1", "0800c7ac03026a4c5a72eeb357cbbd0aca2f0fb4");
     bogus_versions.insert("account", "a718d61a8a4086ce13056681567535f975ac0ddf");
+    bogus_versions.insert("rechain", "3d3203c0fb44407912868515089516e201495e83");
+    bogus_versions.insert("devefi-icrc-ledger", "7d5cacb1d3dff31f8e4aadf40f2004ac50d9b592");
+    bogus_versions.insert("devefi-icp-ledger", "cca43c11f379d91e31a117d5eeefae17b5244073");
+    bogus_versions.insert("chronotrinite", "7cce392a6f7bffd8171dff32d8ed7e8fb739c205");
 
     if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
         manifest.version = actual_version.to_string();
+    }
+
+    // Libraries that didn't declare their dependency on base
+    if ["splay", "mosup", "canistergeek"].contains(&manifest.name.as_str()) {
+        manifest.dependencies.push("base".to_string());
     }
 
     manifest.dependencies = manifest
@@ -435,10 +450,88 @@ fn extra_manifests() -> Vec<MopsManifest> {
     ]
 }
 
+fn handle_overrides(manifests: Vec<MopsManifest>) -> Result<Vec<MopsManifest>> {
+    let mut overrides = HashMap::new();
+    for entry in fs::read_dir("./overrides")? {
+        let path = entry?.path();
+        let name = path.file_name().unwrap().to_string_lossy().to_string();
+        let path = path.canonicalize()?.to_str().unwrap().to_string();
+        overrides.insert(name.clone(), path);
+    }
+
+    let mut out = vec![];
+    for mut manifest in manifests {
+        if let Some(path) = overrides.get(&manifest.name) {
+            manifest.version = "overridden".to_string();
+            let mut ln = Command::new("ln");
+            ln.arg("-s")
+                .arg("-F")
+                .arg("-f")
+                .arg(path)
+                .arg(format!(".vessel/{}/overridden", manifest.name));
+            if !ln.status()?.success() {
+                eprintln!("Failed to link overridden dependency: {path}");
+                process::exit(1);
+            }
+            let mut git_diff = Command::new("git");
+            git_diff.current_dir(path).arg("diff").arg("-p");
+            let out = git_diff.output()?;
+            if !out.status.success() {
+                eprintln!("Failed to create patch for overridden dependency: {path}");
+                process::exit(1);
+            }
+            let patch_path = PathBuf::from("patches").join(format!("{}.patch", manifest.name));
+            fs::write(patch_path, out.stdout)?;
+        }
+        out.push(manifest)
+    }
+
+    Ok(out)
+}
+
+fn override_package(package: &str, manifests: Vec<MopsManifest>) {
+    let manifest = manifests
+        .iter()
+        .find(|m| m.name == package)
+        .expect("Package doesn't exist in package-set");
+    println!("Overriding {package}, {}", manifest.version);
+    let out_path = PathBuf::from_str(&format!("overrides/{}", package)).unwrap();
+    let mut git_clone = Command::new("git");
+    git_clone
+        .arg("clone")
+        .arg(&manifest.repository)
+        .arg(&out_path);
+    if !git_clone.status().unwrap().success() {
+        eprintln!("Failed to clone git repo");
+        process::exit(1);
+    }
+    let mut git_checkout = Command::new("git");
+    git_checkout
+        .arg("checkout")
+        .arg(&manifest.version)
+        .current_dir(out_path.canonicalize().unwrap());
+    if !git_checkout.status().unwrap().success() {
+        eprintln!("Failed to checkout version");
+        process::exit(1);
+    }
+}
+
 fn main() -> Result<()> {
     let mut manifests: Vec<MopsManifest> = read_mops_registry_dump()?;
     manifests.extend(extra_manifests());
     let cleaned = manifests.into_iter().filter_map(cleanup_manifest).collect();
+    let cleaned = handle_overrides(cleaned)?;
+
+    let mut args = env::args();
+    if args.len() == 2 {
+        let package = args.nth(1).unwrap();
+        override_package(&package, cleaned);
+        return Ok(());
+    }
     fs::write("package-set.dhall", &format_dhall_output(cleaned))?;
     Ok(())
 }
+
+// Look up repo from package name, clone it locally.
+// Create vessel.dhall file with the correct dependencies and compiler version.
+// After done working on it, override the repository and version with the local repository reference.

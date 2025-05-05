@@ -1,0 +1,72 @@
+diff --git a/src/BucketModule.mo b/src/BucketModule.mo
+index ef5a869..b8b7281 100644
+--- a/src/BucketModule.mo
++++ b/src/BucketModule.mo
+@@ -2,7 +2,7 @@ import Text "mo:base/Text";
+ import Principal "mo:base/Principal";
+ import StableMemory "mo:base/ExperimentalStableMemory";
+ 
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ 
+ import Nat32 "mo:base/Nat32";
+ import Nat "mo:base/Nat";
+@@ -76,9 +76,9 @@ module {
+     public func whereIs(b: Bucket, key: Key) : ?DataLocation {
+         let id = Utils.key2Id(key, b.numOfBuckets);
+         switch(BTree.get<Nat32, BTree.BTree<Key, DataLocation>>(b.localShards, Utils.nat32toOrder, id)) {
+-            case (?shard) 
++            case (?shard)
+                 BTree.get<Key, DataLocation>(shard, Utils.textToOrder, key);
+             case (_) { null };
+         };
+     };
+-};
+\ No newline at end of file
++};
+diff --git a/src/Ekvm.mo b/src/Ekvm.mo
+index b314080..349949d 100644
+--- a/src/Ekvm.mo
++++ b/src/Ekvm.mo
+@@ -8,7 +8,7 @@ import Bool "mo:base/Bool";
+ import Cycles "mo:base/ExperimentalCycles";
+ import Debug "mo:base/Debug";
+ 
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ 
+ import Utils "utils";
+ import BucketModule "BucketModule";
+@@ -37,11 +37,11 @@ module {
+ 
+     public func get(ekvm: Ekvm, key: Text) : async ?Blob {
+         switch(whoManages(ekvm, key)) {
+-            case(?shardLocation) { 
++            case(?shardLocation) {
+                 if (Principal.equal(shardLocation, ekvm.indexPrincipal)) {
+                     Debug.print("Local shard");
+                     switch(BucketModule.whereIs(ekvm.bucket, key)) {
+-                        case(?dataLocation) { 
++                        case(?dataLocation) {
+                             if (Principal.equal(dataLocation, ekvm.indexPrincipal)) {
+                                 Debug.print("Local data");
+                                 return BTree.get<Text, Blob>(ekvm.bucket.data, Utils.textToOrder, key);
+@@ -156,9 +156,9 @@ module {
+         };
+ 
+         if (Principal.equal(shardLocation, ekvm.indexPrincipal)) {
+-            let hasMemory = 
++            let hasMemory =
+                 await BucketModule.addKeyToShard(ekvm.bucket, key, activeDataCanister);
+-            
++
+         }
+         else {
+             Debug.print("external shard canister");
+@@ -187,4 +187,4 @@ module {
+             var localShards = BTree.init<Nat32, BTree.BTree<Text, Principal>>(null);
+         };
+     };
+-};
+\ No newline at end of file
++};

@@ -1,0 +1,20 @@
+diff --git a/src/IO.mo b/src/IO.mo
+index b7ab9d4..9471c24 100644
+--- a/src/IO.mo
++++ b/src/IO.mo
+@@ -1,9 +1,9 @@
+-import Array "mo:base-0.7.3/Array";
+-import Buffer "mo:base-0.7.3/Buffer";
+-import Blob "mo:base-0.7.3/Blob";
+-import Iter "mo:base-0.7.3/Iter";
+-import Result "mo:base-0.7.3/Result";
+-import Text "mo:base-0.7.3/Text";
++import Array "mo:base/Array";
++import Buffer "mo:base/Buffer";
++import Blob "mo:base/Blob";
++import Iter "mo:base/Iter";
++import Result "mo:base/Result";
++import Text "mo:base/Text";
+ 
+ module {
+     public type Result<T> = {
