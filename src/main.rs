@@ -1,12 +1,13 @@
 use std::{
     collections::HashMap,
-    env, fs,
+    fs,
     path::PathBuf,
     process::{self, Command},
     str::FromStr,
 };
 
-use anyhow::{Context, Result};
+use anyhow::{Context, Result, anyhow, bail};
+use clap::{Parser, Subcommand};
 use serde::Deserialize;
 use serde_json;
 
@@ -56,7 +57,6 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "http-loopback",
         "web-io",
         "icrc-fungible",
-
         // Depends on non-existing compression package
         "liminal",
     ];
@@ -577,21 +577,19 @@ fn handle_overrides(manifests: Vec<MopsManifest>) -> Result<Vec<MopsManifest>> {
     Ok(out)
 }
 
-fn override_package(package: &str, manifests: Vec<MopsManifest>) {
-    let manifest = manifests
-        .iter()
-        .find(|m| m.name == package)
-        .expect("Package doesn't exist in package-set");
-    println!("Overriding {package}, {}", manifest.version);
-    let out_path = PathBuf::from_str(&format!("overrides/{}", package)).unwrap();
+fn init_override(manifest: &MopsManifest) -> Result<PathBuf> {
+    let out_path = PathBuf::from_str(&format!("overrides/{}", manifest.name)).unwrap();
+    if out_path.exists() {
+        println!("Skip cloning existing override at: {out_path:?}");
+        return Ok(out_path)
+    }
     let mut git_clone = Command::new("git");
     git_clone
         .arg("clone")
         .arg(&manifest.repository)
         .arg(&out_path);
     if !git_clone.status().unwrap().success() {
-        eprintln!("Failed to clone git repo");
-        process::exit(1);
+        bail!("Failed to clone git repo");
     }
     let mut git_checkout = Command::new("git");
     git_checkout
@@ -599,27 +597,80 @@ fn override_package(package: &str, manifests: Vec<MopsManifest>) {
         .arg(&manifest.version)
         .current_dir(out_path.canonicalize().unwrap());
     if !git_checkout.status().unwrap().success() {
-        eprintln!("Failed to checkout version");
-        process::exit(1);
+        bail!("Failed to checkout version");
     }
+    return Ok(out_path);
 }
 
-fn main() -> Result<()> {
-    let mut manifests: Vec<MopsManifest> = read_mops_registry_dump()?;
-    manifests.extend(extra_manifests());
-    let cleaned = manifests.into_iter().filter_map(cleanup_manifest).collect();
-    let cleaned = handle_overrides(cleaned)?;
-
-    let mut args = env::args();
-    if args.len() == 2 {
-        let package = args.nth(1).unwrap();
-        override_package(&package, cleaned);
-        return Ok(());
-    }
-    fs::write("package-set.dhall", &format_dhall_output(cleaned))?;
+fn override_package(package: &str, manifests: Vec<MopsManifest>) -> Result<()> {
+    let manifest = manifests
+        .iter()
+        .find(|m| m.name == package)
+        .ok_or_else(|| anyhow!("Package to override doesn't exist: {}", package))?;
+    init_override(manifest)?;
     Ok(())
 }
 
-// Look up repo from package name, clone it locally.
-// Create vessel.dhall file with the correct dependencies and compiler version.
-// After done working on it, override the repository and version with the local repository reference.
+/// Simple program to greet a person
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Cli {
+    #[command(subcommand)]
+    command: Commands,
+}
+
+fn cleaned_manifests() -> Result<Vec<MopsManifest>> {
+    let mut manifests: Vec<MopsManifest> = read_mops_registry_dump()?;
+    manifests.extend(extra_manifests());
+    let cleaned = manifests.into_iter().filter_map(cleanup_manifest).collect();
+    return handle_overrides(cleaned);
+}
+
+#[derive(Debug, Subcommand)]
+enum Commands {
+    /// Generates a package-set from the mops manifests
+    Generate,
+    /// Initializes overrides from the existing patches
+    InitOverrides,
+    /// Adds an override for a package
+    AddOverride { package: String },
+}
+
+fn main() -> Result<()> {
+    let args = Cli::parse();
+    match args.command {
+        Commands::InitOverrides => {
+            let mut manifests: Vec<MopsManifest> = read_mops_registry_dump()?;
+            manifests.extend(extra_manifests());
+            let cleaned: Vec<MopsManifest> =
+                manifests.into_iter().filter_map(cleanup_manifest).collect();
+
+            for entry in fs::read_dir("./patches")? {
+                let patch_path = entry?.path();
+                let file_name = patch_path.file_name().unwrap().to_string_lossy().to_string();
+                let package_name = file_name.strip_suffix(".patch").unwrap();
+                let manifest = cleaned
+                    .iter()
+                    .find(|p| p.name == package_name)
+                    .ok_or_else(|| anyhow!("Patch for unknown package: {}", package_name))?;
+                let override_path = init_override(manifest)?;
+                let mut git_apply = Command::new("git");
+                git_apply.arg("apply").arg(patch_path.canonicalize()?).current_dir(override_path);
+                if !git_apply.status()?.success() {
+                    eprintln!("Failed to apply patch for {package_name}")
+                }
+            }
+        }
+        Commands::Generate => {
+            fs::write(
+                "package-set.dhall",
+                &format_dhall_output(cleaned_manifests()?),
+            )?;
+        }
+        Commands::AddOverride { package } => {
+            let cleaned = cleaned_manifests()?;
+            override_package(&package, cleaned)?;
+        }
+    }
+    Ok(())
+}
