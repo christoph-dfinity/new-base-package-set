@@ -1,0 +1,31 @@
+diff --git a/src/memory/v1.mo b/src/memory/v1.mo
+index dc9b934..838c250 100644
+--- a/src/memory/v1.mo
++++ b/src/memory/v1.mo
+@@ -1,5 +1,5 @@
+ import MU "mo:mosup";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import SWB "mo:swbstable/Stable";
+ import Vector "mo:vector";
+ import Map "mo:map/Map";
+diff --git a/src/slice.mo b/src/slice.mo
+index 3c3f17c..86c8731 100644
+--- a/src/slice.mo
++++ b/src/slice.mo
+@@ -1,5 +1,5 @@
+ import Result "mo:base/Result";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Text "mo:base/Text";
+ import U "./utils";
+ import Vector "mo:vector";
+@@ -326,7 +326,7 @@ module {
+             };
+         };
+ 
+-    
++
+ 
+         private func get_channel_results<A>(chan : ChronoChannelMem, direction : BTree.Direction, from : Nat64, limit : Nat) : ChronoChannelShared {
+ 

@@ -1,0 +1,20 @@
+diff --git a/src/Reorder.mo b/src/Reorder.mo
+index 56a09c6..f37ed78 100644
+--- a/src/Reorder.mo
++++ b/src/Reorder.mo
+@@ -18,7 +18,7 @@ import Debug "mo:base/Debug";
+ import Order "mo:base/Order";
+ import Int "mo:base/Int";
+ import Bool "mo:base/Bool";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ 
+ module {
+     /// `Orderer` is used to manage `Order` objects.
+@@ -559,4 +559,4 @@ module {
+             Nat.compare(x.1, y.1);
+         }
+     };
+-}
+\ No newline at end of file
++}

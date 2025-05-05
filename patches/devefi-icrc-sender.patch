@@ -1,0 +1,67 @@
+diff --git a/src/lib.mo b/src/lib.mo
+index 5bb96e9..ee5742c 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -1,4 +1,4 @@
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Option "mo:base/Option";
+ import Debug "mo:base/Debug";
+ import Nat "mo:base/Nat";
+@@ -73,12 +73,12 @@ module {
+             let ?fee = stored_fee else Debug.trap("Fee not available");
+ 
+             let now = Int.abs(Time.now());
+-  
++
+             let transactions_to_send = BTree.scanLimit<Nat64, Transaction>(mem.transactions, Nat64.compare, 0, ^0, #fwd, 3000);
+ 
+             var sent_count = 0;
+             label vtransactions for ((id, tx) in transactions_to_send.results.vals()) {
+-                
++
+                 let time_for_try = Float.toInt(Float.ceil((Float.fromInt(now - Nat64.toNat(tx.created_at_time)))/RETRY_EVERY_SEC));
+ 
+                 if (tx.tries >= time_for_try) continue vtransactions;
+@@ -95,15 +95,15 @@ module {
+                         fee = ?fee;
+                     });
+                     sent_count += 1;
+-                } catch (e) { 
++                } catch (e) {
+                     onError("sender:" # Error.message(e));
+                     break vtransactions;
+                 };
+ 
+                 if (sent_count >= MAX_SENT_EACH_CYCLE) break vtransactions;
+-    
++
+             };
+-    
++
+             ignore Timer.setTimer(#seconds 2, cycle);
+             let inst_end = Prim.performanceCounter(1);
+             onCycleEnd(inst_end - inst_start);
+@@ -118,7 +118,7 @@ module {
+                 if (tr.from.owner != owner) continue tloop;
+                 let ?memo = tr.memo else continue tloop;
+                 let ?id = DNat64(Blob.toArray(memo)) else continue tloop;
+-                
++
+                 ignore BTree.delete<Nat64, Transaction>(mem.transactions, Nat64.compare, id);
+                 Vector.add<Nat64>(confirmations, id);
+             };
+@@ -143,11 +143,11 @@ module {
+                 memo = Blob.fromArray(ENat64(id));
+                 var tries = 0;
+             };
+-            
++
+             ignore BTree.insert<Nat64, Transaction>(mem.transactions, Nat64.compare, id, txr);
+         };
+ 
+-        public func start(owner:?Principal) {
++        public func start(owner:?Principal) : async () {
+             if (not Option.isNull(owner)) mem.stored_owner := owner;
+             if (Option.isNull(mem.stored_owner)) return;
+ 

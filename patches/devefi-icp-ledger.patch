@@ -1,0 +1,242 @@
+diff --git a/src/lib.mo b/src/lib.mo
+index d58a0d4..a4ddd5b 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -15,7 +15,7 @@ import Debug "mo:base/Debug";
+ import SWB "mo:swb";
+ import Array "mo:base/Array";
+ import Iter "mo:base/Iter";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Ver1 "./memory/v1";
+ import MU "mo:mosup";
+ 
+@@ -37,7 +37,7 @@ module {
+         #InsufficientFunds;
+     };
+ 
+- 
++
+     public func subaccountToBlob(s: ?Blob) : Blob {
+         let ?a = s else return Blob.fromArray([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+         a;
+@@ -70,7 +70,7 @@ module {
+         amount : Nat;
+         spender : ?AccountMixed;
+     };
+-    
++
+     /// The ledger class
+     /// start_from_block should be in most cases #last (starts from the last block when first started)
+     /// if something went wrong and you need to reinstall the canister
+@@ -78,7 +78,7 @@ module {
+     /// you can set start_from_block to a specific block number from which you want to start reading the ledger when reinstalled
+     /// you will have to remove all onRecieve, onSent, onMint, onBurn callbacks and set them again
+     /// (or they could try to make calls based on old transactions)
+-    /// 
++    ///
+     /// Example:
+     /// ```motoko
+     ///     stable let lmem = L.LMem();
+@@ -96,7 +96,7 @@ module {
+ 
+         var callback_onReceive: ?((Transfer) -> ()) = null;
+         var callback_onSent : ?((Nat64) -> ()) = null;
+-        // Sender 
++        // Sender
+ 
+ 
+         private func logErr(e:Text) : () {
+@@ -123,7 +123,7 @@ module {
+             getFee = func () : Nat { lmem.fee };
+             onError = logErr; // In case a cycle throws an error
+             onConfirmations = func (confirmations: [Nat64]) {
+-                // handle confirmed ids after sender 
++                // handle confirmed ids after sender
+                 for (id in confirmations.vals()) {
+                     ignore do ? { callback_onSent!(id) };
+                 };
+@@ -132,7 +132,7 @@ module {
+             isRegisteredAccount;
+             me_can;
+         });
+-        
++
+         private func handle_incoming_amount(subaccount: ?Blob, amount: Nat) : () {
+             switch(Map.get<Blob, VM.AccountMem>(lmem.accounts, Map.bhash, subaccountToBlob(subaccount))) {
+                 case (?acc) {
+@@ -158,7 +158,7 @@ module {
+             if (acc.in_transit < amount) {
+                 acc.in_transit := 0;
+             } else {
+-                acc.in_transit -= amount:Nat; 
++                acc.in_transit -= amount:Nat;
+             };
+ 
+             if (acc.balance == 0 and acc.in_transit == 0) {
+@@ -180,12 +180,12 @@ module {
+             ledger_id;
+             start_from_block;
+             onError = logErr; // In case a cycle throws an error
+-            onCycleEnd = func (i: Nat64) { reader_instructions_cost := i }; // returns the instructions the cycle used. 
++            onCycleEnd = func (i: Nat64) { reader_instructions_cost := i }; // returns the instructions the cycle used.
+                                                         // It can include multiple calls to onRead
+             onRead = func (transactions: [TxTypes.Transaction], _) {
+                 icrc_sender.confirm(transactions);
+-                
+-                
++
++
+                 label txloop for (tx in transactions.vals()) {
+                     switch(tx) {
+                         case (#u_mint(mint)) {
+@@ -237,7 +237,7 @@ module {
+                                 };
+                                 case (null) ();
+                             };
+-                      
++
+                             switch(BTree.get(lmem.known_accounts, Blob.compare, tr.from)) {
+                                 case (?subaccount) {
+                                     handle_outgoing_amount(formatSubaccount(subaccount), tr.amount + fee);
+@@ -253,7 +253,7 @@ module {
+ 
+                         case (_) continue txloop;
+                     };
+-                 
++
+                 };
+             };
+         });
+@@ -266,7 +266,7 @@ module {
+             lmem.fee := await ledger.icrc1_fee();
+             } catch (e) {}
+         };
+- 
++
+         public func genNextSendId() : Nat64 {
+             let id = lmem.next_tx_id;
+             lmem.next_tx_id += 1;
+@@ -292,7 +292,7 @@ module {
+         public func isRegisteredSubaccount(subaccount: ?Blob) : Bool {
+             not Option.isNull(BTree.get(lmem.known_accounts, Blob.compare, Principal.toLedgerAccount(me_can, subaccount)));
+         };
+-  
++
+ 
+         /// Returns the actor principal
+         public func me() : Principal {
+@@ -307,7 +307,7 @@ module {
+                 x
+             });
+         };
+-    
++
+         /// Returns info about ledger library
+         public func getInfo() : Info {
+             {
+@@ -335,7 +335,7 @@ module {
+         /// Returns the meta of the ICP ledger
+         public func getMeta() : VM.Meta {
+             { // These won't ever change for ICP except fee
+-                decimals = 8; 
++                decimals = 8;
+                 symbol = "ICP";
+                 fee = lmem.fee;
+                 minter = ?{ owner=minter; subaccount = null};
+@@ -398,4 +398,4 @@ module {
+     };
+ 
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/memory/v1.mo b/src/memory/v1.mo
+index 3f62d0c..0f966b1 100644
+--- a/src/memory/v1.mo
++++ b/src/memory/v1.mo
+@@ -1,6 +1,6 @@
+ import MU "mo:mosup";
+ import Map "mo:map/Map";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Set "mo:map/Set";
+ 
+ module {
+@@ -75,4 +75,4 @@ module {
+     public type Account = { owner : Principal; subaccount : ?Blob };
+ 
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/sender.mo b/src/sender.mo
+index 5f5d02c..db8799a 100644
+--- a/src/sender.mo
++++ b/src/sender.mo
+@@ -1,4 +1,4 @@
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Option "mo:base/Option";
+ import Debug "mo:base/Debug";
+ import Nat "mo:base/Nat";
+@@ -105,7 +105,7 @@ module {
+ 
+             var sent_count = 0;
+             label vtransactions for ((id, tx) in transactions_to_send.results.vals()) {
+-                
++
+                 if (tx.amount < fee) {
+                     ignore BTree.delete<Blob, VM.Transaction>(mem.transactions, Blob.compare, id);
+                     ignore do ? { Set.delete(mem.transaction_ids, Set.n64hash, txBlobToId(id)!); };
+@@ -115,11 +115,11 @@ module {
+                 let time_for_try = Float.toInt(Float.ceil((Float.fromInt(now - Nat64.toNat(tx.created_at_time)))/RETRY_EVERY_SEC));
+ 
+                 if (tx.tries >= time_for_try) continue vtransactions;
+-                
++
+                 let created_at_adjusted = adjustTXWINDOW(nowU64, tx.created_at_time);
+ 
+                 try {
+-                    
++
+                     // Relies on transaction deduplication https://github.com/dfinity/ICRC-1/blob/main/standards/ICRC-1/README.md
+                     ledger.icrc1_transfer({
+                         amount = tx.amount - fee;
+@@ -131,15 +131,15 @@ module {
+                     });
+                     sent_count += 1;
+                     tx.tries := Int.abs(time_for_try);
+-                } catch (e) { 
++                } catch (e) {
+                     onError("sender:" # Error.message(e));
+                     break vtransactions;
+                 };
+ 
+                 if (sent_count >= MAX_SENT_EACH_CYCLE) break vtransactions;
+-    
++
+             };
+-    
++
+             let inst_end = Prim.performanceCounter(1);
+             onCycleEnd(inst_end - inst_start);
+         };
+@@ -166,7 +166,7 @@ module {
+ 
+                 let ?memo = imp.memo else continue tloop;
+                 let ?id = DNat64(Blob.toArray(memo)) else continue tloop;
+-                
++
+                 ignore BTree.delete<Blob, VM.Transaction>(mem.transactions, Blob.compare, txIdBlob(imp.from, id));
+                 Set.delete(mem.transaction_ids, Set.n64hash, id);
+                 Vector.add<Nat64>(confirmations, id);
+@@ -195,7 +195,7 @@ module {
+                 memo = Blob.fromArray(ENat64(id));
+                 var tries = 0;
+             };
+-            
++
+             let account = Principal.toLedgerAccount(me_can, tx.from_subaccount);
+             ignore BTree.insert<Blob, VM.Transaction>(mem.transactions, Blob.compare, txIdBlob(account, id), txr);
+             ignore Set.put(mem.transaction_ids, Set.n64hash, id);

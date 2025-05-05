@@ -1,0 +1,116 @@
+diff --git a/src/memory/v1.mo b/src/memory/v1.mo
+index b1e3da0..abeeb84 100644
+--- a/src/memory/v1.mo
++++ b/src/memory/v1.mo
+@@ -1,10 +1,10 @@
+ import Map "mo:map/Map";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import MU "mo:mosup";
+ 
+ module {
+ 
+-    public module Ledger { 
++    public module Ledger {
+ 
+         public func new() : MU.MemShell<Mem> = MU.new<Mem>({
+             reader = Reader.new();
+@@ -51,12 +51,12 @@ module {
+         public func new() : MU.MemShell<Mem> = MU.new<Mem>({
+             transactions = BTree.init<Nat64, Transaction>(?16);
+         });
+-   
++
+         public type Transaction = {
+             amount: Nat;
+             to : Account;
+             from_subaccount : ?Blob;
+-            var created_at_time : Nat64; 
++            var created_at_time : Nat64;
+             memo : Blob;
+             var tries: Nat;
+         };
+@@ -68,4 +68,4 @@ module {
+ 
+     public type Account = { owner : Principal; subaccount : ?Blob };
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/sender.mo b/src/sender.mo
+index 1a95739..f8b49f1 100644
+--- a/src/sender.mo
++++ b/src/sender.mo
+@@ -1,4 +1,4 @@
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Debug "mo:base/Debug";
+ import Nat "mo:base/Nat";
+ import Float "mo:base/Float";
+@@ -61,7 +61,7 @@ module {
+         let mem = MU.access(xmem);
+         let ledger = actor(Principal.toText(ledger_id)) : Ledger.Oneway;
+         var getReaderLastUpdate : ?(() -> (Nat64)) = null;
+-        
++
+ 
+         public func setGetReaderLastUpdate(fn : () -> (Nat64)) {
+             getReaderLastUpdate := ?fn;
+@@ -98,7 +98,7 @@ module {
+                 let time_for_try = Float.toInt(Float.ceil((Float.fromInt(now - Nat64.toNat(tx.created_at_time)))/RETRY_EVERY_SEC));
+ 
+                 if (tx.tries >= time_for_try) continue vtransactions;
+-                
++
+                 let created_at_adjusted = adjustTXWINDOW(nowU64, tx.created_at_time);
+ 
+                 try {
+@@ -126,15 +126,15 @@ module {
+                     };
+                     sent_count += 1;
+                     tx.tries := Int.abs(time_for_try);
+-                } catch (e) { 
++                } catch (e) {
+                     onError("sender:" # Error.message(e));
+                     break vtransactions;
+                 };
+ 
+                 if (sent_count >= MAX_SENT_EACH_CYCLE) break vtransactions;
+-    
++
+             };
+-    
++
+             let inst_end = Prim.performanceCounter(1);
+             onCycleEnd(inst_end - inst_start);
+         };
+@@ -167,12 +167,12 @@ module {
+             // All need to be confirmed
+ 
+             let confirmations = Vector.new<Nat64>();
+-            label tloop for (tx in txs.vals()) { 
+-                
++            label tloop for (tx in txs.vals()) {
++
+                 let ?(tx_from, tx_memo) = getTxMemoFrom(tx) else continue tloop;
+                 if (tx_from.owner != me_can) continue tloop;
+                 let ?id = DNat64(Blob.toArray(tx_memo)) else continue tloop;
+-                
++
+                 ignore BTree.delete<Nat64, VM.Transaction>(mem.transactions, Nat64.compare, id);
+                 Vector.add<Nat64>(confirmations, id);
+             };
+@@ -192,11 +192,11 @@ module {
+                 memo = Blob.fromArray(ENat64(id));
+                 var tries = 0;
+             };
+-            
++
+             ignore BTree.insert<Nat64, VM.Transaction>(mem.transactions, Nat64.compare, id, txr);
+         };
+ 
+- 
++
+ 
+         public func ENat64(value : Nat64) : [Nat8] {
+             return [

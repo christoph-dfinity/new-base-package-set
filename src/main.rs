@@ -258,6 +258,15 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     if ["splay", "mosup", "canistergeek"].contains(&manifest.name.as_str()) {
         manifest.dependencies.push("base".to_string());
     }
+    if manifest.name == "devefi" {
+        manifest.dependencies.push("chronotrinite".to_string());
+    }
+
+    if manifest.name == "devefi-jes1-icpneuron" {
+        manifest.dependencies.push("devefi".to_string());
+        manifest.dependencies.push("mosup".to_string());
+        manifest.dependencies.push("chronotrinite".to_string());
+    }
 
     manifest.dependencies = manifest
         .dependencies
