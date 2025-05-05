@@ -1,0 +1,13 @@
+diff --git a/src/lib.mo b/src/lib.mo
+index e8ac1ac..76b7b6c 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -4,7 +4,7 @@ import Debug "mo:base/Debug";
+ import Hash "mo:base/Hash";
+ import Text "mo:base/Text";
+ import Error "mo:base/Error";
+-import StableHashMap "mo:stablehashmap/FunctionalStableHashMap";
++import StableHashMap "mo:StableHashMap/FunctionalStableHashMap";
+ 
+ module {
+   public type CanisterFulfillmentInfo = {

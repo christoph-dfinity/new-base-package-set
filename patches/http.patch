@@ -1,0 +1,21 @@
+diff --git a/src/Query.mo b/src/Query.mo
+index 1286c67..f1f122a 100644
+--- a/src/Query.mo
++++ b/src/Query.mo
+@@ -1,6 +1,6 @@
+-import Array "mo:base-0.7.3/Array";
+-import Iter "mo:base-0.7.3/Iter";
+-import Text "mo:base-0.7.3/Text";
++import Array "mo:base/Array";
++import Iter "mo:base/Iter";
++import Text "mo:base/Text";
+ 
+ module {
+     public type Field = (
+@@ -24,4 +24,4 @@ module {
+         };
+         return (ps[0], Array.freeze(params));
+     };
+-}
+\ No newline at end of file
++}

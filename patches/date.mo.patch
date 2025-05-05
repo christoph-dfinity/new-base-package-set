@@ -1,0 +1,32 @@
+diff --git a/src/Date.mo b/src/Date.mo
+index 112baa9..a596a4c 100644
+--- a/src/Date.mo
++++ b/src/Date.mo
+@@ -3,7 +3,7 @@ import Nat "mo:base/Nat";
+ import Text "mo:base/Text";
+ import Array "mo:base/Array";
+ import Iter "mo:base/Iter";
+-import FmtNat "mo:fmt/Nat";
++import FmtNat "mo:fmt.mo/Nat";
+ import Result "mo:base/Result";
+ import Float "mo:base/Float";
+ import Int "mo:base/Int";
+@@ -123,7 +123,7 @@ module {
+             nano -= minute * MINUTE;
+             let second = (nano / SECOND) % 60;
+             nano -= second * SECOND;
+-            
++
+             {
+                 year; month; day;
+                 hour; minute; second;
+@@ -202,9 +202,3 @@ module {
+         public func now() : Date = fromTime(Time.now());
+     };
+ };
+-
+-
+-
+-
+-
+-
