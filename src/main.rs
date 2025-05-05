@@ -145,6 +145,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("rxmo", "ab65cdca2f286f3f6dbfc3e2c5efc83d80366b6b");
     bogus_versions.insert("ekvm", "115eff129e31d305a9ef65a5a3ce59729abc7d9f");
     bogus_versions.insert("stable-rbtree", "v0.6.1");
+    bogus_versions.insert("json.mo", "v0.2.1");
     bogus_versions.insert("mal", "30e7a579a599ab8e687e5fe9855f477a6670f9fa");
     bogus_versions.insert("maf", "30e7a579a599ab8e687e5fe9855f477a6670f9fa");
     bogus_versions.insert("bitbuffer", "5622d4d7572ca9da87b0448f0b9d0e407df9d2e4");
@@ -267,6 +268,20 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         manifest.dependencies.push("mosup".to_string());
         manifest.dependencies.push("chronotrinite".to_string());
     }
+
+    if manifest.name == "devefi-jes1-snsneuron" {
+        manifest.dependencies.push("devefi".to_string());
+        manifest.dependencies.push("mosup".to_string());
+    }
+
+    if manifest.name == "http-parser" {
+        manifest.dependencies.push("json.mo".to_string());
+    }
+
+    if manifest.name == "augmented-btrees" {
+        manifest.dependencies.push("map".to_string());
+    }
+
 
     manifest.dependencies = manifest
         .dependencies

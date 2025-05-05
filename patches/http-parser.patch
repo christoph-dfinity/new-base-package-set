@@ -1,0 +1,109 @@
+diff --git a/src/Types.mo b/src/Types.mo
+index 618ee79..48bfc9f 100644
+--- a/src/Types.mo
++++ b/src/Types.mo
+@@ -1,6 +1,6 @@
+ import TrieMap "mo:base/TrieMap";
+ import Buffer "mo:base/Buffer";
+-import JSON "mo:json/JSON";
++import JSON "mo:json.mo/JSON";
+ 
+ module {
+ 
+@@ -24,7 +24,7 @@ module {
+     public type URL = {
+         original: Text;
+         protocol: Text ;
+-        port: Nat16; 
++        port: Nat16;
+         host: {
+             original: Text;
+             array: [Text];
+@@ -37,16 +37,16 @@ module {
+             original: Text;
+             get: (Text) -> ?Text;
+             trieMap: TrieMap.TrieMap<Text, Text>;
+-            keys: [Text]; 
++            keys: [Text];
+         };
+-        anchor: Text; 
++        anchor: Text;
+     };
+ 
+     public type Form = {
+         get: (Text) -> ?[Text];
+         trieMap: TrieMap.TrieMap<Text, [Text]>;
+         keys: [Text];
+-        
++
+         fileKeys: [Text];
+         files: (Text) -> ?[File];
+     };
+@@ -61,7 +61,7 @@ module {
+     public type File = {
+         name: Text;
+         filename: Text;
+-        
++
+         mimeType: Text;
+         mimeSubType: Text;
+ 
+@@ -72,11 +72,11 @@ module {
+ 
+     public type Body = {
+         original: Blob;
+-        size: Nat; 
++        size: Nat;
+         form: Form;
+-        text: () -> Text; 
++        text: () -> Text;
+         deserialize: () -> ?JSON.JSON;
+-        file: () -> ?Buffer.Buffer<Nat8>; 
++        file: () -> ?Buffer.Buffer<Nat8>;
+         bytes: (start: Nat, end: Nat) -> Buffer.Buffer<Nat8>;
+     };
+ 
+@@ -84,7 +84,7 @@ module {
+         get: (Text) -> ?[Text];
+         trieMap: TrieMap.TrieMap<Text, [Text]>;
+         keys: [Text];
+-        
++
+         fileKeys: [Text];
+         files: (Text) -> ?[File];
+     };
+@@ -94,7 +94,7 @@ module {
+         url: URL;
+         headers: Headers;
+         body: ?Body;
+-    };      
++    };
+ 
+     // internal types
+     public type FormDataType = {
+diff --git a/src/Utils.mo b/src/Utils.mo
+index 64cd2cd..2f829fd 100644
+--- a/src/Utils.mo
++++ b/src/Utils.mo
+@@ -12,7 +12,7 @@ import Text "mo:base/Text";
+ import Result "mo:base/Result";
+ 
+ import Hex "mo:encoding/Hex";
+-import JSON "mo:json/JSON";
++import JSON "mo:json.mo/JSON";
+ 
+ module {
+     public func textToNat(txt : Text) : Nat {
+diff --git a/src/lib.mo b/src/lib.mo
+index 35ad997..0b487d4 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -10,7 +10,7 @@ import Option "mo:base/Option";
+ import Text "mo:base/Text";
+ import Result "mo:base/Result";
+ 
+-import JSON "mo:json/JSON";
++import JSON "mo:json.mo/JSON";
+ 
+ import Types "Types";
+ import Utils "Utils";
