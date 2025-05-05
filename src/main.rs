@@ -75,6 +75,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "icrc-84",
         "auction",
         "vector",
+        "sha2",
         "stable-trie",
         "swb",
         "enumeration",
@@ -106,7 +107,6 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("date-time", "aa6f3428af02b360e557fc68759d4bf5aa133e6a");
     bogus_versions.insert("ledger-types", "40a14199e72286ba4db86b01c669f51d7469de2d");
     bogus_versions.insert("canistergeek", "32d1f3a48b1bc12d727b896a69b08bb5f3e5860d");
-    bogus_versions.insert("sha2", "3e14010cc9d23df409452e4776f5b8a29652441b");
     bogus_versions.insert("mosup", "239aa664e7c4e2353b465fb4802ff537d03f4245");
     bogus_versions.insert("llm", "v0.1.2");
     bogus_versions.insert("new-base", "preview-0.4.0");

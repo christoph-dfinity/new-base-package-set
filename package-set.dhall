@@ -25,7 +25,7 @@
 { name = "fuzz", repo = "https://github.com/ZenVoich/fuzz", version = "23952c2e69a7c6470a7249133c3632dc58cd8ce7", dependencies = ["base"] : List Text },
 { name = "prng", repo = "https://github.com/research-ag/prng", version = "e003702521d688f1149c2ffdb3e440b6c201dd8b", dependencies = ["base"] : List Text },
 { name = "hash", repo = "https://github.com/aviate-labs/hash.mo", version = "overridden", dependencies = ["base", "array"] : List Text },
-{ name = "sha2", repo = "https://github.com/research-ag/sha2", version = "3e14010cc9d23df409452e4776f5b8a29652441b", dependencies = ["base"] : List Text },
+{ name = "sha2", repo = "https://github.com/research-ag/sha2", version = "0.1.4", dependencies = ["base"] : List Text },
 { name = "serde", repo = "https://github.com/NatLabs/serde", version = "ddeb5cf7b14283f12b576d9d3da77e5218602aec", dependencies = ["base", "itertools", "candid", "xtended-numbers", "json-float", "parser-combinators", "cbor", "map", "sha2"] : List Text },
 { name = "neuro", repo = "https://github.com/jesssekeogh/neuro", version = "v0.7.5", dependencies = ["sha2", "encoding", "account-identifier"] : List Text },
 { name = "bench", repo = "https://github.com/ZenVoich/bench", version = "d4ce879cf251a27fa7167b523eee622baca42a53", dependencies = ["base"] : List Text },
