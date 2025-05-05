@@ -306,6 +306,9 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         manifest.dependencies.push("rep-indy-hash".to_string());
     }
 
+    if manifest.name == "ic-assets" {
+        manifest.dependencies.push("memory-region".to_string());
+    }
 
     manifest.dependencies = manifest
         .dependencies
