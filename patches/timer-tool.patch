@@ -1,0 +1,38 @@
+diff --git a/src/migrations/v000_001_000/types.mo b/src/migrations/v000_001_000/types.mo
+index 66ec993..6339488 100644
+--- a/src/migrations/v000_001_000/types.mo
++++ b/src/migrations/v000_001_000/types.mo
+@@ -5,7 +5,7 @@
+ // use MigrationTypes.Current property instead
+ 
+ 
+-import BTreeLib "mo:stableheapbtreemap/BTree";
++import BTreeLib "mo:StableHeapBTreeMap/BTree";
+ import StarLib "mo:star/star";
+ import MapLib "mo:map/Map";
+ import Map "mo:map/Map";
+@@ -63,7 +63,7 @@ module {
+   public type ActionDetail = (ActionId, Action);
+ 
+   public type ExecutionReport = {
+-    action: ActionDetail; 
++    action: ActionDetail;
+     awaited: Bool
+   };
+ 
+@@ -121,7 +121,7 @@ module {
+     var nextActionId: Nat;
+     var maxExecutionDelay: Nat;
+     var lastCycleReport : ?Nat; //time of the last cycle report
+-    var lastActionIdReported: ?Nat; //last action ID reported, used to 
++    var lastActionIdReported: ?Nat; //last action ID reported, used to
+     var nextCycleActionId: ?Nat; //stores the actionId for the next cycle share action
+   };
+ 
+@@ -135,4 +135,4 @@ module {
+     maxExecutions: Nat;
+     cycles: Nat;
+   };
+-};
+\ No newline at end of file
++};

@@ -1,0 +1,96 @@
+diff --git a/src/AES.mo b/src/AES.mo
+index 15ab7ab..f8b24d5 100644
+--- a/src/AES.mo
++++ b/src/AES.mo
+@@ -1,6 +1,6 @@
+-import Array "mo:base-0.7.3/Array";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat32 "mo:base-0.7.3/Nat32";
++import Array "mo:base/Array";
++import Nat8 "mo:base/Nat8";
++import Nat32 "mo:base/Nat32";
+ import Binary "mo:encoding/Binary";
+ 
+ import Cipher "Cipher";
+@@ -123,13 +123,13 @@ module {
+         while (i < n4) {
+             let j = 4 * i;
+             // Nat32, big-endian.
+-            enc[i] := Util.nat8to32(key[j + 3]) 
++            enc[i] := Util.nat8to32(key[j + 3])
+                     | Util.nat8to32(key[j + 2]) << 8
+                     | Util.nat8to32(key[j + 1]) << 16
+                     | Util.nat8to32(key[j    ]) << 24;
+             i += 1;
+         };
+-        
++
+         while (i < enc.size()) {
+             var t = enc[i - 1];
+             if (i % n4 == 0) {
+@@ -149,7 +149,7 @@ module {
+             while (j < 4) {
+                 var x = enc[e + j];
+                 if (0 < i and i + 4 < n) {
+-                    x := td0[Nat8.toNat(sbox0[Nat32.toNat(x >> 24       )])] 
++                    x := td0[Nat8.toNat(sbox0[Nat32.toNat(x >> 24       )])]
+                        ^ td1[Nat8.toNat(sbox0[Nat32.toNat(x >> 16 & 0xff)])]
+                        ^ td2[Nat8.toNat(sbox0[Nat32.toNat(x >> 8  & 0xff)])]
+                        ^ td3[Nat8.toNat(sbox0[Nat32.toNat(x       & 0xff)])];
+diff --git a/src/HMAC.mo b/src/HMAC.mo
+index 1ae600a..894e25f 100644
+--- a/src/HMAC.mo
++++ b/src/HMAC.mo
+@@ -1,4 +1,4 @@
+-import Array "mo:base-0.7.3/Array";
++import Array "mo:base/Array";
+ import Hash "Hash";
+ import Util "Utilities";
+ 
+diff --git a/src/SHA/SHA2.mo b/src/SHA/SHA2.mo
+index 336ca3f..1ab6bc9 100644
+--- a/src/SHA/SHA2.mo
++++ b/src/SHA/SHA2.mo
+@@ -1,16 +1,16 @@
+-import Array "mo:base-0.7.3/Array";
+-import Buffer "mo:base-0.7.3/Buffer";
++import Array "mo:base/Array";
++import Buffer "mo:base/Buffer";
+ import Binary "mo:encoding/Binary";
+-import Iter "mo:base-0.7.3/Iter";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Nat64 "mo:base-0.7.3/Nat64";
++import Iter "mo:base/Iter";
++import Nat32 "mo:base/Nat32";
++import Nat64 "mo:base/Nat64";
+ 
+ import Hash "../Hash";
+ import Util "../Utilities";
+ 
+ /// For internal use only.
+ module {
+-    // First thirty-two bits of the fractional parts of the cube roots of the 
++    // First thirty-two bits of the fractional parts of the cube roots of the
+     // first sixty-four prime numbers.
+     private let K : [Nat32] = [
+         0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1,
+diff --git a/src/Utilities.mo b/src/Utilities.mo
+index 3df3660..6638fcc 100644
+--- a/src/Utilities.mo
++++ b/src/Utilities.mo
+@@ -1,11 +1,11 @@
+-import Array "mo:base-0.7.3/Array";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat32 "mo:base-0.7.3/Nat32";
++import Array "mo:base/Array";
++import Nat8 "mo:base/Nat8";
++import Nat32 "mo:base/Nat32";
+ 
+ module Utilities {
+     public func copy<T>(
+         n   : Nat, // Position to start writing.
+-        dst : [var T], 
++        dst : [var T],
+         src : [T]
+     ) : Nat {
+         let l = dst.size();

@@ -36,6 +36,18 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "stablehashmap",
         // References "" repository,
         "hello",
+        // Squatted and I can't even find the files it uploaded in the repo
+        "new-candb",
+        // Outdated copy
+        "motoko-serde",
+        // Outdated, replaced by "compression"
+        "deflate",
+
+        // references outdated dependency
+        "rxmodb",
+        "maf",
+        "mal",
+        "geecs",
     ];
     // Added to MOPS by different authors and not kept up with the original library
     let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];
@@ -216,21 +228,26 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("devefi-icp-ledger", "cca43c11f379d91e31a117d5eeefae17b5244073");
     bogus_versions.insert("chronotrinite", "7cce392a6f7bffd8171dff32d8ed7e8fb739c205");
     bogus_versions.insert("uuid", "b88101f0516847727ff45ea54688803c698935e5");
-    bogus_versions.insert("deflate", "385fcb93b089317fb1fb311e726d0c2b627c6fca");
     bogus_versions.insert("rbac-motoko", "52df8f889d8fbacbedae61a51a76aadb5ca906a9");
     bogus_versions.insert("liminal", "912a427ed0c73c96fd31f2cb7630e289b8cccc3e");
     bogus_versions.insert("certified-assets", "5955002be438dac42e2c9b0c225edd688c6c2f58");
     bogus_versions.insert("http-assets", "6bf74d202e80307e495dee2868c9db548e362f48");
+    bogus_versions.insert("ic-assets", "6bf74d202e80307e495dee2868c9db548e362f48");
 
     // Declares version 1.0.0, but doesn't match tagged version
     bogus_versions.insert("cbor", "c0e5dab976bc5aecc2b3867324febd7557c47346");
-
 
     // Copies
     bogus_versions.insert("web-api", "2eed277e0b72ab1ac5c8391aa68e215788ab97d4");
     bogus_versions.insert("web-io", "2eed277e0b72ab1ac5c8391aa68e215788ab97d4");
     bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
     bogus_versions.insert("motoko-serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
+    bogus_versions.insert("bit-map", "1c69e960723a49a9b1b8879a4acd30e37edb03e7");
+    bogus_versions.insert("memory-hashtable", "649bf0d2fccd23e9fc7bb85d19f59eea30198463");
+    bogus_versions.insert("memory-hashlist", "a57a2010aaeb599d708d279c68a39642318ebb61");
+    bogus_versions.insert("devefi", "3032d2471cba71b2b433bfe65673a9f485212c55");
+    bogus_versions.insert("openchat-bot-sdk", "768f1e8d52fc98dd2ae0b275b58cd1235954d27d");
+    bogus_versions.insert("server", "011677de33a188fa981d6eac42e09dbe65dabd00");
 
 
     if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
@@ -275,6 +292,7 @@ fn cleanup_dependency(dependency: String) -> String {
         "gt-json" => "json.mo".to_string(),
         "gt-encoding" => "encoding".to_string(),
         "cert" => "ic-certification".to_string(),
+        "deflate" => "compression".to_string(),
         _ => dependency,
     }
 }

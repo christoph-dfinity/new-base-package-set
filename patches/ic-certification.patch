@@ -1,0 +1,22 @@
+diff --git a/src/ReqData.mo b/src/ReqData.mo
+index 9dc0370..b4d9e17 100644
+--- a/src/ReqData.mo
++++ b/src/ReqData.mo
+@@ -14,7 +14,7 @@ import Iter "mo:base/Iter";
+ import Blob "mo:base/Blob";
+ import Debug "mo:base/Debug";
+ import Text "mo:base/Text";
+-import CV "mo:cbor/Value";
++import CV "mo:cbor/Types";
+ import CBOR "mo:cbor/Encoder";
+ import Nat64 "mo:base/Nat64";
+ import Array "mo:base/Array";
+@@ -42,7 +42,7 @@ module {
+   /// CBOR-encode the value (including the CBOR self-describing tag)
+   public func encodeCBOR(r : R) : Blob {
+     let v : CV.Value = #majorType6{ tag = 55799; value = fromR(r) };
+-    
++
+     switch (CBOR.encode(v)) {
+       case (#ok(a)) { Blob.fromArray(a)};
+       case (#err(e)) { Debug.trap(debug_show e) };
