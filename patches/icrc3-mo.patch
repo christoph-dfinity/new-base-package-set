@@ -1,0 +1,243 @@
+diff --git a/src/lib.mo b/src/lib.mo
+index 5f8a384..01bc37b 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -22,12 +22,12 @@ import Nat8 "mo:base/Nat8";
+ import Nat "mo:base/Nat";
+ import Text "mo:base/Text";
+ import Vec "mo:vector";
+-import Map "mo:map9/Map";
+-import Set "mo:map9/Set";
++import Map "mo:map/Map";
++import Set "mo:map/Set";
+ import RepIndy "mo:rep-indy-hash";
+ import HelperLib "helper";
+ 
+-import MTree "mo:cert/MerkleTree";
++import MTree "mo:ic-certification/MerkleTree";
+ import Service "service";
+ import ClassPlusLib "mo:class-plus";
+ 
+@@ -111,19 +111,19 @@ module {
+     onInitialize: ?(ICRC3 -> async*());
+     onStorageChange : ((State) ->())
+   }) :()-> ICRC3{
+-    
++
+     D.print("Subscriber Init");
+     switch(config.pullEnvironment){
+       case(?val) {
+         D.print("pull environment has value");
+-        
++
+       };
+       case(null) {
+         D.print("pull environment is null");
+       };
+-    };  
++    };
+     ClassPlusLib.ClassPlus<system,
+-      ICRC3, 
++      ICRC3,
+       State,
+       InitArgs,
+       Environment>({config with constructor = ICRC3}).get;
+@@ -211,7 +211,7 @@ module {
+       let current_size = Vec.size(state.ledger);
+ 
+       debug if(debug_channel.add_record) D.print("current_size" # debug_show(current_size));
+-      
++
+ 
+       let last_rec : ?Transaction = if(current_size == 0){
+         null;
+@@ -277,7 +277,7 @@ module {
+ 
+ 
+             switch(environment.get_certificate_store, state.latest_hash){
+-        
++
+         case(?gcs, ?latest_hash){
+           debug if(debug_channel.add_record) D.print("have store" # debug_show(gcs()));
+           let ct = CertTree.Ops(gcs());
+@@ -287,9 +287,9 @@ module {
+         };
+         case(_){};
+       };
+-      
++
+       switch(environment.updated_certification, state.latest_hash){
+-        
++
+         case(?uc, ?latest_hash){
+           debug if(debug_channel.add_record) D.print("have cert update");
+           ignore uc(latest_hash, state.lastIndex);
+@@ -297,7 +297,7 @@ module {
+         case(_){};
+       };
+ 
+- 
++
+ 
+       return state.lastIndex;
+     };
+@@ -313,7 +313,7 @@ module {
+     /// - The archive index
+     public func get_archives(request: Service.GetArchivesArgs) : Service.GetArchivesResult {
+       let results = Vec.new<GetArchivesResultItem>();
+-       
++
+       var bFound = switch(request.from){
+         case(null) true;
+         case(?val) false;
+@@ -369,7 +369,7 @@ module {
+     /// - The data certificate (nullable)
+     public func get_tip_certificate() : ?Service.DataCertificate{
+       debug if(debug_channel.certificate) D.print("in get tip certificate");
+-     
++
+       debug if(debug_channel.certificate) D.print("have env");
+       switch(environment.get_certificate_store){
+         case(null){};
+@@ -456,7 +456,7 @@ module {
+                     compute_allocation = null;
+           }}));
+         };
+-        case(_){};    
++        case(_){};
+       };
+ 
+       return;
+@@ -474,7 +474,7 @@ module {
+       return;
+     };
+ 
+- 
++
+     public func update_settings(settings : [UpdateSetting]) : [Bool]{
+ 
+     let results = Vec.new<Bool>();
+@@ -581,7 +581,7 @@ module {
+           case(null) {D.trap("unreachable")}; //unreachable;
+           case(?val) val;
+         };
+-        
++
+         if(lastArchive.1.length >= state.constants.archiveProperties.maxRecordsInArchiveInstance){
+           //this one is full, create a new archive
+           debug if(debug_channel.clean_up) D.print("Need a new canister");
+@@ -609,7 +609,7 @@ module {
+           ((Principal.fromActor(newArchive), newItem), state.constants.archiveProperties.maxRecordsInArchiveInstance);
+         } else {
+           debug if(debug_channel.clean_up) D.print("just giving stats");
+-          
++
+           let capacity = if(state.constants.archiveProperties.maxRecordsInArchiveInstance >= lastArchive.1.length){
+             Nat.sub(state.constants.archiveProperties.maxRecordsInArchiveInstance,  lastArchive.1.length);
+           } else {
+@@ -816,7 +816,7 @@ module {
+ 
+       for(thisArgs in args.vals()){
+         if(thisArgs.start < state.firstIndex){
+-          
++
+           debug if(debug_channel.get_transactions) D.print("archive settings are " # debug_show(Iter.toArray(Map.entries(state.archives))));
+           var seeking = thisArgs.start;
+           label archive for(thisItem in Map.entries(state.archives)){
+@@ -876,4 +876,4 @@ module {
+       }
+     };
+   };
+-};
+\ No newline at end of file
++};
+diff --git a/src/migrations/v000_001_000/lib.mo b/src/migrations/v000_001_000/lib.mo
+index e3a43a7..4398e27 100644
+--- a/src/migrations/v000_001_000/lib.mo
++++ b/src/migrations/v000_001_000/lib.mo
+@@ -5,7 +5,7 @@ import D "mo:base/Debug";
+ import Principal "mo:base/Principal";
+ 
+ import Vec "mo:vector";
+-import Map "mo:map9/Map";
++import Map "mo:map/Map";
+ 
+ module {
+ 
+@@ -13,7 +13,7 @@ module {
+ 
+   public func upgrade(prevmigration_state: MigrationTypes.State, args: ?MigrationTypes.Args, caller: Principal, canister: Principal): MigrationTypes.State {
+ 
+-    
++
+ 
+     let state : MigrationTypes.Current.State = {
+       var lastIndex = 0;
+@@ -59,4 +59,4 @@ module {
+ 
+ 
+ 
+-};
+\ No newline at end of file
++};
+diff --git a/src/migrations/v000_001_000/types.mo b/src/migrations/v000_001_000/types.mo
+index 9299fc5..985ff47 100644
+--- a/src/migrations/v000_001_000/types.mo
++++ b/src/migrations/v000_001_000/types.mo
+@@ -14,21 +14,21 @@ import Nat "mo:base/Nat";
+ import Nat32 "mo:base/Nat32";
+ import D "mo:base/Debug";
+ import SW "mo:stable-write-only";
+-import Map "mo:map9/Map";
+-import CertTreeLib "mo:cert/CertTree";
++import Map "mo:map/Map";
++import CertTreeLib "mo:ic-certification/CertTree";
+ 
+ module {
+ 
+   //public let CandyTypes = CandyTypesLib;
+   public let CertTree = CertTreeLib;
+ 
+-  public type Value = { 
+-    #Blob : Blob; 
+-    #Text : Text; 
++  public type Value = {
++    #Blob : Blob;
++    #Text : Text;
+     #Nat : Nat;
+     #Int : Int;
+-    #Array : [Value]; 
+-    #Map : [(Text, Value)]; 
++    #Array : [Value];
++    #Map : [(Text, Value)];
+   };
+ 
+   public type TxIndex = Nat;
+@@ -78,7 +78,7 @@ module {
+     supportedBlocks: [BlockType];
+     ledgerCanister : Principal;
+     bCleaning : Bool;
+-   
++
+     constants : {
+       archiveProperties: {
+         maxActiveRecords : Nat;
+@@ -153,7 +153,7 @@ module {
+     // Total number of transactions in the
+     // transaction log
+     log_length : Nat;
+-    
++
+     blocks : [{ id : Nat; block : Value }];
+ 
+     archived_blocks : [ArchivedTransactionResponse];
+@@ -238,6 +238,6 @@ module {
+       get_certificate_store : ?(() -> CertTree.Store); //needed to pass certificate store to the class
+     };
+ 
+-    
+ 
+-};
+\ No newline at end of file
++
++};

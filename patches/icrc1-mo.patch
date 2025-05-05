@@ -1,0 +1,193 @@
+diff --git a/src/ICRC1/Utils.mo b/src/ICRC1/Utils.mo
+index 6c824e2..27b73d5 100644
+--- a/src/ICRC1/Utils.mo
++++ b/src/ICRC1/Utils.mo
+@@ -19,7 +19,7 @@ import Itertools "mo:itertools/Iter";
+ import STMap "mo:StableTrieMap";
+ import Vec "mo:vector";
+ 
+-import Map "mo:map9/Map";
++import Map "mo:map/Map";
+ 
+ import Account "Account";
+ import MigrationTypes "./migrations/types";
+@@ -32,7 +32,7 @@ module {
+ 
+     let ahash = MigrationTypes.Current.ahash;
+ 
+-    
++
+ 
+     public let default_standard : MigrationTypes.Current.SupportedStandard = {
+         name = "ICRC-1";
+@@ -80,12 +80,12 @@ module {
+     };
+ 
+     public func get_time64(environment: Environment) : Nat64{
+-      
++
+       return (switch(environment.get_time){
+         case(null)  Time.now();
+         case(?get_time) get_time();
+-      }) 
+-      |> Int.abs(_) 
++      })
++      |> Int.abs(_)
+       |> Nat64.fromNat(_);
+     };
+ 
+@@ -96,7 +96,7 @@ module {
+         owner : Principal,
+         tx_kind: MigrationTypes.Current.TxKind,
+     ) : MigrationTypes.Current.TransactionRequest {
+-        
++
+         let from = {
+             owner;
+             subaccount = args.from_subaccount;
+@@ -163,7 +163,7 @@ module {
+                 case (#transfer) { ?override_fee };
+                 case (_) null;
+             };
+-            
++
+             index;
+             timestamp = Nat64.fromNat(Int.abs(Time.now()));
+         };
+@@ -228,7 +228,7 @@ module {
+             };
+         };
+ 
+-        
++
+     };
+ 
+     public func insert_map(top : ?Value, key : Text, val : Value) : Result.Result<Value, Text> {
+@@ -247,7 +247,7 @@ module {
+               } else {
+                 Vec.add<(Text, Value)>(vecMap, thisItem);
+               };
+-              
++
+             };
+             if(bFound == false){
+               Vec.add<(Text, Value)>(vecMap, (key, val));
+@@ -263,7 +263,7 @@ module {
+     public func transfer_balance(
+         state : MigrationTypes.Current.State,
+         tx_req : MigrationTypes.Current.TransactionRequest,
+-    ) { 
++    ) {
+         let { amount; from; to;} = tx_req;
+ 
+         update_balance(
+@@ -315,5 +315,5 @@ module {
+         state._burned_tokens += amount;
+     };
+ 
+-    
++
+ };
+diff --git a/src/ICRC1/migrations/v000_001_000/lib.mo b/src/ICRC1/migrations/v000_001_000/lib.mo
+index 3a08fdb..5a857bf 100644
+--- a/src/ICRC1/migrations/v000_001_000/lib.mo
++++ b/src/ICRC1/migrations/v000_001_000/lib.mo
+@@ -1,7 +1,7 @@
+ import D "mo:base/Debug";
+ import Opt "mo:base/Option";
+ import Itertools "mo:itertools/Iter";
+-import Map "mo:map9/Map";
++import Map "mo:map/Map";
+ import Vec "mo:vector";
+ 
+ import Account "../../Account";
+@@ -78,7 +78,7 @@ module {
+       case(null) [];
+       case(?val) val.local_transactions;
+     };
+-    
++
+      var _burned_tokens = switch(advanced_settings){
+         case(null) 0;
+         case(?val) val.burned_tokens;
+@@ -132,7 +132,7 @@ module {
+       var fee_collector_emitted = false;
+     };
+ 
+-    
++
+ 
+     return #v0_1_0(#data(state));
+   };
+@@ -142,4 +142,4 @@ module {
+     return #v0_0_0(#data);
+   };
+ 
+-};
+\ No newline at end of file
++};
+diff --git a/src/ICRC1/migrations/v000_001_000/types.mo b/src/ICRC1/migrations/v000_001_000/types.mo
+index f87cc65..7f24f97 100644
+--- a/src/ICRC1/migrations/v000_001_000/types.mo
++++ b/src/ICRC1/migrations/v000_001_000/types.mo
+@@ -8,8 +8,8 @@ import D "mo:base/Debug";
+ import Order "mo:base/Order";
+ import Principal "mo:base/Principal";
+ import Result "mo:base/Result";
+-import MapLib "mo:map9/Map";
+-import SetLib "mo:map9/Set";
++import MapLib "mo:map/Map";
++import SetLib "mo:map/Set";
+ import Star "mo:star/star";
+ import VecLib "mo:vector";
+ 
+@@ -17,7 +17,7 @@ module {
+ 
+   /// `TxIndex`
+   ///
+-  /// A type alias representing the index of a transaction in the transaction log.  
++  /// A type alias representing the index of a transaction in the transaction log.
+   public type TxIndex = Nat;
+ 
+   public let Vector = VecLib;
+@@ -307,7 +307,7 @@ module {
+       #TemporarilyUnavailable;
+       #GenericError : { error_code : Nat; message : Text };
+   };
+-  
++
+   /// `TransferResult`
+   ///
+   /// Encapsulates the result of a transfer operation, which can be either the index of the completed transaction
+@@ -352,7 +352,7 @@ module {
+   /// Returns:
+   /// - `Bool`: True if accounts are equal, False otherwise.
+   public func account_eq(a : Account, b : Account) : Bool{
+-    
++
+     if(a.owner != b.owner) return false;
+     switch(a.subaccount, b.subaccount){
+       case(null, null){};
+@@ -436,13 +436,13 @@ module {
+   /// Provides additional settings that may be necessary for canister initialization, such as data necessary for migration from another ledger service.
+   public type AdvancedSettings = {
+       /// needed if a token ever needs to be migrated to a new canister
+-      burned_tokens : Balance; 
++      burned_tokens : Balance;
+       minted_tokens : Balance;
+       fee_collector_block : Nat;
+       fee_collector_emitted : Bool;
+       existing_balances: [(Account, Balance)]; //only used for migration..do not use
+       local_transactions: [Transaction];
+-      
++
+   };
+ 
+   /// `AccountBalances`
+@@ -454,4 +454,4 @@ module {
+   ///
+   /// Represents a callback function type that notifiers will implement to be alerted to token transfer events.
+   public type TokenTransferredListener = <system>(Transaction, trxid: Nat) -> ();
+-};
+\ No newline at end of file
++};

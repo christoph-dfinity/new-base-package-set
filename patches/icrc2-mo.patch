@@ -1,0 +1,84 @@
+diff --git a/src/ICRC2/migrations/v000_001_000/lib.mo b/src/ICRC2/migrations/v000_001_000/lib.mo
+index a507bb1..61cc926 100644
+--- a/src/ICRC2/migrations/v000_001_000/lib.mo
++++ b/src/ICRC2/migrations/v000_001_000/lib.mo
+@@ -6,8 +6,8 @@ import Opt "mo:base/Option";
+ import Itertools "mo:itertools/Iter";
+ 
+ import Vec "mo:vector";
+-import Map "mo:map9/Map";
+-import Set "mo:map9/Set";
++import Map "mo:map/Map";
++import Set "mo:map/Set";
+ 
+ module {
+ 
+@@ -57,10 +57,10 @@ module {
+       case(null) [];
+       case(?val) val.existing_approvals;
+     };
+-    
++
+     let approvals = Map.fromIter<(Account, Account), ApprovalInfo>(existing_approvals.vals(), apphash);
+ 
+-    
++
+ 
+     let state : MigrationTypes.Current.State = {
+       ledger_info = {
+@@ -78,7 +78,7 @@ module {
+       };
+     };
+ 
+-    
++
+ 
+     return #v0_1_0(#data(state));
+   };
+@@ -88,4 +88,4 @@ module {
+     return #v0_0_0(#data);
+   };
+ 
+-};
+\ No newline at end of file
++};
+diff --git a/src/ICRC2/migrations/v000_001_000/types.mo b/src/ICRC2/migrations/v000_001_000/types.mo
+index 6985d75..7247f33 100644
+--- a/src/ICRC2/migrations/v000_001_000/types.mo
++++ b/src/ICRC2/migrations/v000_001_000/types.mo
+@@ -10,8 +10,8 @@ import Principal "mo:base/Principal";
+ import Result "mo:base/Result";
+ import Star "mo:star/star";
+ 
+-import MapLib "mo:map9/Map";
+-import SetLib "mo:map9/Set";
++import MapLib "mo:map/Map";
++import SetLib "mo:map/Set";
+ import VecLib "mo:vector";
+ 
+ import ICRC1 "mo:icrc1-mo/ICRC1/";
+@@ -81,7 +81,7 @@ module {
+     /// Optional fee calculating function.
+     get_fee : ?((State, Environment, ApproveArgs) -> Balance);
+     /// Optional synchronous or asynchronous functions triggered when transferring from an account.
+-    
++
+   };
+ 
+   public type CanTransferFrom = ?{
+@@ -261,7 +261,7 @@ module {
+     fee : ?Nat;
+     calculated_fee: Nat;
+     expires_at : ?Nat64;
+-    created_at_time : ?Nat64; 
++    created_at_time : ?Nat64;
+   };
+ 
+   /// TransferFromNotification captures the necessary information for a transfer from event.
+@@ -335,4 +335,4 @@ module {
+   };
+ 
+ 
+-};
+\ No newline at end of file
++};

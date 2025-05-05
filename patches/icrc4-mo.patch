@@ -1,0 +1,107 @@
+diff --git a/src/ICRC4/migrations/v000_001_000/lib.mo b/src/ICRC4/migrations/v000_001_000/lib.mo
+index 9ad7ffc..3265b8e 100644
+--- a/src/ICRC4/migrations/v000_001_000/lib.mo
++++ b/src/ICRC4/migrations/v000_001_000/lib.mo
+@@ -6,8 +6,8 @@ import Opt "mo:base/Option";
+ import Itertools "mo:itertools/Iter";
+ 
+ import Vec "mo:vector";
+-import Map "mo:map9/Map";
+-import Set "mo:map9/Set";
++import Map "mo:map/Map";
++import Set "mo:map/Set";
+ 
+ module {
+ 
+@@ -40,7 +40,7 @@ module {
+       };
+     };
+ 
+-    
++
+ 
+     let state : MigrationTypes.Current.State = {
+       ledger_info = {
+@@ -51,7 +51,7 @@ module {
+       };
+     };
+ 
+-    
++
+ 
+     return #v0_1_0(#data(state));
+   };
+@@ -61,4 +61,4 @@ module {
+     return #v0_0_0(#data);
+   };
+ 
+-};
+\ No newline at end of file
++};
+diff --git a/src/ICRC4/migrations/v000_001_000/types.mo b/src/ICRC4/migrations/v000_001_000/types.mo
+index 66656b6..e041895 100644
+--- a/src/ICRC4/migrations/v000_001_000/types.mo
++++ b/src/ICRC4/migrations/v000_001_000/types.mo
+@@ -8,8 +8,8 @@ import Principal "mo:base/Principal";
+ import Result "mo:base/Result";
+ import Star "mo:star/star";
+ 
+-import MapLib "mo:map9/Map";
+-import SetLib "mo:map9/Set";
++import MapLib "mo:map/Map";
++import SetLib "mo:map/Set";
+ import VecLib "mo:vector";
+ 
+ import ICRC1 "mo:icrc1-mo/ICRC1/";
+@@ -44,7 +44,7 @@ module {
+       #BadFee : { expected_fee : Nat };
+       #InsufficientFunds : { balance : Nat };
+       #GenericBatchError : { error_code : Nat; message : Text };
+-      
++
+       #TemporarilyUnavailable;
+       #TooOld;
+       #TooManyRequests : { limit: Nat };
+@@ -100,7 +100,7 @@ module {
+     #Async : <system>(notification: TransferBatchNotification) -> async* Star.Star<TransferBatchNotification, TransferBatchResults>;
+   };
+ 
+-  
++
+ 
+   /// Environment defines the context in which the token ledger operates.
+   public type Environment = {
+@@ -109,7 +109,7 @@ module {
+     /// Optional fee calculating function.
+     get_fee : ?GetFee;
+     /// Optional synchronous or asynchronous functions triggered when transferring from an account.
+-    
++
+   };
+ 
+   public type GetFee = (State, Environment, TransferBatchNotification, ICRC1.TransferArgs) -> Balance;
+@@ -146,7 +146,7 @@ module {
+   /// Transaction is a record that logs a transaction action.
+   public type Transaction = ICRC1.Transaction;
+ 
+-  
++
+   /// LedgerInfo contains mutable configurations for the ledger.
+   public type LedgerInfo = {
+     var max_balances : Nat;
+@@ -155,7 +155,7 @@ module {
+     var metadata : ?Value;
+   };
+ 
+-  
++
+ 
+   /// State represents the entire state of the ledger, containing ledger configurations, approvals, and indices.
+   public type State = {
+@@ -170,4 +170,4 @@ module {
+   };
+ 
+ 
+-};
+\ No newline at end of file
++};

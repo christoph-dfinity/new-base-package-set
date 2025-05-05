@@ -42,12 +42,21 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "motoko-serde",
         // Outdated, replaced by "compression"
         "deflate",
-
         // references outdated dependency
         "rxmodb",
         "maf",
         "mal",
         "geecs",
+        // Doesn't compile
+        "memory-buffer",
+        "memory-hashtable",
+        "memory-hashlist",
+        "icrc1",
+        "motoko-certified-assets",
+        "candid_stringify",
+        "web-api",
+        "http-loopback",
+        "web-io",
     ];
     // Added to MOPS by different authors and not kept up with the original library
     let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];
@@ -194,7 +203,6 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("xml", "acb9815b88e835425e24ab64eb19076eec6a3c06");
     bogus_versions.insert("http-parser", "0.3.0");
     bogus_versions.insert("asn1", "a32d730a36f01c48e86c40d02f6cf226d224a66b");
-    bogus_versions.insert("memory-buffer", "a98abe76b54272a4aeba8e133d78161f5399ca47");
     bogus_versions.insert("stream", "141bec30d1f78d2a31dac81c66306c399727c3db");
     bogus_versions.insert("rxmodb", "a3b55e054336323477e3608440c6f48cfac5b754");
     bogus_versions.insert(
@@ -225,13 +233,22 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("icrc1", "0800c7ac03026a4c5a72eeb357cbbd0aca2f0fb4");
     bogus_versions.insert("account", "a718d61a8a4086ce13056681567535f975ac0ddf");
     bogus_versions.insert("rechain", "3d3203c0fb44407912868515089516e201495e83");
-    bogus_versions.insert("devefi-icrc-ledger", "7d5cacb1d3dff31f8e4aadf40f2004ac50d9b592");
-    bogus_versions.insert("devefi-icp-ledger", "cca43c11f379d91e31a117d5eeefae17b5244073");
+    bogus_versions.insert(
+        "devefi-icrc-ledger",
+        "7d5cacb1d3dff31f8e4aadf40f2004ac50d9b592",
+    );
+    bogus_versions.insert(
+        "devefi-icp-ledger",
+        "cca43c11f379d91e31a117d5eeefae17b5244073",
+    );
     bogus_versions.insert("chronotrinite", "7cce392a6f7bffd8171dff32d8ed7e8fb739c205");
     bogus_versions.insert("uuid", "b88101f0516847727ff45ea54688803c698935e5");
     bogus_versions.insert("rbac-motoko", "52df8f889d8fbacbedae61a51a76aadb5ca906a9");
     bogus_versions.insert("liminal", "912a427ed0c73c96fd31f2cb7630e289b8cccc3e");
-    bogus_versions.insert("certified-assets", "5955002be438dac42e2c9b0c225edd688c6c2f58");
+    bogus_versions.insert(
+        "certified-assets",
+        "5955002be438dac42e2c9b0c225edd688c6c2f58",
+    );
     bogus_versions.insert("http-assets", "6bf74d202e80307e495dee2868c9db548e362f48");
     bogus_versions.insert("ic-assets", "6bf74d202e80307e495dee2868c9db548e362f48");
 
@@ -244,12 +261,12 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
     bogus_versions.insert("motoko-serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
     bogus_versions.insert("bit-map", "1c69e960723a49a9b1b8879a4acd30e37edb03e7");
-    bogus_versions.insert("memory-hashtable", "649bf0d2fccd23e9fc7bb85d19f59eea30198463");
-    bogus_versions.insert("memory-hashlist", "a57a2010aaeb599d708d279c68a39642318ebb61");
     bogus_versions.insert("devefi", "3032d2471cba71b2b433bfe65673a9f485212c55");
-    bogus_versions.insert("openchat-bot-sdk", "768f1e8d52fc98dd2ae0b275b58cd1235954d27d");
+    bogus_versions.insert(
+        "openchat-bot-sdk",
+        "768f1e8d52fc98dd2ae0b275b58cd1235954d27d",
+    );
     bogus_versions.insert("server", "011677de33a188fa981d6eac42e09dbe65dabd00");
-
 
     if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
         manifest.version = actual_version.to_string();
@@ -285,6 +302,10 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     if manifest.name == "rep-indy-hash" {
         manifest.dependencies.push("motoko_numbers".to_string());
     }
+    if manifest.name == "certified-assets" {
+        manifest.dependencies.push("rep-indy-hash".to_string());
+    }
+
 
     manifest.dependencies = manifest
         .dependencies
