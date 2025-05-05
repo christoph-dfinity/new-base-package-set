@@ -216,6 +216,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("devefi-icrc-ledger", "7d5cacb1d3dff31f8e4aadf40f2004ac50d9b592");
     bogus_versions.insert("devefi-icp-ledger", "cca43c11f379d91e31a117d5eeefae17b5244073");
     bogus_versions.insert("chronotrinite", "7cce392a6f7bffd8171dff32d8ed7e8fb739c205");
+    bogus_versions.insert("uuid", "b88101f0516847727ff45ea54688803c698935e5");
 
     if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
         manifest.version = actual_version.to_string();

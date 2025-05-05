@@ -1,0 +1,145 @@
+diff --git a/src/Base32.mo b/src/Base32.mo
+index 947eb3c..d72d682 100644
+--- a/src/Base32.mo
++++ b/src/Base32.mo
+@@ -1,12 +1,12 @@
+-import Array "mo:base-0.7.3/Array";
++import Array "mo:base/Array";
+ import Array_ "mo:array/Array";
+-import Buffer "mo:base-0.7.3/Buffer";
+-import Char "mo:base-0.7.3/Char";
+-import Iter "mo:base-0.7.3/Iter";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Result "mo:base-0.7.3/Result";
+-import Text "mo:base-0.7.3/Text";
++import Buffer "mo:base/Buffer";
++import Char "mo:base/Char";
++import Iter "mo:base/Iter";
++import Nat8 "mo:base/Nat8";
++import Nat32 "mo:base/Nat32";
++import Result "mo:base/Result";
++import Text "mo:base/Text";
+ 
+ module Base32 {
+     private let encodeStd = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+@@ -86,9 +86,9 @@ module Base32 {
+         255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+         255, 255,  26,  27,  28,  29,  30,  31, 255, 255, 255, 255, 255, 255, 255, 255,
+         255,   0,   1,   2,   3,   4,   5,   6,   7,   8,   9,   10,  11,  12, 13,  14,
+-         15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25, 255, 255, 255, 255, 255, 
+-        255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 
+-        255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 
++         15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25, 255, 255, 255, 255, 255,
++        255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
++        255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+         255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+         255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+         255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+diff --git a/src/Base64.mo b/src/Base64.mo
+index 612e083..2526afb 100644
+--- a/src/Base64.mo
++++ b/src/Base64.mo
+@@ -1,9 +1,9 @@
+-import Array "mo:base-0.7.3/Array";
+-import Nat "mo:base-0.7.3/Nat";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Nat64 "mo:base-0.7.3/Nat64";
+-import Result "mo:base-0.7.3/Result";
++import Array "mo:base/Array";
++import Nat "mo:base/Nat";
++import Nat8 "mo:base/Nat8";
++import Nat32 "mo:base/Nat32";
++import Nat64 "mo:base/Nat64";
++import Result "mo:base/Result";
+ 
+ module Base64 {
+     public module StdEncoding {
+diff --git a/src/Binary.mo b/src/Binary.mo
+index b79e767..597b9df 100644
+--- a/src/Binary.mo
++++ b/src/Binary.mo
+@@ -1,9 +1,9 @@
+-import Array "mo:base-0.7.3/Array";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat16 "mo:base-0.7.3/Nat16";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Nat64 "mo:base-0.7.3/Nat64";
+-import Result "mo:base-0.7.3/Result";
++import Array "mo:base/Array";
++import Nat8 "mo:base/Nat8";
++import Nat16 "mo:base/Nat16";
++import Nat32 "mo:base/Nat32";
++import Nat64 "mo:base/Nat64";
++import Result "mo:base/Result";
+ 
+ module {
+     public type ByteOrder = {
+@@ -15,10 +15,10 @@ module {
+ 	    toNat64 : ([Nat8]) -> Nat64;
+     };
+ 
+-    private func nat16to8 (n : Nat16) : Nat8 = Nat8.fromIntWrap(Nat16.toNat(n)); 
++    private func nat16to8 (n : Nat16) : Nat8 = Nat8.fromIntWrap(Nat16.toNat(n));
+     private func nat8to16 (n : Nat8) : Nat16 = Nat16.fromIntWrap(Nat8.toNat(n));
+ 
+-    private func nat32to8 (n : Nat32) : Nat8 = Nat8.fromIntWrap(Nat32.toNat(n)); 
++    private func nat32to8 (n : Nat32) : Nat8 = Nat8.fromIntWrap(Nat32.toNat(n));
+     private func nat8to32 (n : Nat8) : Nat32 = Nat32.fromIntWrap(Nat8.toNat(n));
+ 
+     private func nat64to8 (n : Nat64) : Nat8 = Nat8.fromIntWrap(Nat64.toNat(n));
+diff --git a/src/Hex.mo b/src/Hex.mo
+index 5759308..52e5d35 100644
+--- a/src/Hex.mo
++++ b/src/Hex.mo
+@@ -1,18 +1,18 @@
+-import Array "mo:base-0.7.3/Array";
+-import Blob "mo:base-0.7.3/Blob";
+-import Char "mo:base-0.7.3/Char";
+-import Hash "mo:base-0.7.3/Hash";
+-import Iter "mo:base-0.7.3/Iter";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Result "mo:base-0.7.3/Result";
+-import Text "mo:base-0.7.3/Text";
++import Array "mo:base/Array";
++import Blob "mo:base/Blob";
++import Char "mo:base/Char";
++import Hash "mo:base/Hash";
++import Iter "mo:base/Iter";
++import Nat8 "mo:base/Nat8";
++import Result "mo:base/Result";
++import Text "mo:base/Text";
+ 
+ module {
+     private let base : Nat8   = 16;
+     private let hex  : [Char] = [
+-        '0', '1', '2', '3', 
+-        '4', '5', '6', '7', 
+-        '8', '9', 'a', 'b', 
++        '0', '1', '2', '3',
++        '4', '5', '6', '7',
++        '8', '9', 'a', 'b',
+         'c', 'd', 'e', 'f',
+     ];
+ 
+@@ -53,7 +53,7 @@ module {
+             for (i in hex.keys()) {
+                 let h = hex[i];
+                 if (h != c and h != toLower(c)) {
+-                    return false;  
++                    return false;
+                 };
+             };
+         };
+@@ -70,8 +70,8 @@ module {
+     // Converts an array of bytes to their corresponding hexidecimal format.
+     public func encode(ns : [Nat8]) : Hex {
+         Array.foldRight<Nat8, Hex>(
+-            ns, 
+-            "", 
++            ns,
++            "",
+             func(n : Nat8, acc : Hex) : Hex {
+                 encodeByte(n) # acc;
+             },
