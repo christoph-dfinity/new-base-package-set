@@ -1,0 +1,35 @@
+diff --git a/src/lib.mo b/src/lib.mo
+index 54dc35f..a5b6e33 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -14,18 +14,18 @@ module {
+ 
+     public type Mem = {
+             var last_indexed_tx : Nat;
+-          
++
+         };
+ 
+     type TransactionUnordered = {
+             start : Nat;
+             transactions : [Ledger.Transaction];
+         };
+-        
++
+     public func Mem() : Mem {
+             return {
+                 var last_indexed_tx = 0;
+-               
++
+             };
+         };
+ 
+@@ -116,7 +116,7 @@ module {
+             if (started) ignore Timer.setTimer(#seconds 2, cycle_shell);
+         };
+ 
+-        public func start() {
++        public func start() : async () {
+             if (started) Debug.trap("already started");
+             started := true;
+             ignore Timer.setTimer(#seconds 2, cycle_shell);

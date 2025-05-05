@@ -1,0 +1,106 @@
+diff --git a/src/Combinators.mo b/src/Combinators.mo
+index 68ca499..1a45af1 100644
+--- a/src/Combinators.mo
++++ b/src/Combinators.mo
+@@ -1,8 +1,8 @@
+-import Char "mo:base-0.7.3/Char";
+-import Iter "mo:base-0.7.3/Iter";
+-import List "mo:base-0.7.3/List";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Text "mo:base-0.7.3/Text";
++import Char "mo:base/Char";
++import Iter "mo:base/Iter";
++import List "mo:base/List";
++import Nat32 "mo:base/Nat32";
++import Text "mo:base/Text";
+ 
+ import P "Parser";
+ import L "List";
+@@ -26,7 +26,7 @@ module {
+         };
+     };
+ 
+-    // Applies one parser after another, with the results from the two parsers being combined as pairs. 
++    // Applies one parser after another, with the results from the two parsers being combined as pairs.
+     public func seq<T, A, B>(
+         parserA : Parser<T, A>,
+         parserB : Parser<T, B>,
+@@ -36,7 +36,7 @@ module {
+             func (a : A) : Parser<T, (A, B)> {
+                 bind(
+                     parserB,
+-                    func (b : B) : Parser<T, (A, B)> { 
++                    func (b : B) : Parser<T, (A, B)> {
+                         P.result((a, b));
+                     },
+                 );
+@@ -141,7 +141,7 @@ module {
+         parserA : Parser<T, A>,
+     ) : Parser<T, List<A>> {
+         choose(
+-            // Same as <~> parserA (many parserA), but not 
++            // Same as <~> parserA (many parserA), but not
+             // possible because of recursive call.
+             bind(
+                 parserA,
+@@ -163,19 +163,19 @@ module {
+         parserA : Parser<T, A>,
+     ) : Parser<T, List<A>> {
+         cons(
+-            parserA, 
++            parserA,
+             many(parserA),
+         );
+     };
+ 
+-    // Recognises non-empty sequences of a given parser p, but different in that the instances of p are separated by a 
++    // Recognises non-empty sequences of a given parser p, but different in that the instances of p are separated by a
+     // parser sep whose result values are ignored.
+     public func sepBy1<T, A, B>(
+         parserA : Parser<T, A>,
+         parserB : Parser<T, B>, // sep
+     ) : Parser<T, List<A>> {
+         cons(
+-            parserA, 
++            parserA,
+             many(right(parserB, parserA)),
+         );
+     };
+@@ -187,7 +187,7 @@ module {
+         parserC : Parser<T, C>, // right bracket
+     ) : Parser<T, B> {
+         right(
+-            parserA, 
++            parserA,
+             left(parserB, parserC),
+         );
+     };
+diff --git a/src/List.mo b/src/List.mo
+index 52e9728..02dbd21 100644
+--- a/src/List.mo
++++ b/src/List.mo
+@@ -1,5 +1,5 @@
+-import Iter "mo:base-0.7.3/Iter";
+-import List "mo:base-0.7.3/List";
++import Iter "mo:base/Iter";
++import List "mo:base/List";
+ 
+ module {
+     private type List<T> = List.List<T>;
+@@ -28,4 +28,4 @@ module {
+             };
+         };
+     };
+-}
+\ No newline at end of file
++}
+diff --git a/src/Parser.mo b/src/Parser.mo
+index 66ca10d..4d652d7 100644
+--- a/src/Parser.mo
++++ b/src/Parser.mo
+@@ -1,4 +1,4 @@
+-import List "mo:base-0.7.3/List";
++import List "mo:base/List";
+ 
+ module Parser {
+     private type List<T> = List.List<T>;

@@ -1,0 +1,59 @@
+diff --git a/src/Source.mo b/src/Source.mo
+index d94595b..1b1e375 100644
+--- a/src/Source.mo
++++ b/src/Source.mo
+@@ -1,12 +1,12 @@
+-import Array "mo:base-0.7.3/Array";
++import Array "mo:base/Array";
+ import Binary "mo:encoding/Binary";
+-import Int "mo:base-0.7.3/Int";
++import Int "mo:base/Int";
+ import IO "mo:io/IO";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat16 "mo:base-0.7.3/Nat16";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Nat64 "mo:base-0.7.3/Nat64";
+-import Time "mo:base-0.7.3/Time";
++import Nat8 "mo:base/Nat8";
++import Nat16 "mo:base/Nat16";
++import Nat32 "mo:base/Nat32";
++import Nat64 "mo:base/Nat64";
++import Time "mo:base/Time";
+ 
+ import UUID "UUID";
+ 
+@@ -22,7 +22,7 @@ module {
+ 	    private let epoch      : Nat64 = unix - lillian;   // Days between epochs.
+ 	    private let g1582      : Nat64 = epoch * 86400;    // Seconds between epochs.
+ 	    private let g1582ns100 : Nat64 = g1582 * 10000000; // 100s of a nanoseconds between epochs.
+-	    
++
+ 	    private var lastTime      : Nat64 = 0;
+ 	    private var clockSequence : Nat16 = 0;
+ 
+diff --git a/src/UUID.mo b/src/UUID.mo
+index 6ecee36..74effbc 100644
+--- a/src/UUID.mo
++++ b/src/UUID.mo
+@@ -1,5 +1,5 @@
+ import Hex "mo:encoding/Hex";
+-import List "mo:base-0.7.3/List";
++import List "mo:base/List";
+ 
+ module {
+ 	// A UUID is a 128 bit (16 byte) Universal Unique IDentifier as defined in RFC 4122.
+diff --git a/src/async/SourceV4.mo b/src/async/SourceV4.mo
+index 8bf87ca..1ec1efc 100644
+--- a/src/async/SourceV4.mo
++++ b/src/async/SourceV4.mo
+@@ -1,7 +1,7 @@
+-import Array "mo:base-0.7.3/Array";
++import Array "mo:base/Array";
+ import Array_ "mo:array/Array";
+-import Blob "mo:base-0.7.3/Blob";
+-import Random "mo:base-0.7.3/Random";
++import Blob "mo:base/Blob";
++import Random "mo:base/Random";
+ 
+ import UUID "../UUID";
+ 

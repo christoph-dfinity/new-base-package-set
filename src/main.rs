@@ -199,7 +199,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "candid_stringify",
         "ebaf64b98e9010a4a6a38e520ad5271e3f1b7085",
     );
-    bogus_versions.insert("eddsa", "c5d787aa94f82d153a3fdde190e24a58abb6e6ed");
+    bogus_versions.insert("eddsa", "d86086bade281b43483b97a68955b59ba003364b");
     // Squatted?
     bogus_versions.insert("certified-http", "514314a95ecd5e2afd28dcbba632b33868d62702");
     bogus_versions.insert("compression", "85464ea13990574633f396324028be3ffae4802f");
@@ -208,7 +208,6 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "1c38e6facf425ff77d72998840b3dd9da83993ec",
     );
     bogus_versions.insert("rsa", "2315e05e524a5d1b3c8e4201de16ec681db5a5d9");
-    bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
     bogus_versions.insert("jwt", "0130a82978bedc62617a622e1044071b69a39b09");
     bogus_versions.insert("icrc1", "0800c7ac03026a4c5a72eeb357cbbd0aca2f0fb4");
     bogus_versions.insert("account", "a718d61a8a4086ce13056681567535f975ac0ddf");
@@ -218,6 +217,13 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("chronotrinite", "7cce392a6f7bffd8171dff32d8ed7e8fb739c205");
     bogus_versions.insert("uuid", "b88101f0516847727ff45ea54688803c698935e5");
     bogus_versions.insert("deflate", "385fcb93b089317fb1fb311e726d0c2b627c6fca");
+
+    // Copies
+    bogus_versions.insert("web-api", "2eed277e0b72ab1ac5c8391aa68e215788ab97d4");
+    bogus_versions.insert("web-io", "2eed277e0b72ab1ac5c8391aa68e215788ab97d4");
+    bogus_versions.insert("serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
+    bogus_versions.insert("motoko-serde", "ddeb5cf7b14283f12b576d9d3da77e5218602aec");
+
 
     if let Some(actual_version) = bogus_versions.get(manifest.name.as_str()) {
         manifest.version = actual_version.to_string();
