@@ -217,6 +217,14 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     bogus_versions.insert("chronotrinite", "7cce392a6f7bffd8171dff32d8ed7e8fb739c205");
     bogus_versions.insert("uuid", "b88101f0516847727ff45ea54688803c698935e5");
     bogus_versions.insert("deflate", "385fcb93b089317fb1fb311e726d0c2b627c6fca");
+    bogus_versions.insert("rbac-motoko", "52df8f889d8fbacbedae61a51a76aadb5ca906a9");
+    bogus_versions.insert("liminal", "912a427ed0c73c96fd31f2cb7630e289b8cccc3e");
+    bogus_versions.insert("certified-assets", "5955002be438dac42e2c9b0c225edd688c6c2f58");
+    bogus_versions.insert("http-assets", "6bf74d202e80307e495dee2868c9db548e362f48");
+
+    // Declares version 1.0.0, but doesn't match tagged version
+    bogus_versions.insert("cbor", "c0e5dab976bc5aecc2b3867324febd7557c47346");
+
 
     // Copies
     bogus_versions.insert("web-api", "2eed277e0b72ab1ac5c8391aa68e215788ab97d4");

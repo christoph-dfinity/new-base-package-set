@@ -1,0 +1,37 @@
+diff --git a/src/JSON.mo b/src/JSON.mo
+index 94a806e..8ae61b2 100644
+--- a/src/JSON.mo
++++ b/src/JSON.mo
+@@ -1,12 +1,12 @@
+-import Char "mo:base-0.7.3/Char";
+-import Iter "mo:base-0.7.3/Iter";
+-import Int "mo:base-0.7.3/Int";
+-import Float "mo:base-0.7.3/Float";
+-import List "mo:base-0.7.3/List";
+-import Nat8 "mo:base-0.7.3/Nat8";
+-import Nat32 "mo:base-0.7.3/Nat32";
+-import Result "mo:base-0.7.3/Result";
+-import Text "mo:base-0.7.3/Text";
++import Char "mo:base/Char";
++import Iter "mo:base/Iter";
++import Int "mo:base/Int";
++import Float "mo:base/Float";
++import List "mo:base/List";
++import Nat8 "mo:base/Nat8";
++import Nat32 "mo:base/Nat32";
++import Result "mo:base/Result";
++import Text "mo:base/Text";
+ 
+ import C "mo:parser-combinators/Combinators";
+ import L "mo:parser-combinators/List";
+@@ -166,8 +166,8 @@ module JSON {
+     private func stringParser() : P.Parser<Char, JSON> = C.map(
+         C.map(
+             C.bracket(
+-                C.Character.char(Char.fromNat32(0x22)), 
+-                C.many(character()), 
++                C.Character.char(Char.fromNat32(0x22)),
++                C.many(character()),
+                 C.Character.char(Char.fromNat32(0x22))
+             ),
+             func (t : List.List<Char>) : Text {
