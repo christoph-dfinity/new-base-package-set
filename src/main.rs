@@ -611,7 +611,6 @@ fn override_package(package: &str, manifests: Vec<MopsManifest>) -> Result<()> {
     Ok(())
 }
 
-/// Simple program to greet a person
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Cli {
