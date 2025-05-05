@@ -51,12 +51,12 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "memory-buffer",
         "memory-hashtable",
         "memory-hashlist",
-        "icrc1",
         "motoko-certified-assets",
         "candid_stringify",
         "web-api",
         "http-loopback",
         "web-io",
+        "icrc-fungible",
     ];
     // Added to MOPS by different authors and not kept up with the original library
     let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];

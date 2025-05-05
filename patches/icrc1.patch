@@ -1,0 +1,41 @@
+diff --git a/src/ICRC1/Utils.mo b/src/ICRC1/Utils.mo
+index 786f335..5cd7c7a 100644
+--- a/src/ICRC1/Utils.mo
++++ b/src/ICRC1/Utils.mo
+@@ -86,7 +86,7 @@ module {
+         owner : Principal,
+         tx_kind: T.TxKind,
+     ) : T.TransactionRequest {
+-        
++
+         let from = {
+             owner;
+             subaccount = args.from_subaccount;
+@@ -152,7 +152,7 @@ module {
+                 case (#transfer) { ?tx_req };
+                 case (_) null;
+             };
+-            
++
+             index;
+             timestamp = Nat64.fromNat(Int.abs(Time.now()));
+         };
+@@ -204,7 +204,7 @@ module {
+     public func transfer_balance(
+         token : T.TokenData,
+         tx_req : T.TransactionRequest,
+-    ) { 
++    ) {
+         let { encoded; amount } = tx_req;
+ 
+         update_balance(
+@@ -311,7 +311,8 @@ module {
+             Iter.map(
+                 Itertools.range(buffer.count, buffer.elems.size()),
+                 func(i : Nat) : A {
+-                    buffer.elems[i];
++                    // TODO: Verify this is actually the right thing to do
++                    Option.unwrap(buffer.elems[i]);
+                 },
+             );
+         };
