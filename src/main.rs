@@ -51,12 +51,14 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "memory-buffer",
         "memory-hashtable",
         "memory-hashlist",
-        "motoko-certified-assets",
         "candid_stringify",
         "web-api",
         "http-loopback",
         "web-io",
         "icrc-fungible",
+
+        // Depends on non-existing compression package
+        "liminal",
     ];
     // Added to MOPS by different authors and not kept up with the original library
     let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];
@@ -547,6 +549,7 @@ fn handle_overrides(manifests: Vec<MopsManifest>) -> Result<Vec<MopsManifest>> {
     let mut out = vec![];
     for mut manifest in manifests {
         if let Some(path) = overrides.get(&manifest.name) {
+            fs::create_dir_all(format!(".vessel/{}", manifest.name))?;
             manifest.version = "overridden".to_string();
             let mut ln = Command::new("ln");
             ln.arg("-s")
