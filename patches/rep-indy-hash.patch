@@ -1,0 +1,28 @@
+diff --git a/src/lib.mo b/src/lib.mo
+index 31d7a7c..2e6ab91 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -8,17 +8,17 @@ import Blob "mo:base/Blob";
+ import Int "mo:base/Int";
+ import Iter "mo:base/Iter";
+ import Buffer "mo:base/Buffer";
+-import IntX "mo:motoko_numbers/IntX";
++import IntX "mo:xtended-numbers/IntX";
+ 
+ module {
+   /// The Type used to express ICRC3 values
+-  public type Value = { 
+-    #Blob : Blob; 
+-    #Text : Text; 
++  public type Value = {
++    #Blob : Blob;
++    #Text : Text;
+     #Nat : Nat;
+     #Int : Int;
+-    #Array : [Value]; 
+-    #Map : [(Text, Value)]; 
++    #Array : [Value];
++    #Map : [(Text, Value)];
+   };
+ 
+   // Also see https://github.com/dfinity/ic-hs/blob/master/src/IC/HTTP/RequestId.hs

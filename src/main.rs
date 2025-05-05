@@ -282,6 +282,9 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         manifest.dependencies.push("map".to_string());
     }
 
+    if manifest.name == "rep-indy-hash" {
+        manifest.dependencies.push("motoko_numbers".to_string());
+    }
 
     manifest.dependencies = manifest
         .dependencies

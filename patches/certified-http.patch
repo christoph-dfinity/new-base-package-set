@@ -1,0 +1,97 @@
+diff --git a/src/demo.mo b/src/demo.mo
+deleted file mode 100644
+index cc6c1cf..0000000
+--- a/src/demo.mo
++++ /dev/null
+@@ -1,60 +0,0 @@
+-
+-import CertifiedData "mo:base/CertifiedData";
+-import HTTP "./Http";
+-import Iter "mo:base/Iter";
+-import Blob "mo:base/Blob";
+-import Option "mo:base/Option";
+-import Time "mo:base/Time";
+-import Text "mo:base/Text";
+-import Debug "mo:base/Debug";
+-import Prelude "mo:base/Prelude";
+-import Principal "mo:base/Principal";
+-import Buffer "mo:base/Buffer";
+-import Nat8 "mo:base/Nat8";
+-import CertifiedHttp "lib";
+-import Int "mo:base/Int";
+-
+-actor Self {
+-  type HttpRequest = HTTP.HttpRequest;
+-  type HttpResponse = HTTP.HttpResponse;
+-
+-  var files = HashMap.StableHashMap<Text, Blob>(0, Text.equal, Text.hash); // You can make this stable too using FuncStableHashMap
+-
+-  stable var cert_store = CertifiedHttp.init();
+-
+-  var cert = CertifiedHttp.CertifiedHttp(
+-      cert_store
+-  );
+-
+-  public shared func upload(key:Text, val:Blob) {
+-      files.put(key, val);
+-      cert.put(key, val);
+-  };
+-
+-  public shared func delete(key:Text) {
+-      files.delete(key);
+-      cert.delete(key);
+-  };
+-
+-  public query func http_request(req : HttpRequest) : async HttpResponse {
+-    let ?body = files.get(req.url) else return e404;
+-
+-    {
+-      status_code : Nat16 = 200;
+-      headers = [("content-type", "text/html"), cert.certificationHeader(req.url)];
+-      body = body;
+-      streaming_strategy = null;
+-      upgrade = null;
+-    };
+-
+-  };
+-
+-  let e404:HttpResponse = {
+-          status_code = 404;
+-          headers = [];
+-          body = "Error 404":Blob;
+-          streaming_strategy = null;
+-          upgrade = ?false;
+-        };
+-
+-};
+diff --git a/src/lib.mo b/src/lib.mo
+index f4819aa..8da70f0 100644
+--- a/src/lib.mo
++++ b/src/lib.mo
+@@ -12,7 +12,7 @@ import Blob "mo:base/Blob";
+ import Buffer "mo:base/Buffer";
+ import Nat8 "mo:base/Nat8";
+ import Array "mo:base/Array";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Text "mo:base/Text";
+ import Timer "mo:base/Timer";
+ 
+@@ -75,7 +75,7 @@ module {
+       };
+     };
+ 
+-    public func chunkedStart(key:Text, chunks: Nat, content:Blob, done: ([Blob]) -> () ) : () {
++    public func chunkedStart<system>(key:Text, chunks: Nat, content:Blob, done: ([Blob]) -> () ) : () {
+       if (chunks == 1) {
+         done([content]);
+         return;
+@@ -89,7 +89,7 @@ module {
+         done;
+         var last_chunk = 0;
+         sha = SHA256.Digest(#sha256);
+-        timerId = Timer.setTimer(#seconds(chunks * 3), func() : async () { // timeouts after 3 x chunks seconds
++        timerId = Timer.setTimer<system>(#seconds(chunks * 3), func() : async () { // timeouts after 3 x chunks seconds
+           chunkedClear(key);
+         });
+       };
