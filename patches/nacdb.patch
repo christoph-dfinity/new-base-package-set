@@ -1,0 +1,172 @@
+diff --git a/src/NacDB.mo b/src/NacDB.mo
+index fa8c445..4073851 100644
+--- a/src/NacDB.mo
++++ b/src/NacDB.mo
+@@ -24,9 +24,9 @@
+ import Result "mo:base/Result";
+ import I "mo:base/Iter";
+ import Principal "mo:base/Principal";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import RBT "mo:stable-rbtree/StableRBTree";
+-import StableBuffer "mo:stablebuffer/StableBuffer";
++import StableBuffer "mo:StableBuffer/StableBuffer";
+ import Text "mo:base/Text";
+ import Nat "mo:base/Nat";
+ import Prim "mo:⛔";
+@@ -319,7 +319,7 @@ module {
+                 superDB.nextKey += 1;
+                 key;
+             };
+-        };                    
++        };
+         let subDB : SubDB = {
+             var map = BTree.fromArray(8, Text.compare, map);
+             var userData = userData;
+@@ -795,7 +795,7 @@ module {
+     };
+ 
+     type DeleteOptions = {dbIndex: DBIndex; outerCanister: OuterCanister; outerKey: OuterSubDBKey; sk: SK};
+-    
++
+     /// Delete an entry from a sub-DB.
+     ///
+     /// idempotent
+@@ -861,7 +861,7 @@ module {
+     };
+ 
+     type DeleteDBOptions = {dbIndex: DBIndex; outerCanister: OuterCanister; outerKey: OuterSubDBKey};
+-    
++
+     type DeletingSubDB = {options: DeleteDBOptions};
+ 
+     /// Delete a sub-DB.
+@@ -1033,12 +1033,12 @@ module {
+ 
+     // Impossible to implement.
+     // type IterOuterOptions = {outerSuperDB: SuperDB; outerSubDBKey: InnerSubDBKey; dir: RBT.Direction};
+-    
++
+     // public func iterByOuter(options: IterOptions) : I.Iter<(Text, AttributeValue)> {
+     // };
+ 
+     type EntriesInnerOptions = {innerSuperDB: SuperDB; innerKey: InnerSubDBKey};
+-    
++
+     /// Retrieve sub-DB entries by its inner key.
+     public func entriesInner(options: EntriesInnerOptions) : I.Iter<(Text, AttributeValue)> {
+         iterByInner({innerSuperDB = options.innerSuperDB; innerKey = options.innerKey; dir = #fwd});
+@@ -1046,12 +1046,12 @@ module {
+ 
+     // Impossible to implement.
+     // type EntriesOuterOptions = {outerSuperDB: SuperDB; outerKey: OuterSubDBKey};
+-    
++
+     // public func entriesOuter(options: EntriesOptions) : I.Iter<(Text, AttributeValue)> {
+     // };
+ 
+     type EntriesRevInnerOptions = {innerSuperDB: SuperDB; innerKey: InnerSubDBKey};
+-    
++
+     /// Retrieve sub-DB entries in backward order by its inner key.
+     public func entriesInnerRev(options: EntriesRevInnerOptions) : I.Iter<(Text, AttributeValue)> {
+         iterByInner({innerSuperDB = options.innerSuperDB; innerKey = options.innerKey; dir = #bwd});
+@@ -1059,7 +1059,7 @@ module {
+ 
+     // Impossible to implement.
+     // type EntriesRevOuterOptions = {outerSuperDB: SuperDB; outerKey: OuterSubDBKey};
+-    
++
+     // public func entriesRevOuter(options: EntriesOptions) : I.Iter<(Text, AttributeValue)> {
+     // };
+ 
+@@ -1069,7 +1069,7 @@ module {
+     };
+ 
+     type ScanLimitInnerOptions = {innerSuperDB: SuperDB; innerKey: InnerSubDBKey; lowerBound: Text; upperBound: Text; dir: RBT.Direction; limit: Nat};
+-    
++
+     /// Retrieve sub-DB entries by its inner key.
+     public func scanLimitInner(options: ScanLimitInnerOptions): RBT.ScanLimitResult<Text, AttributeValue> {
+         switch (getSubDBByInner(options.innerSuperDB, options.innerKey)) {
+@@ -1084,7 +1084,7 @@ module {
+     };
+ 
+     type ScanLimitOuterOptions = {outerSuperDB: SuperDB; outerKey: OuterSubDBKey; lowerBound: Text; upperBound: Text; dir: RBT.Direction; limit: Nat};
+-    
++
+     /// Retrieve sub-DB entries by its outer key.
+     public func scanLimitOuter(options: ScanLimitOuterOptions): async* RBT.ScanLimitResult<Text, AttributeValue> {
+         let ?{canister = part; key = innerKey} = getInner({outerKey = options.outerKey; superDB = options.outerSuperDB}) else {
+@@ -1098,7 +1098,7 @@ module {
+     };
+ 
+     type ScanLimitOuterPartitionKeyOptions = {outer: OuterPair; lowerBound: Text; upperBound: Text; dir: RBT.Direction; limit: Nat};
+-    
++
+     public func scanLimitOuterPartitionKey(options: ScanLimitOuterPartitionKeyOptions): async* RBT.ScanLimitResult<Text, AttributeValue> {
+         let a = actor(Principal.toText(Principal.fromActor(options.outer.canister))): actor { // slow
+             scanLimitOuter: shared({outerKey: OuterSubDBKey; lowerBound: SK; upperBound: SK; dir: RBT.Direction; limit: Nat})
+@@ -1151,4 +1151,4 @@ module {
+             Nat.compare(x.key, y.key);
+         }
+     };
+-};
+\ No newline at end of file
++};
+diff --git a/src/OpsQueue.mo b/src/OpsQueue.mo
+index 45cb9a2..844afe8 100644
+--- a/src/OpsQueue.mo
++++ b/src/OpsQueue.mo
+@@ -8,7 +8,7 @@ import Bool "mo:base/Bool";
+ import Time "mo:base/Time";
+ import Int "mo:base/Int";
+ import Iter "mo:base/Iter";
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ 
+ module {
+     /// Globally unique identifier.
+@@ -138,4 +138,4 @@ module {
+         };
+ 
+     };
+-}
+\ No newline at end of file
++}
+diff --git a/src/example/index/main.mo b/src/example/index/main.mo
+index 494a2d6..36d14fa 100644
+--- a/src/example/index/main.mo
++++ b/src/example/index/main.mo
+@@ -1,6 +1,6 @@
+ import Nac "../../../src/NacDB";
+ import Partition "../partition/main";
+-import StableBuffer "mo:stablebuffer/StableBuffer";
++import StableBuffer "mo:StableBuffer/StableBuffer";
+ import Principal "mo:base/Principal";
+ import Debug "mo:base/Debug";
+ import Blob "mo:base/Blob";
+@@ -78,4 +78,4 @@ shared actor class Index() = this {
+     public shared func deleteSubDB(guid: [Nat8], {outerCanister: Principal; outerKey: Nac.OuterSubDBKey}) : async () {
+         await* Nac.deleteSubDB(Blob.fromArray(guid), {dbIndex; dbOptions = Common.dbOptions; outerCanister = actor(Principal.toText(outerCanister)); outerKey});
+     };
+-}
+\ No newline at end of file
++}
+diff --git a/src/example/partition/main.mo b/src/example/partition/main.mo
+index 429c8f9..3c58c9d 100644
+--- a/src/example/partition/main.mo
++++ b/src/example/partition/main.mo
+@@ -1,4 +1,4 @@
+-import BTree "mo:stableheapbtreemap/BTree";
++import BTree "mo:StableHeapBTreeMap/BTree";
+ import Nac "../../../src/NacDB";
+ import Principal "mo:base/Principal";
+ import Bool "mo:base/Bool";
+@@ -190,4 +190,4 @@ shared({caller}) actor class Partition() = this {
+     public shared func cycles_simple_topUpCycles(cycles: Nat): /*async*/ () {
+         ignore Cycles.accept<system>(cycles);
+     };
+-}
+\ No newline at end of file
++}

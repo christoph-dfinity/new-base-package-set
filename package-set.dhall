@@ -119,7 +119,7 @@
 { name = "mal", repo = "https://github.com/fury02/async-data-deliveries", version = "30e7a579a599ab8e687e5fe9855f477a6670f9fa", dependencies = ["base", "fuzz", "StableHashMap"] : List Text },
 { name = "hmac", repo = "https://github.com/edjCase/motoko_hmac", version = "74deeb9ee34011ed70d19fa264c46959c9077d30", dependencies = ["sha2"] : List Text },
 { name = "cbor", repo = "https://github.com/edjcase/motoko_cbor", version = "v1.0.0", dependencies = ["base", "xtended-numbers"] : List Text },
-{ name = "nacdb", repo = "https://github.com/vporton/NacDB", version = "v0.14.3", dependencies = ["base", "stable-rbtree", "stable-buffer", "prng", "StableHeapBTreeMap", "sha2", "cycles-simple", "StableBuffer"] : List Text },
+{ name = "nacdb", repo = "https://github.com/vporton/NacDB", version = "overridden", dependencies = ["base", "stable-rbtree", "stable-buffer", "prng", "StableHeapBTreeMap", "sha2", "cycles-simple", "StableBuffer"] : List Text },
 { name = "web-io", repo = "https://github.com/NatLabs/web-io", version = "v0.0.1", dependencies = ["base", "itertools", "serde", "http", "moh", "parser-combinators", "encoding", "fuzz"] : List Text },
 { name = "base16", repo = "https://github.com/diodechain/motoko_base16", version = "v1.0.0", dependencies = ["base"] : List Text },
 { name = "web-api", repo = "https://github.com/NatLabs/web-io", version = "v0.0.1", dependencies = ["base", "itertools", "serde", "http", "moh", "parser-combinators", "encoding", "fuzz"] : List Text },
