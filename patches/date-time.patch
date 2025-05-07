@@ -1,0 +1,67 @@
+diff --git a/src/core/DateFormat.mo b/src/core/DateFormat.mo
+index 13094f7..ac16b7d 100644
+--- a/src/core/DateFormat.mo
++++ b/src/core/DateFormat.mo
+@@ -1,5 +1,6 @@
+ import Text "mo:base/Text";
+ import Int "mo:base/Int";
++import Nat "mo:base/Nat";
+ import Iter "mo:base/Iter";
+ import Types "../types/Types";
+ 
+@@ -50,7 +51,7 @@ module DateFormat {
+   public func getDayOfYear(date : Types.Date) : Types.CalendarResult<Int> {
+ 
+     var dayCount = date.day;
+-    for (i in Iter.range(0, date.month - 2)) {
++    for (i in Nat.rangeInclusive(0, Nat.fromInt(date.month) - 2)) {
+       dayCount += DAYS_IN_MONTH[i];
+     };
+     if (date.month > 2 and isLeapYear(date.year)) {
+diff --git a/src/operations/Comparision.mo b/src/operations/Comparision.mo
+index 40a4939..507d809 100644
+--- a/src/operations/Comparision.mo
++++ b/src/operations/Comparision.mo
+@@ -1,6 +1,7 @@
+ import Types "../types/Types";
+ import Iter "mo:base/Iter";
+ import Int "mo:base/Int";
++import Nat "mo:base/Nat";
+ 
+ module Comparision {
+   public func compare(date1 : Types.Date, date2 : Types.Date) : Types.ComparisonResult {
+@@ -58,10 +59,10 @@ module Comparision {
+     var totalDays2 = date2.year * 365 + date2.day;
+ 
+     // Add days for months
+-    for (i in Iter.range(0, date1.month - 2)) {
++    for (i in Nat.rangeInclusive(0, Nat.fromInt(date1.month) - 2)) {
+       totalDays1 += daysInMonth[i];
+     };
+-    for (i in Iter.range(0, date2.month - 2)) {
++    for (i in Nat.rangeInclusive(0, Nat.fromInt(date2.month) - 2)) {
+       totalDays2 += daysInMonth[i];
+     };
+ 
+diff --git a/src/utils/TimeUtils.mo b/src/utils/TimeUtils.mo
+index 2406af8..48e6648 100644
+--- a/src/utils/TimeUtils.mo
++++ b/src/utils/TimeUtils.mo
+@@ -103,7 +103,7 @@ module TimeUtils {
+             case (#Hour24) { "" };
+         };
+ 
+-        Text.join("", Array.vals([padNumber(time.hour), ":", padNumber(time.minute), ":", padNumber(time.second), meridiem]));
++        Text.join("", Array.values([padNumber(time.hour), ":", padNumber(time.minute), ":", padNumber(time.second), meridiem]));
+     };
+ 
+     private func formatDateFromTimestamp(timestamp : Time.Time, offsetSeconds : Int) : async Text {
+@@ -111,7 +111,7 @@ module TimeUtils {
+         switch (DateCreation.fromTimestamp(adjustedTimestamp)) {
+             case (#Ok(dateTime)) {
+                 let { year; month; day; } = dateTime;
+-                Text.join("/", Array.vals([Nat.toText(Int.abs(year)), Nat.toText(Int.abs(month)), Nat.toText(Int.abs(day))]));
++                Text.join("/", Array.values([Nat.toText(Int.abs(year)), Nat.toText(Int.abs(month)), Nat.toText(Int.abs(day))]));
+             };
+             case (#Err(_error)) {
+                 "Error getting date";

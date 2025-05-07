@@ -71,7 +71,7 @@
 { name = "swbstable", repo = "https://github.com/infu/swb", version = "8f68ed961ac5e4b2d9eed95ff68d33e2a98890b2", dependencies = ["base"] : List Text },
 { name = "utilities", repo = "https://github.com/bittoko/utils", version = "v2.0.2", dependencies = ["test", "xtended-numbers", "base", "map"] : List Text },
 { name = "ic-assets", repo = "https://github.com/NatLabs/ic-assets", version = "6bf74d202e80307e495dee2868c9db548e362f48", dependencies = ["base", "http-types", "map", "certified-assets", "ic", "itertools", "vector", "encoding", "http-parser", "sha2", "memory-region"] : List Text },
-{ name = "date-time", repo = "https://github.com/toshakparmar/date-time-motoko", version = "aa6f3428af02b360e557fc68759d4bf5aa133e6a", dependencies = ["base"] : List Text },
+{ name = "date-time", repo = "https://github.com/toshakparmar/date-time-motoko", version = "overridden", dependencies = ["base"] : List Text },
 { name = "async-test", repo = "https://github.com/research-ag/async-test", version = "193f25e9fa223c96361c1da941974ebe3c695a8d", dependencies = ["base"] : List Text },
 { name = "icrc104-mo", repo = "https://github.com/icdevsorg/icrc104.mo", version = "v0.0.1", dependencies = ["base", "vector", "star", "account", "icrc3-mo", "map", "ic-certification", "timer-tool", "ovs-fixed", "candy", "icrc1-mo", "icrc10-mo", "icrc75-mo"] : List Text },
 { name = "http-types", repo = "https://github.com/ZenVoich/http-types", version = "v1.0.1", dependencies = [] : List Text },
