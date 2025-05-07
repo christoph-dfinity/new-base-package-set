@@ -1,8 +1,8 @@
 diff --git a/src/CRC32.mo b/src/CRC32.mo
-index 37f34bb..a7f150b 100644
+index 37f34bb..0f93cd0 100644
 --- a/src/CRC32.mo
 +++ b/src/CRC32.mo
-@@ -1,9 +1,9 @@
+@@ -1,13 +1,12 @@
 -import Array "mo:base-0.7.3/Array";
 +import Array "mo:base/Array";
  import Array_ "mo:array/Array";
@@ -10,10 +10,14 @@ index 37f34bb..a7f150b 100644
 -import Iter "mo:base-0.7.3/Iter";
 -import Nat8 "mo:base-0.7.3/Nat8";
 -import Nat32 "mo:base-0.7.3/Nat32";
-+import Hash "mo:base/Hash";
 +import Iter "mo:base/Iter";
 +import Nat8 "mo:base/Nat8";
 +import Nat32 "mo:base/Nat32";
  
  module CRC32 {
      // Returns the CRC-32 checksum of the given data using the IEEE polynomial.
+-    public func checksum(data : [Nat8]) : Hash.Hash {
++    public func checksum(data : [Nat8]) : Nat32 {
+         Table.slicingUpdate(0, Table.slicingTable, data);
+     };
+ 
