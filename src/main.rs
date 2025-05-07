@@ -92,9 +92,14 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         manifest.version = format!("v{}", manifest.version)
     }
 
+    // Override "base" with "new-base"
+    if manifest.name == "base" {
+        manifest.repository = "https://github.com/dfinity/new-motoko-base".to_string();
+        manifest.version = "preview-0.4.0".to_string();
+    }
+
     // Libraries with versions that aren't actually tagged in their respective repos
     let mut bogus_versions = HashMap::new();
-    bogus_versions.insert("base", "moc-0.14.9");
     bogus_versions.insert("ic", "640250866d038ac7f8aea0afc82fc96d780d97ae");
     bogus_versions.insert("icrc1-types", "effd430c62a99e5ab68d17dd5fcdaec30c0c5adc");
     bogus_versions.insert("icrc2-types", "808ead8a7b9d6e6e8f966038db5ca7e5a9601e03");

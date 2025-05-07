@@ -119,7 +119,7 @@
 { name = "waterway-mops", repo = "https://github.com/jamesbeadle/waterway-mops", version = "98ccbfa61fa3ee583980cd3456c3d41f97efe828", dependencies = ["base"] : List Text },
 { name = "idempotency-keys", repo = "https://github.com/Demali-876/idempotency-keys", version = "83ffffcc4823592784942ed0845a8d1d9532507c", dependencies = ["base"] : List Text },
 { name = "xml", repo = "https://github.com/edjcase/motoko_xml", version = "acb9815b88e835425e24ab64eb19076eec6a3c06", dependencies = ["base", "xtended-numbers", "xtended-text"] : List Text },
-{ name = "base", repo = "https://github.com/dfinity/motoko-base", version = "moc-0.14.9", dependencies = [] : List Text },
+{ name = "base", repo = "https://github.com/dfinity/new-motoko-base", version = "preview-0.4.0", dependencies = [] : List Text },
 { name = "uuid", repo = "https://github.com/aviate-labs/uuid.mo", version = "overridden", dependencies = ["base", "encoding", "io"] : List Text },
 { name = "candid", repo = "https://github.com/edjcase/motoko_candid", version = "2c58aa3665f3cffc0b7083133c80eee32f5517d7", dependencies = ["base", "xtended-numbers"] : List Text },
 { name = "bitcoin", repo = "https://github.com/dfinity/motoko-bitcoin", version = "v0.1.1", dependencies = ["base", "sha2"] : List Text },
