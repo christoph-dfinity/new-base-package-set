@@ -9,7 +9,6 @@ use std::{
 use anyhow::{Context, Result, anyhow, bail};
 use clap::{Parser, Subcommand};
 use serde::Deserialize;
-use serde_json;
 
 #[derive(Debug, Deserialize)]
 struct MopsManifest {
@@ -27,7 +26,7 @@ fn read_mops_registry_dump() -> Result<Vec<MopsManifest>> {
 }
 
 fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
-    let deleted_repos = vec!["origyn-nft", "origyn-nft-next", "testpkg", "simplem"];
+    let deleted_repos = ["origyn-nft", "origyn-nft-next", "testpkg", "simplem"];
     let broken_repos = vec![
         // References a non-existing tag
         "motoko-crc",
@@ -61,7 +60,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
         "liminal",
     ];
     // Added to MOPS by different authors and not kept up with the original library
-    let squatted = vec!["hash-map", "stable-hash-map", "stableheapbtreemap"];
+    let squatted = ["hash-map", "stable-hash-map", "stableheapbtreemap"];
 
     if deleted_repos.contains(&manifest.name.as_str())
         || broken_repos.contains(&manifest.name.as_str())
@@ -71,7 +70,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     }
 
     // Libraries that have actually tagged X.Y.Z rather than vX.Y.Z
-    let non_v_tags = vec![
+    let non_v_tags = [
         "icrc-84",
         "auction",
         "vector",
@@ -88,7 +87,7 @@ fn cleanup_manifest(mut manifest: MopsManifest) -> Option<MopsManifest> {
     if !non_v_tags.contains(&manifest.name.as_str())
         && manifest.version.contains('.')
         && !manifest.version.starts_with('v')
-        && manifest.version.chars().next().unwrap().is_digit(10)
+        && manifest.version.chars().next().unwrap().is_ascii_digit()
     {
         manifest.version = format!("v{}", manifest.version)
     }
@@ -599,7 +598,7 @@ fn init_override(manifest: &MopsManifest) -> Result<PathBuf> {
     if !git_checkout.status().unwrap().success() {
         bail!("Failed to checkout version");
     }
-    return Ok(out_path);
+    Ok(out_path)
 }
 
 fn override_package(package: &str, manifests: Vec<MopsManifest>) -> Result<()> {
@@ -622,7 +621,7 @@ fn cleaned_manifests() -> Result<Vec<MopsManifest>> {
     let mut manifests: Vec<MopsManifest> = read_mops_registry_dump()?;
     manifests.extend(extra_manifests());
     let cleaned = manifests.into_iter().filter_map(cleanup_manifest).collect();
-    return handle_overrides(cleaned);
+    handle_overrides(cleaned)
 }
 
 #[derive(Debug, Subcommand)]
@@ -663,7 +662,7 @@ fn main() -> Result<()> {
         Commands::Generate => {
             fs::write(
                 "package-set.dhall",
-                &format_dhall_output(cleaned_manifests()?),
+                format_dhall_output(cleaned_manifests()?),
             )?;
         }
         Commands::AddOverride { package } => {
