@@ -109,7 +109,7 @@
 { name = "hmac", repo = "https://github.com/edjCase/motoko_hmac", version = "74deeb9ee34011ed70d19fa264c46959c9077d30", dependencies = ["sha2"] : List Text },
 { name = "cbor", repo = "https://github.com/edjcase/motoko_cbor", version = "c0e5dab976bc5aecc2b3867324febd7557c47346", dependencies = ["base", "xtended-numbers"] : List Text },
 { name = "nacdb", repo = "https://github.com/vporton/NacDB", version = "overridden", dependencies = ["base", "stable-rbtree", "stable-buffer", "prng", "StableHeapBTreeMap", "sha2", "cycles-simple", "StableBuffer"] : List Text },
-{ name = "base16", repo = "https://github.com/diodechain/motoko_base16", version = "v1.0.0", dependencies = ["base"] : List Text },
+{ name = "base16", repo = "https://github.com/diodechain/motoko_base16", version = "overridden", dependencies = ["base"] : List Text },
 { name = "ovs-fixed", repo = "https://github.com/icdevsorg/ovs-fixed", version = "v0.1.4", dependencies = ["base", "star", "map"] : List Text },
 { name = "simplemath", repo = "https://github.com/sam-thetutor/simpleMath", version = "1c4bd07f007cdc3698fcf6289851e1d13889d9d2", dependencies = ["base"] : List Text },
 { name = "enumeration", repo = "https://github.com/research-ag/enumeration", version = "0.1.1", dependencies = ["base"] : List Text },

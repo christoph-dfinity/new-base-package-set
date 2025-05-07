@@ -1,0 +1,13 @@
+diff --git a/src/Base16.mo b/src/Base16.mo
+index f9b5bbb..0a19873 100644
+--- a/src/Base16.mo
++++ b/src/Base16.mo
+@@ -23,7 +23,7 @@ module {
+   };
+ 
+   public func decode(t : Text) : ?Blob {
+-    let chars = Text.toArray(Text.toLowercase(t));
++    let chars = Text.toArray(Text.toLower(t));
+     var failed = false;
+     let ret = Blob.fromArray(
+       Array.tabulate(
