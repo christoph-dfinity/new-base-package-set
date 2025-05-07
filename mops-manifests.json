@@ -1,1 +1,2105 @@
-[{"dependencies":["base","cert","icrc1-mo","icrc2-mo","icrc3-mo","icrc4-mo","icrc75-mo","stable-write-only","sha2","candy","stableheapbtreemap","principal-ext","timer-tool"],"name":"ovs-ledger","repository":"https://github.com/icdevsorg/ovs-ledger","version":"0.0.1"},{"dependencies":[],"name":"nm","repository":"https://github.com/dr-montasir/nm","version":"1.1.1"},{"dependencies":["base"],"name":"time","repository":"https://github.com/ArielRobotti/time","version":"1.0.7"},{"dependencies":["base"],"name":"tweetnacl","repository":"https://github.com/nirvana369/tweetnacl/","version":"1.1.1"},{"dependencies":["base"],"name":"xtended-numbers","repository":"https://github.com/edjCase/motoko_numbers","version":"0.4.0"},{"dependencies":["base","new-base","json","base-x-encoder","hmac","ecdsa","sha2","rsa","eddsa"],"name":"jwt","repository":"https://github.com/edjcase/motoko_jwt","version":"0.2.0"},{"dependencies":["base"],"name":"concurrent","repository":"https://github.com/vporton/ic-concurrent","version":"0.1.2"},{"dependencies":["base","cert","icrc1-mo","icrc2-mo","icrc3-mo","icrc4-mo"],"name":"icrc-fungible","repository":"https://github.com/PanIndustrial-Org/ICRC_fungible","version":"0.0.5"},{"dependencies":["base"],"name":"test","repository":"https://github.com/ZenVoich/test","version":"2.1.1"},{"dependencies":["base"],"name":"math","repository":"https://github.com/ArielRobotti/math","version":"1.0.3"},{"dependencies":["sha2","asn1","xtended-numbers","base-x-encoder"],"name":"ecdsa","repository":"https://github.com/edjCase/motoko_ecdsa","version":"5.0.1"},{"dependencies":["test"],"name":"assets","repository":"https://github.com/krpeacock/assets","version":"0.2.2"},{"dependencies":["certified-cache","test","base","assets","http-parser","serde"],"name":"server","repository":"https://github.com/krpeacock/server","version":"1.0.0"},{"dependencies":["base","ic-certification","StableHashMap","sha2"],"name":"certified-cache","repository":"https://github.com/krpeacock/certified-cache","version":"0.3.0"},{"dependencies":["base"],"name":"glob","repository":"https://github.com/edjcase/motoko_glob","version":"0.0.1"},{"dependencies":[],"name":"random","repository":"https://github.com/ArielRobotti/random","version":"1.0.2"},{"dependencies":["test","sha2","base","utilities","stable-buffer"],"name":"tecdsa","repository":"https://github.com/bittoko/tecdsa","version":"0.0.4"},{"dependencies":["array","base","itertools"],"name":"account","repository":"https://github.com/letmejustputthishere/account","version":"1.0.1"},{"dependencies":["new-base","itertools","xtended-text","xtended-numbers","certified-assets","http-assets","asn1","json","jwt","compression","serde","xml"],"name":"liminal","repository":"https://github.com/edjcase/liminal","version":"0.0.1"},{"dependencies":["base","array","StableTrieMap","StableBuffer","map9","itertools","vector","star","rep-indy-hash","account","icrc1-mo"],"name":"icrc4-mo","repository":"https://github.com/PanIndustrial-Org/icrc4.mo","version":"0.0.5"},{"dependencies":[],"name":"xrc-types","repository":"https://github.com/ZenVoich/xrc-types","version":"1.0.0"},{"dependencies":[],"name":"make-rules","repository":"https://github.com/vporton/icp-make-rules","version":"0.0.3"},{"dependencies":["base","stable-buffer"],"name":"stable-enum","repository":"https://github.com/bittoko/stable-enum","version":"1.0.0"},{"dependencies":["base"],"name":"random-class","repository":"https://github.com/ArielRobotti/RandomClass","version":"1.0.2"},{"dependencies":["base"],"name":"stablehashmap","repository":"https://github.com/canscale/StableHashMap","version":"1.0.0"},{"dependencies":["new-base","base"],"name":"base-x-encoder","repository":"https://github.com/edjcase/motoko_base_x","version":"0.0.1"},{"dependencies":["base"],"name":"fuzz","repository":"https://github.com/ZenVoich/fuzz","version":"0.2.1"},{"dependencies":["base"],"name":"prng","repository":"https://github.com/research-ag/prng","version":"0.0.5"},{"dependencies":["base-0.7.3","array"],"name":"hash","repository":"https://github.com/aviate-labs/hash.mo","version":"1.0.0"},{"dependencies":["base"],"name":"sha2","repository":"https://github.com/research-ag/sha2","version":"0.1.4"},{"dependencies":["base","itertools","candid","xtended-numbers","json-float","parser-combinators","cbor","map","sha2"],"name":"serde","repository":"https://github.com/NatLabs/serde","version":"3.2.2"},{"dependencies":["sha2","encoding","account-identifier"],"name":"neuro","repository":"https://github.com/jesssekeogh/neuro","version":"0.7.5"},{"dependencies":["base"],"name":"bench","repository":"https://github.com/ZenVoich/bench","version":"1.0.0"},{"dependencies":["base","array","StableTrieMap","StableBuffer","itertools"],"name":"icrc1","repository":"https://github.com/NatLabs/icrc1","version":"0.0.2"},{"dependencies":["base"],"name":"csprng","repository":"https://github.com/temokoki/IC_CSPRNG","version":"1.1.0"},{"dependencies":["base","swb","vector","promtracker"],"name":"stream","repository":"https://github.com/research-ag/stream","version":"0.0.1"},{"dependencies":["base"],"name":"icrc-84","repository":"https://github.com/research-ag/icrc-84","version":"0.1.0"},{"dependencies":["base","array","StableTrieMap","StableBuffer","map9","itertools","vector","star","rep-indy-hash","account"],"name":"icrc1-mo","repository":"https://github.com/PanIndustrial-Org/icrc1.mo","version":"0.0.15"},{"dependencies":["base"],"name":"lrucache","repository":"https://github.com/Demali-876/lru-cache","version":"1.0.3"},{"dependencies":["base","array","StableTrieMap","StableBuffer","map9","itertools","vector","star","rep-indy-hash","account","icrc1-mo"],"name":"icrc2-mo","repository":"https://github.com/PanIndustrial-Org/icrc2.mo","version":"0.0.13"},{"dependencies":["base","stable-hash-map","stable-rbtree","stable-buffer","json","crypto","array","encoding"],"name":"new-candb","repository":"https://github.com/ORIGYN-SA/CanDB/tree/main","version":"1.0.0"},{"dependencies":["base","buffer-deque"],"name":"bitbuffer","repository":"https://github.com/NatLabs/BitBuffer","version":"1.2.0"},{"dependencies":[],"name":"icrc2-types","repository":"https://github.com/ZenVoich/icrc2-types","version":"1.1.0"},{"dependencies":[],"name":"icrc1-types","repository":"https://github.com/ZenVoich/icrc1-types","version":"1.0.0"},{"dependencies":["base","http-types","map","certified-assets","ic","itertools","vector","encoding","http-parser","sha2","memory-region"],"name":"http-assets","repository":"https://github.com/edjcase/ic-assets","version":"0.0.6"},{"dependencies":[],"name":"time-consts","repository":"https://github.com/ZenVoich/time-consts","version":"1.0.1"},{"dependencies":["testing","base"],"name":"icrc2-batch","repository":"https://github.com/MemeFighterCo/icrc2-batch","version":"1.0.1"},{"dependencies":["base","vector"],"name":"promtracker","repository":"https://github.com/research-ag/promtracker","version":"0.5.4"},{"dependencies":["base"],"name":"buffer-deque","repository":"https://github.com/NatLabs/BufferDeque","version":"0.1.0"},{"dependencies":[],"name":"ledger-types","repository":"https://github.com/ZenVoich/ledger-types","version":"1.0.0"},{"dependencies":["base","icrc-84"],"name":"token-handler","repository":"https://github.com/research-ag/token-handler","version":"0.0.4"},{"dependencies":["base","itertools","memory-region"],"name":"memory-buffer","repository":"https://github.com/NatLabs/memory-buffer","version":"0.1.0"},{"dependencies":["base","nacdb","stablebuffer","map7","stableheapbtreemap","itertools","xtended-numbers"],"name":"nacdb-reorder","repository":"https://github.com/vporton/nacdb-reorder","version":"3.2.1"},{"dependencies":["base","test"],"name":"stable-buffer","repository":"https://github.com/bittoko/stable-buffer","version":"1.0.1"},{"dependencies":["base","itertools","stableheapbtreemap","map","augmented-btrees"],"name":"memory-region","repository":"https://github.com/NatLabs/memory-region","version":"1.2.4"},{"dependencies":["base","bitcoin"],"name":"ckbtc-address","repository":"https://github.com/research-ag/ckbtc-address","version":"0.0.1"},{"dependencies":["base","sequence","candb","candb-multi","stable-buffer","StableBuffer","date.mo","motoko-sequence","json.mo"],"name":"passport-client","repository":"https://github.com/vporton/passport-client-dfinity","version":"0.4.9"},{"dependencies":["base","map9","vector","star","account","icrc3-mo","icrc10-mo","xtended-random","icrc75-mo","ic-certification","timer-tool","ovs-fixed","candy","icrc1-mo","stableheapbtreemap","icrc104-mo"],"name":"af-role-rotator","repository":"https://github.com/icdevsorg/af-role-rotator","version":"0.0.1"},{"dependencies":["base","buffer-deque","itertools"],"name":"augmented-btrees","repository":"https://github.com/NatLabs/augmented-btrees","version":"0.5.2"},{"dependencies":["base","memory-region","StableTrieMap","itertools","test","memory-buffer"],"name":"memory-hashtable","repository":"https://github.com/fGhost713/memory-HashTable","version":"1.0.5"},{"dependencies":["base","itertools","memory-region","buffer-deque","memory-collection"],"name":"memory-collection","repository":"https://github.com/NatLabs/memory-collection","version":"0.0.4"},{"dependencies":["sha2","hash"],"name":"account-identifier","repository":"https://github.com/letmejustputthishere/account-identifiers","version":"1.0.2"},{"dependencies":["base"],"name":"stableheapbtreemap","repository":"https://github.com/canscale/StableHeapBTreeMap","version":"1.5.0"},{"dependencies":["base","itertools"],"name":"dao-proposal-engine","repository":"https://github.com/edjcase/motoko_proposal_engine","version":"0.1.3"},{"dependencies":["base"],"name":"swb","repository":"https://github.com/research-ag/swb","version":"1.2.0"},{"dependencies":["stableheapbtreemap","base"],"name":"ekvm","repository":"https://github.com/BarFTW/Ekvm","version":"0.1.0"},{"dependencies":["base","new-base","itertools","xtended-numbers"],"name":"asn1","repository":"https://github.com/edjcase/motoko_asn1","version":"2.0.2"},{"dependencies":["base","iterext"],"name":"sha3","repository":"https://github.com/hanbu97/motoko-sha3","version":"0.1.1"},{"dependencies":["xtended-numbers"],"name":"json","repository":"https://github.com/Demali-876/json","version":"1.1.1"},{"dependencies":["base"],"name":"regex","repository":"https://github.com/Demali-876/motoko_regex_engine","version":"2.7.1"},{"dependencies":["base","stable-hash-map","vector"],"name":"geecs","repository":"https://github.com/jneums/geecs","version":"1.0.0"},{"dependencies":["base"],"name":"vector","repository":"https://github.com/research-ag/vector","version":"0.4.1"},{"dependencies":["test","bench"],"name":"base64","repository":"https://github.com/nirvana369/base64","version":"1.0.0"},{"dependencies":["base","map","linked-list","http-types","motoko-datetime","memory-region"],"name":"backup","repository":"https://github.com/ZenVoich/backup","version":"3.0.0"},{"dependencies":["base","itertools","circular-buffer","bitbuffer","hash","buffer-deque","array"],"name":"deflate","repository":"https://github.com/NatLabs/deflate.mo","version":"0.1.0"},{"dependencies":["base","map","sha2","vector","rep-indy-hash","stable-write-only","swbstable","itertools","ic-certification","mosup"],"name":"rechain","repository":"https://github.com/neutrinomic/rechain","version":"1.1.5"},{"dependencies":[],"name":"hash-map","repository":"https://github.com/fury02/stable-hash-map","version":"0.0.2"},{"dependencies":["base","xtended-text"],"name":"datetime","repository":"https://github.com/edjcase/motoko_datetime","version":"0.3.0"},{"dependencies":["base"],"name":"generics","repository":"https://github.com/research-ag/generics","version":"0.0.2"},{"dependencies":["base"],"name":"swbstable","repository":"https://github.com/infu/swb","version":"1.1.1"},{"dependencies":["test","xtended-numbers","base","map"],"name":"utilities","repository":"https://github.com/bittoko/utils","version":"2.0.2"},{"dependencies":["base","http-types","map","certified-assets","ic","itertools","vector","encoding","http-parser","sha2"],"name":"ic-assets","repository":"https://github.com/NatLabs/ic-assets","version":"0.1.0"},{"dependencies":["base"],"name":"date-time","repository":"https://github.com/toshakparmar/date-time-motoko","version":"1.0.2"},{"dependencies":["base"],"name":"async-test","repository":"https://github.com/research-ag/async-test","version":"0.0.1"},{"dependencies":["base","vector","star","account","icrc3-mo","map","ic-certification","timer-tool","ovs-fixed","candy","icrc1-mo","icrc10-mo","icrc75-mo"],"name":"icrc104-mo","repository":"https://github.com/icdevsorg/icrc104.mo","version":"0.0.1"},{"dependencies":[],"name":"http-types","repository":"https://github.com/ZenVoich/http-types","version":"1.0.1"},{"dependencies":["candb","stable-rbtree","stablebuffer","base"],"name":"candb-multi","repository":"https://github.com/vporton/candb-multi","version":"0.11.8"},{"dependencies":["base"],"name":"ordered-map","repository":"https://github.com/vporton/ordered-map.mo","version":"0.2.2"},{"dependencies":["base","itertools","circular-buffer","bitbuffer","buffer-deque","test"],"name":"compression","repository":"https://github.com/edjcase/motoko_compression","version":"0.2.0"},{"dependencies":["map"],"name":"file-uploader","repository":"https://github.com/ArielRobotti/file-uploader","version":"1.0.2"},{"dependencies":["stablehashmap","base"],"name":"cycles-simple","repository":"https://github.com/vporton/cycles-simple","version":"0.11.4"},{"dependencies":["base"],"name":"football-types","repository":"https://github.com/JohnNixon6972/FootballTypes","version":"1.0.1"},{"dependencies":[],"name":"stable-hash-map","repository":"https://github.com/fury02/stable-hash-map","version":"0.0.1"},{"dependencies":["base"],"name":"circular-buffer","repository":"https://github.com/NatLabs/CircularBuffer","version":"0.0.1"},{"dependencies":["base","base64","ecdsa","http-types","http-parser","itertools","json","jwt"],"name":"openchat-bot-sdk","repository":"https://github.com/open-chat-labs/open-chat-bots","version":"0.2.1"},{"dependencies":["ic-certification","sha2","cbor","base"],"name":"ic-websocket-cdk","repository":"https://github.com/omnia-network/ic-websocket-cdk-mo","version":"0.4.1"},{"dependencies":["base","map","neuro"],"name":"devefi-jes1-snsneuron","repository":"https://github.com/jesssekeogh/devefi_jes1_snsneuron","version":"0.1.3"},{"dependencies":["base","neuro","map"],"name":"devefi-jes1-icpneuron","repository":"https://github.com/jesssekeogh/devefi_jes1_icpneuron","version":"0.2.3"},{"dependencies":[],"name":"ic","repository":"https://github.com/ZenVoich/ic","version":"2.0.0"},{"dependencies":[],"name":"llm","repository":"https://github.com/dfinity/llm","version":"1.2.0"},{"dependencies":["base","new-base","base-x-encoder","itertools","asn1","sha2","xtended-numbers"],"name":"rsa","repository":"https://github.com/edjcase/motoko_rsa","version":"0.0.2"},{"dependencies":[],"name":"splay","repository":"https://github.com/chenyan2002/motoko-splay","version":"0.1.0"},{"dependencies":["base"],"name":"noise","repository":"https://github.com/jneums/noise","version":"0.1.0"},{"dependencies":["base","vector"],"name":"icrc45","repository":"https://github.com/Neutrinomic/icrc45.mo","version":"0.1.0"},{"dependencies":["base"],"name":"auction","repository":"https://github.com/research-ag/auction","version":"3.0.0"},{"dependencies":["base"],"name":"ed25519","repository":"https://github.com/imsk17/ed25519","version":"0.1.0"},{"dependencies":[],"name":"testpkg","repository":"https://github.com/dr-montasir/testpkg","version":"1.0.1"},{"dependencies":["base","map","itertools","augmented-btrees"],"name":"bit-map","repository":"https://github.com/NatLabs/BitMap","version":"0.1.2"},{"dependencies":["base","stable-write-only","map9","vector","sha2","rep-indy-hash","cert","class-plus"],"name":"icrc3-mo","repository":"https://github.com/PanIndustrial-Org/icrc3.mo","version":"0.3.0"},{"dependencies":["base","map"],"name":"icrc10-mo","repository":"https://github.com/PanIndustrial-Org/icrc10.mo","version":"0.0.1"},{"dependencies":["base","map","linked-list"],"name":"lru-cache","repository":"https://github.com/NatLabs/lru-cache","version":"1.0.0"},{"dependencies":["map9","map","vector","star","icrc1-mo","candy","stableheapbtreemap","ovs-fixed","timer-tool","ic-certification","rep-indy-hash","class-plus","base"],"name":"icrc75-mo","repository":"https://github.com/icdevsorg/icrc75.mo","version":"0.2.0"},{"dependencies":["base"],"name":"class-plus","repository":"https://github.com/icdevsorg/class-plus","version":"0.0.1"},{"dependencies":[],"name":"motoko-crc","repository":"https://github.com/stephenandrews/motoko-crc/tree/master","version":"1.0.0"},{"dependencies":[],"name":"assets-api","repository":"https://github.com/vporton/assets_api.mo","version":"1.0.1"},{"dependencies":["base"],"name":"linked-list","repository":"https://github.com/NatLabs/linked-list","version":"0.1.0"},{"dependencies":["base","map","time-consts","fuzz","certified-cache","serde"],"name":"rbac-motoko","repository":"https://github.com/fury02/rbac-motoko","version":"0.1.3"},{"dependencies":["base","cbor","map","rep-indy-hash","test","xtended-numbers","sha2","utilities","tecdsa"],"name":"http-loopback","repository":"https://github.com/bittoko/http-loopback","version":"0.2.1"},{"dependencies":["base"],"name":"xtended-random","repository":"https://github.com/edjcase/motoko_random","version":"1.0.1"},{"dependencies":["base","memory-region","StableTrieMap","itertools","test","memory-buffer","vector","fuzz","bench"],"name":"memory-hashlist","repository":"https://github.com/fGhost713/Memory-HashList","version":"2.0.0"},{"dependencies":["base","ic-certification","sha2","http-parser","http-types","encoding","serde","map","vector"],"name":"certified-assets","repository":"https://github.com/NatLabs/certified-assets","version":"0.5.1"},{"dependencies":["bitcoin","sha2","base16"],"name":"bitcoin-address-utils","repository":"https://github.com/Universelle-io/bitcoin-address-utils","version":"1.0.6"},{"dependencies":["base","fuzz","stable-hash-map"],"name":"maf","repository":"https://github.com/fury02/async-data-deliveries","version":"0.0.29"},{"dependencies":["base","fuzz","stable-hash-map"],"name":"mal","repository":"https://github.com/fury02/async-data-deliveries","version":"0.0.26"},{"dependencies":["sha2"],"name":"hmac","repository":"https://github.com/edjCase/motoko_hmac","version":"0.0.1"},{"dependencies":["base","xtended-numbers"],"name":"cbor","repository":"https://github.com/edjcase/motoko_cbor","version":"1.0.0"},{"dependencies":["base","stable-rbtree","stable-buffer","prng","stableheapbtreemap","sha2","cycles-simple","stablebuffer"],"name":"nacdb","repository":"https://github.com/vporton/NacDB","version":"0.14.3"},{"dependencies":["base","itertools","serde","http","moh","parser-combinators","encoding","fuzz"],"name":"web-io","repository":"https://github.com/NatLabs/web-io","version":"0.0.1"},{"dependencies":["base"],"name":"base16","repository":"https://github.com/diodechain/motoko_base16","version":"1.0.0"},{"dependencies":["base","itertools","serde","http","moh","parser-combinators","encoding","fuzz"],"name":"web-api","repository":"https://github.com/NatLabs/web-io","version":"0.0.1"},{"dependencies":["base","star","map"],"name":"ovs-fixed","repository":"https://github.com/icdevsorg/ovs-fixed","version":"0.1.4"},{"dependencies":["base"],"name":"simplemath","repository":"https://github.com/sam-thetutor/simpleMath","version":"1.0.0"},{"dependencies":["base"],"name":"enumeration","repository":"https://github.com/research-ag/enumeration","version":"0.1.1"},{"dependencies":["base"],"name":"stable-trie","repository":"https://github.com/research-ag/stable-trie","version":"0.0.1"},{"dependencies":["base","http-server"],"name":"http-server","repository":"https://github.com/sazalo101/http-server","version":"1.0.2"},{"dependencies":["base","vector","sha2","encoding","array","motoko_numbers"],"name":"rep-indy-hash","repository":"https://github.com/skilesare/RepIndyHash.mo","version":"0.1.1"},{"dependencies":["base"],"name":"waterway-mops","repository":"https://github.com/jamesbeadle/waterway-mops","version":"2.8.9"},{"dependencies":["base"],"name":"idempotency-keys","repository":"https://github.com/Demali-876/idempotency-keys","version":"1.0.2"},{"dependencies":["base","xtended-numbers","xtended-text"],"name":"xml","repository":"https://github.com/edjcase/motoko_xml","version":"1.0.0"},{"dependencies":[],"name":"base","repository":"https://github.com/dfinity/motoko-base","version":"0.14.9"},{"dependencies":["base-0.7.3","encoding","io"],"name":"uuid","repository":"https://github.com/aviate-labs/uuid.mo","version":"1.0.0"},{"dependencies":["base","xtended-numbers"],"name":"candid","repository":"https://github.com/edjcase/motoko_candid","version":"1.1.1"},{"dependencies":["base"],"name":"simplem","repository":"https://github.com/sam-thetutor/mopsTestPackage","version":"1.0.0"},{"dependencies":["base","sha2"],"name":"bitcoin","repository":"https://github.com/dfinity/motoko-bitcoin","version":"0.1.1"},{"dependencies":["base"],"name":"testpack","repository":"https://github.com/sam-thetutor/mopspackage","version":"1.0.0"},{"dependencies":["base","base-0.7.3","map9","candy_0_3_0","stablebuffer","stablebuffer_1_3_0","encoding_0_4_1","vector","rep-indy-hash","class-plus"],"name":"icrc7-mo","repository":"https://github.com/PanIndustrial-Org/icrc7.mo","version":"0.5.0"},{"dependencies":[],"name":"new-base","repository":"https://github.com/dfinity/new-motoko-base","version":"0.4.0"},{"dependencies":["base","base-0.7.3","map9","candy_0_3_0","stablebuffer","stablebuffer_1_3_0","encoding_0_4_1","vector","rep-indy-hash","icrc7-mo"],"name":"icrc30-mo","repository":"https://github.com/PanIndustrial-Org/icrc30.mo","version":"0.3.1"},{"dependencies":["base","base-0.7.3","map9","candy_0_3_0","stablebuffer","stablebuffer_1_3_0","encoding_0_4_1","vector","rep-indy-hash","icrc7-mo","map","class-plus"],"name":"icrc37-mo","repository":"https://github.com/PanIndustrial-Org/icrc37.mo","version":"0.5.1"},{"dependencies":["base","map","vector","timer-tool","star","stableheapbtreemap","sha2","candy","ovs-fixed","rep-indy-hash"],"name":"icrc79-mo","repository":"https://github.com/PanIndustrial-org/icrc79.mo","version":"0.2.2"},{"dependencies":["base","stableheapbtreemap","star","map","ovs-fixed","class-plus"],"name":"timer-tool","repository":"https://github.com/PanIndustrial-Org/timerTool","version":"0.1.1"},{"dependencies":["base","base-0.7.3","map9","candy_0_3_0","stablebuffer","stablebuffer_1_3_0","encoding_0_4_1","stable-write-only","cert","vector","rep-indy-hash","icrc3-mo","icrc37-mo","icrc7-mo","class-plus"],"name":"icrc-nft-mo","repository":"https://github.com/PanIndustrial-Org/icrc_nft.mo","version":"0.5.0"},{"dependencies":["base"],"name":"testpackage","repository":"https://github.com/sam-thetutor/testpackage","version":"1.0.0"},{"dependencies":["base","xtended-numbers"],"name":"xtended-text","repository":"https://github.com/edjcase/motoko_text","version":"1.0.0"},{"dependencies":["base"],"name":"stable-rbtree","repository":"https://github.com/canscale/StableRBTree","version":"1.0.0"},{"dependencies":["base"],"name":"principal-ext","repository":"https://github.com/icdevsorg/principal-ext.mo","version":"0.1.0"},{"dependencies":["base","map"],"name":"incremental-ids","repository":"https://github.com/NatLabs/incremental-ids","version":"0.0.1"},{"dependencies":["base","ovs-fixed","class-plus","timer-tool","star","map","icrc10-mo","vector"],"name":"stable-local-log","repository":"https://github.com/PanIndustrial-Org/stable-local-log-mo","version":"0.1.2"},{"dependencies":["map","base","serde"],"name":"ussd-menu-builder","repository":"https://github.com/akimau/motoko-ussd-menu-builder","version":"1.0.2"},{"dependencies":["base","base-0.7.3","map9","candy_0_3_0","stablebuffer","stablebuffer_1_3_0","encoding_0_4_1","vector","rep-indy-hash","icrc7-mo"],"name":"icrc37-mo-lordrio","repository":"https://github.com/lordrio/icrc37.mo","version":"0.4.3"},{"dependencies":["base","stableheapbtreemap","star","map","vector","ovs-fixed","candy","class-plus","timer-tool"],"name":"icrc72-subscriber-mo","repository":"https://github.com/PanIndustrial-Org/icrc72-subscriber-mo","version":"0.0.1"},{"dependencies":["base","candy_0_2_0","map_7_0_0","stable_buffer","map","matchers"],"name":"kyc","repository":"https://github.com/ORIGYN_SA/kyc.mo","version":"0.1.0"},{"dependencies":[],"name":"map","repository":"https://github.com/ZhenyaUsenko/motoko-hash-map","version":"9.0.1"},{"dependencies":["base"],"name":"rxmo","repository":"https://github.com/infu/rxmo","version":"0.3.0"},{"dependencies":["base","matchers"],"name":"star","repository":"https://github.com/icdevs/star.mo","version":"0.1.1"},{"dependencies":["matchers","candid-old","xtendedNumbers","stablebuffer","stablebuffer_1_3_0","map7","map9","candy_0_1_12","candy_0_2_0","encoding_0_4_1","vector","principal-ext","base"],"name":"candy","repository":"https://github.com/icdevs/candy_library","version":"0.3.1"},{"dependencies":["base","new-base","base-x-encoder","asn1","sha2","tweetnacl"],"name":"eddsa","repository":"https://github.com/edjcase/motoko_eddsa","version":"0.0.1"},{"dependencies":[],"name":"mosup","repository":"https://github.com/Neutrinomic/mosup","version":"0.1.1"},{"dependencies":[],"name":"hello","repository":"","version":"0.1.1"},{"dependencies":["base","stable-hash-map","btree","array","encoding","stable-rbtree","stablebuffer","map","candy","stablebuffer_1_3_0","map9"],"name":"candb","repository":"https://github.com/ORIGYN-SA/CanDB","version":"1.0.8"},{"dependencies":["vector","map","base","prng","account","itertools","rechain","mosup","devefi-icrc-ledger","devefi-icp-ledger"],"name":"devefi","repository":"https://github.com/Neutrinomic/devefi","version":"0.3.22"},{"dependencies":["base","rxmo","stableheapbtreemap","vector","test"],"name":"rxmodb","repository":"https://github.com/infu/rxmodb","version":"0.2.0"},{"dependencies":["base-0.7.3","parser-combinators"],"name":"json.mo","repository":"https://github.com/aviate-labs/json.mo","version":"0.1.2"},{"dependencies":["base","rlp","libsecp256k1","sha3"],"name":"evm-txs","repository":"https://github.com/av1ctor/evm-txs.mo","version":"0.1.3"},{"dependencies":["base"],"name":"itertools","repository":"https://github.com/NatLabs/Itertools","version":"0.2.2"},{"dependencies":["base","array","crypto","hash","encoding","matchers","candy_0_1_10","candy_0_1_12","candy","principalmo","ext","httpparser","http","json","stablebuffer_0_2_0","droute_client","map_6_0_0","map_7_0_0","map7","map_8_1_0","map","stablebuffer","canistergeek","canistergeekold","icrc17_kyc","candy_0_2_0","stableBTree","star","StableBuffer","droute-client","motoko-hash-map"],"name":"origyn-nft","repository":"https://github.com/ORIGYN_SA/origyn_nft","version":"0.1.5"},{"dependencies":["base","candy3","stablebuffer_1_3_0","map9"],"name":"candy-utils","repository":"https://github.com/ZhenyaUsenko/motoko-candy-utils","version":"0.7.0"},{"dependencies":[],"name":"ckbtc-types","repository":"https://github.com/ZenVoich/ckbtc-types","version":"0.1.2"},{"dependencies":["base","gt-json","gt-encoding"],"name":"http-parser","repository":"https://github.com/NatLabs/http-parser.mo","version":"0.3.4"},{"dependencies":["base"],"name":"libsecp256k1","repository":"https://github.com/av1ctor/libsecp256k1.mo","version":"0.1.0"},{"dependencies":[],"name":"canistergeek","repository":"https://github.com/usergeek/canistergeek-ic-motoko","version":"0.0.8"},{"dependencies":["base","json","itertools","candid","xtended-numbers","parser-combinators"],"name":"motoko-serde","repository":"https://github.com/NatLabs/serde","version":"0.1.4"},{"dependencies":["base","stableheapbtreemap","vector","mosup","swbstable","map"],"name":"chronotrinite","repository":"https://github.com/Neutrinomic/devefi_chronotrinite","version":"0.1.0"},{"dependencies":["base","ic-certification","sha2","stableheapbtreemap"],"name":"certified-http","repository":"https://github.com/infu/certified-http","version":"0.1.6"},{"dependencies":["base","array","crypto","hash","encoding","matchers","candy_0_1_10","candy_0_1_12","candy","principalmo","ext","httpparser","http","json","format","stablebuffer_0_2_0","droute_client","map_6_0_0","map_7_0_0","map","stablebuffer","canistergeek","canistergeekold","icrc17_kyc","candy_0_2_0","stableBTree"],"name":"origyn-nft-next","repository":"https://github.com/ORIGYN_SA/origyn_nft","version":"0.1.4"},{"dependencies":[],"name":"base-unofficial","repository":"https://github.com/dfinity/motoko-base","version":"0.7.3"},{"dependencies":["sha2","cbor"],"name":"ic-certification","repository":"https://github.com/nomeata/ic-certification","version":"0.1.3"},{"dependencies":["base","candid","itertools","xtended-numbers"],"name":"candid_stringify","repository":"https://github.com/ORIGYN-SA/candid_stringify","version":"0.1.1"},{"dependencies":["vector","map","swb","stableheapbtreemap","itertools","base","mosup"],"name":"devefi-icp-ledger","repository":"https://github.com/Neutrinomic/devefi_icp_ledger","version":"1.5.8"},{"dependencies":["vector","stableheapbtreemap"],"name":"devefi-icrc-sender","repository":"https://github.com/Neutrinomic/devefi_icrc_sender","version":"1.0.7"},{"dependencies":["vector"],"name":"devefi-icrc-reader","repository":"https://github.com/Neutrinomic/devefi_icrc_reader","version":"1.0.5"},{"dependencies":["vector","map","swb","stableheapbtreemap","base","mosup"],"name":"devefi-icrc-ledger","repository":"https://github.com/Neutrinomic/devefi_icrc_ledger","version":"1.5.8"},{"dependencies":["base","rlp","sha3","merkle-patricia-trie"],"name":"evm-proof-verifier","repository":"https://github.com/horizonx-tech/evm-proof-verifier-motoko","version":"0.0.1"},{"dependencies":["base","rlp","sha3"],"name":"merkle-patricia-trie","repository":"https://github.com/f0i/merkle-patricia-trie.mo","version":"1.0.0"},{"dependencies":["base","ic-certification","sha2","stableheapbtreemap","map"],"name":"motoko-certified-assets","repository":"https://github.com/fermartz/motoko-certified-assets","version":"1.0.1"}]
+[
+  {
+    "dependencies": [
+      "base",
+      "cert",
+      "icrc1-mo",
+      "icrc2-mo",
+      "icrc3-mo",
+      "icrc4-mo",
+      "icrc75-mo",
+      "stable-write-only",
+      "sha2",
+      "candy",
+      "stableheapbtreemap",
+      "principal-ext",
+      "timer-tool"
+    ],
+    "name": "ovs-ledger",
+    "repository": "https://github.com/icdevsorg/ovs-ledger",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [],
+    "name": "nm",
+    "repository": "https://github.com/dr-montasir/nm",
+    "version": "1.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "time",
+    "repository": "https://github.com/ArielRobotti/time",
+    "version": "1.0.7"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "tweetnacl",
+    "repository": "https://github.com/nirvana369/tweetnacl/",
+    "version": "1.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "xtended-numbers",
+    "repository": "https://github.com/edjCase/motoko_numbers",
+    "version": "0.4.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "new-base",
+      "json",
+      "base-x-encoder",
+      "hmac",
+      "ecdsa",
+      "sha2",
+      "rsa",
+      "eddsa"
+    ],
+    "name": "jwt",
+    "repository": "https://github.com/edjcase/motoko_jwt",
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "concurrent",
+    "repository": "https://github.com/vporton/ic-concurrent",
+    "version": "0.1.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "cert",
+      "icrc1-mo",
+      "icrc2-mo",
+      "icrc3-mo",
+      "icrc4-mo"
+    ],
+    "name": "icrc-fungible",
+    "repository": "https://github.com/PanIndustrial-Org/ICRC_fungible",
+    "version": "0.0.5"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "test",
+    "repository": "https://github.com/ZenVoich/test",
+    "version": "2.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "math",
+    "repository": "https://github.com/ArielRobotti/math",
+    "version": "1.0.3"
+  },
+  {
+    "dependencies": [
+      "sha2",
+      "asn1",
+      "xtended-numbers",
+      "base-x-encoder"
+    ],
+    "name": "ecdsa",
+    "repository": "https://github.com/edjCase/motoko_ecdsa",
+    "version": "5.0.1"
+  },
+  {
+    "dependencies": [
+      "test"
+    ],
+    "name": "assets",
+    "repository": "https://github.com/krpeacock/assets",
+    "version": "0.2.2"
+  },
+  {
+    "dependencies": [
+      "certified-cache",
+      "test",
+      "base",
+      "assets",
+      "http-parser",
+      "serde"
+    ],
+    "name": "server",
+    "repository": "https://github.com/krpeacock/server",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "ic-certification",
+      "StableHashMap",
+      "sha2"
+    ],
+    "name": "certified-cache",
+    "repository": "https://github.com/krpeacock/certified-cache",
+    "version": "0.3.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "glob",
+    "repository": "https://github.com/edjcase/motoko_glob",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [],
+    "name": "random",
+    "repository": "https://github.com/ArielRobotti/random",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "test",
+      "sha2",
+      "base",
+      "utilities",
+      "stable-buffer"
+    ],
+    "name": "tecdsa",
+    "repository": "https://github.com/bittoko/tecdsa",
+    "version": "0.0.4"
+  },
+  {
+    "dependencies": [
+      "array",
+      "base",
+      "itertools"
+    ],
+    "name": "account",
+    "repository": "https://github.com/letmejustputthishere/account",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "new-base",
+      "itertools",
+      "xtended-text",
+      "xtended-numbers",
+      "certified-assets",
+      "http-assets",
+      "asn1",
+      "json",
+      "jwt",
+      "compression",
+      "serde",
+      "xml"
+    ],
+    "name": "liminal",
+    "repository": "https://github.com/edjcase/liminal",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "array",
+      "StableTrieMap",
+      "StableBuffer",
+      "map9",
+      "itertools",
+      "vector",
+      "star",
+      "rep-indy-hash",
+      "account",
+      "icrc1-mo"
+    ],
+    "name": "icrc4-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc4.mo",
+    "version": "0.0.5"
+  },
+  {
+    "dependencies": [],
+    "name": "xrc-types",
+    "repository": "https://github.com/ZenVoich/xrc-types",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [],
+    "name": "make-rules",
+    "repository": "https://github.com/vporton/icp-make-rules",
+    "version": "0.0.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stable-buffer"
+    ],
+    "name": "stable-enum",
+    "repository": "https://github.com/bittoko/stable-enum",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "random-class",
+    "repository": "https://github.com/ArielRobotti/RandomClass",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "stablehashmap",
+    "repository": "https://github.com/canscale/StableHashMap",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "new-base",
+      "base"
+    ],
+    "name": "base-x-encoder",
+    "repository": "https://github.com/edjcase/motoko_base_x",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "fuzz",
+    "repository": "https://github.com/ZenVoich/fuzz",
+    "version": "0.2.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "prng",
+    "repository": "https://github.com/research-ag/prng",
+    "version": "0.0.5"
+  },
+  {
+    "dependencies": [
+      "base-0.7.3",
+      "array"
+    ],
+    "name": "hash",
+    "repository": "https://github.com/aviate-labs/hash.mo",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "sha2",
+    "repository": "https://github.com/research-ag/sha2",
+    "version": "0.1.4"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "candid",
+      "xtended-numbers",
+      "json-float",
+      "parser-combinators",
+      "cbor",
+      "map",
+      "sha2"
+    ],
+    "name": "serde",
+    "repository": "https://github.com/NatLabs/serde",
+    "version": "3.2.2"
+  },
+  {
+    "dependencies": [
+      "sha2",
+      "encoding",
+      "account-identifier"
+    ],
+    "name": "neuro",
+    "repository": "https://github.com/jesssekeogh/neuro",
+    "version": "0.7.5"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "bench",
+    "repository": "https://github.com/ZenVoich/bench",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "array",
+      "StableTrieMap",
+      "StableBuffer",
+      "itertools"
+    ],
+    "name": "icrc1",
+    "repository": "https://github.com/NatLabs/icrc1",
+    "version": "0.0.2"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "csprng",
+    "repository": "https://github.com/temokoki/IC_CSPRNG",
+    "version": "1.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "swb",
+      "vector",
+      "promtracker"
+    ],
+    "name": "stream",
+    "repository": "https://github.com/research-ag/stream",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "icrc-84",
+    "repository": "https://github.com/research-ag/icrc-84",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "array",
+      "StableTrieMap",
+      "StableBuffer",
+      "map9",
+      "itertools",
+      "vector",
+      "star",
+      "rep-indy-hash",
+      "account"
+    ],
+    "name": "icrc1-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc1.mo",
+    "version": "0.0.15"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "lrucache",
+    "repository": "https://github.com/Demali-876/lru-cache",
+    "version": "1.0.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "array",
+      "StableTrieMap",
+      "StableBuffer",
+      "map9",
+      "itertools",
+      "vector",
+      "star",
+      "rep-indy-hash",
+      "account",
+      "icrc1-mo"
+    ],
+    "name": "icrc2-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc2.mo",
+    "version": "0.0.13"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stable-hash-map",
+      "stable-rbtree",
+      "stable-buffer",
+      "json",
+      "crypto",
+      "array",
+      "encoding"
+    ],
+    "name": "new-candb",
+    "repository": "https://github.com/ORIGYN-SA/CanDB/tree/main",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "buffer-deque"
+    ],
+    "name": "bitbuffer",
+    "repository": "https://github.com/NatLabs/BitBuffer",
+    "version": "1.2.0"
+  },
+  {
+    "dependencies": [],
+    "name": "icrc2-types",
+    "repository": "https://github.com/ZenVoich/icrc2-types",
+    "version": "1.1.0"
+  },
+  {
+    "dependencies": [],
+    "name": "icrc1-types",
+    "repository": "https://github.com/ZenVoich/icrc1-types",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "http-types",
+      "map",
+      "certified-assets",
+      "ic",
+      "itertools",
+      "vector",
+      "encoding",
+      "http-parser",
+      "sha2",
+      "memory-region"
+    ],
+    "name": "http-assets",
+    "repository": "https://github.com/edjcase/ic-assets",
+    "version": "0.0.6"
+  },
+  {
+    "dependencies": [],
+    "name": "time-consts",
+    "repository": "https://github.com/ZenVoich/time-consts",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "testing",
+      "base"
+    ],
+    "name": "icrc2-batch",
+    "repository": "https://github.com/MemeFighterCo/icrc2-batch",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "vector"
+    ],
+    "name": "promtracker",
+    "repository": "https://github.com/research-ag/promtracker",
+    "version": "0.5.4"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "buffer-deque",
+    "repository": "https://github.com/NatLabs/BufferDeque",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "name": "ledger-types",
+    "repository": "https://github.com/ZenVoich/ledger-types",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "icrc-84"
+    ],
+    "name": "token-handler",
+    "repository": "https://github.com/research-ag/token-handler",
+    "version": "0.0.4"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "memory-region"
+    ],
+    "name": "memory-buffer",
+    "repository": "https://github.com/NatLabs/memory-buffer",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "nacdb",
+      "stablebuffer",
+      "map7",
+      "stableheapbtreemap",
+      "itertools",
+      "xtended-numbers"
+    ],
+    "name": "nacdb-reorder",
+    "repository": "https://github.com/vporton/nacdb-reorder",
+    "version": "3.2.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "test"
+    ],
+    "name": "stable-buffer",
+    "repository": "https://github.com/bittoko/stable-buffer",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "stableheapbtreemap",
+      "map",
+      "augmented-btrees"
+    ],
+    "name": "memory-region",
+    "repository": "https://github.com/NatLabs/memory-region",
+    "version": "1.2.4"
+  },
+  {
+    "dependencies": [
+      "base",
+      "bitcoin"
+    ],
+    "name": "ckbtc-address",
+    "repository": "https://github.com/research-ag/ckbtc-address",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "sequence",
+      "candb",
+      "candb-multi",
+      "stable-buffer",
+      "StableBuffer",
+      "date.mo",
+      "motoko-sequence",
+      "json.mo"
+    ],
+    "name": "passport-client",
+    "repository": "https://github.com/vporton/passport-client-dfinity",
+    "version": "0.4.9"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map9",
+      "vector",
+      "star",
+      "account",
+      "icrc3-mo",
+      "icrc10-mo",
+      "xtended-random",
+      "icrc75-mo",
+      "ic-certification",
+      "timer-tool",
+      "ovs-fixed",
+      "candy",
+      "icrc1-mo",
+      "stableheapbtreemap",
+      "icrc104-mo"
+    ],
+    "name": "af-role-rotator",
+    "repository": "https://github.com/icdevsorg/af-role-rotator",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "buffer-deque",
+      "itertools"
+    ],
+    "name": "augmented-btrees",
+    "repository": "https://github.com/NatLabs/augmented-btrees",
+    "version": "0.5.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "memory-region",
+      "StableTrieMap",
+      "itertools",
+      "test",
+      "memory-buffer"
+    ],
+    "name": "memory-hashtable",
+    "repository": "https://github.com/fGhost713/memory-HashTable",
+    "version": "1.0.5"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "memory-region",
+      "buffer-deque",
+      "memory-collection"
+    ],
+    "name": "memory-collection",
+    "repository": "https://github.com/NatLabs/memory-collection",
+    "version": "0.0.4"
+  },
+  {
+    "dependencies": [
+      "sha2",
+      "hash"
+    ],
+    "name": "account-identifier",
+    "repository": "https://github.com/letmejustputthishere/account-identifiers",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "stableheapbtreemap",
+    "repository": "https://github.com/canscale/StableHeapBTreeMap",
+    "version": "1.5.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools"
+    ],
+    "name": "dao-proposal-engine",
+    "repository": "https://github.com/edjcase/motoko_proposal_engine",
+    "version": "0.1.3"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "swb",
+    "repository": "https://github.com/research-ag/swb",
+    "version": "1.2.0"
+  },
+  {
+    "dependencies": [
+      "stableheapbtreemap",
+      "base"
+    ],
+    "name": "ekvm",
+    "repository": "https://github.com/BarFTW/Ekvm",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "new-base",
+      "itertools",
+      "xtended-numbers"
+    ],
+    "name": "asn1",
+    "repository": "https://github.com/edjcase/motoko_asn1",
+    "version": "2.0.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "iterext"
+    ],
+    "name": "sha3",
+    "repository": "https://github.com/hanbu97/motoko-sha3",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "xtended-numbers"
+    ],
+    "name": "json",
+    "repository": "https://github.com/Demali-876/json",
+    "version": "1.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "regex",
+    "repository": "https://github.com/Demali-876/motoko_regex_engine",
+    "version": "2.7.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stable-hash-map",
+      "vector"
+    ],
+    "name": "geecs",
+    "repository": "https://github.com/jneums/geecs",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "vector",
+    "repository": "https://github.com/research-ag/vector",
+    "version": "0.4.1"
+  },
+  {
+    "dependencies": [
+      "test",
+      "bench"
+    ],
+    "name": "base64",
+    "repository": "https://github.com/nirvana369/base64",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "linked-list",
+      "http-types",
+      "motoko-datetime",
+      "memory-region"
+    ],
+    "name": "backup",
+    "repository": "https://github.com/ZenVoich/backup",
+    "version": "3.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "circular-buffer",
+      "bitbuffer",
+      "hash",
+      "buffer-deque",
+      "array"
+    ],
+    "name": "deflate",
+    "repository": "https://github.com/NatLabs/deflate.mo",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "sha2",
+      "vector",
+      "rep-indy-hash",
+      "stable-write-only",
+      "swbstable",
+      "itertools",
+      "ic-certification",
+      "mosup"
+    ],
+    "name": "rechain",
+    "repository": "https://github.com/neutrinomic/rechain",
+    "version": "1.1.5"
+  },
+  {
+    "dependencies": [],
+    "name": "hash-map",
+    "repository": "https://github.com/fury02/stable-hash-map",
+    "version": "0.0.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "xtended-text"
+    ],
+    "name": "datetime",
+    "repository": "https://github.com/edjcase/motoko_datetime",
+    "version": "0.3.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "generics",
+    "repository": "https://github.com/research-ag/generics",
+    "version": "0.0.2"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "swbstable",
+    "repository": "https://github.com/infu/swb",
+    "version": "1.1.1"
+  },
+  {
+    "dependencies": [
+      "test",
+      "xtended-numbers",
+      "base",
+      "map"
+    ],
+    "name": "utilities",
+    "repository": "https://github.com/bittoko/utils",
+    "version": "2.0.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "http-types",
+      "map",
+      "certified-assets",
+      "ic",
+      "itertools",
+      "vector",
+      "encoding",
+      "http-parser",
+      "sha2"
+    ],
+    "name": "ic-assets",
+    "repository": "https://github.com/NatLabs/ic-assets",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "date-time",
+    "repository": "https://github.com/toshakparmar/date-time-motoko",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "async-test",
+    "repository": "https://github.com/research-ag/async-test",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "vector",
+      "star",
+      "account",
+      "icrc3-mo",
+      "map",
+      "ic-certification",
+      "timer-tool",
+      "ovs-fixed",
+      "candy",
+      "icrc1-mo",
+      "icrc10-mo",
+      "icrc75-mo"
+    ],
+    "name": "icrc104-mo",
+    "repository": "https://github.com/icdevsorg/icrc104.mo",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [],
+    "name": "http-types",
+    "repository": "https://github.com/ZenVoich/http-types",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "candb",
+      "stable-rbtree",
+      "stablebuffer",
+      "base"
+    ],
+    "name": "candb-multi",
+    "repository": "https://github.com/vporton/candb-multi",
+    "version": "0.11.8"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "ordered-map",
+    "repository": "https://github.com/vporton/ordered-map.mo",
+    "version": "0.2.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "circular-buffer",
+      "bitbuffer",
+      "buffer-deque",
+      "test"
+    ],
+    "name": "compression",
+    "repository": "https://github.com/edjcase/motoko_compression",
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [
+      "map"
+    ],
+    "name": "file-uploader",
+    "repository": "https://github.com/ArielRobotti/file-uploader",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "stablehashmap",
+      "base"
+    ],
+    "name": "cycles-simple",
+    "repository": "https://github.com/vporton/cycles-simple",
+    "version": "0.11.4"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "football-types",
+    "repository": "https://github.com/JohnNixon6972/FootballTypes",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [],
+    "name": "stable-hash-map",
+    "repository": "https://github.com/fury02/stable-hash-map",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "circular-buffer",
+    "repository": "https://github.com/NatLabs/CircularBuffer",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "base64",
+      "ecdsa",
+      "http-types",
+      "http-parser",
+      "itertools",
+      "json",
+      "jwt"
+    ],
+    "name": "openchat-bot-sdk",
+    "repository": "https://github.com/open-chat-labs/open-chat-bots",
+    "version": "0.2.1"
+  },
+  {
+    "dependencies": [
+      "ic-certification",
+      "sha2",
+      "cbor",
+      "base"
+    ],
+    "name": "ic-websocket-cdk",
+    "repository": "https://github.com/omnia-network/ic-websocket-cdk-mo",
+    "version": "0.4.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "neuro"
+    ],
+    "name": "devefi-jes1-snsneuron",
+    "repository": "https://github.com/jesssekeogh/devefi_jes1_snsneuron",
+    "version": "0.1.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "neuro",
+      "map"
+    ],
+    "name": "devefi-jes1-icpneuron",
+    "repository": "https://github.com/jesssekeogh/devefi_jes1_icpneuron",
+    "version": "0.2.3"
+  },
+  {
+    "dependencies": [],
+    "name": "ic",
+    "repository": "https://github.com/ZenVoich/ic",
+    "version": "2.0.0"
+  },
+  {
+    "dependencies": [],
+    "name": "llm",
+    "repository": "https://github.com/dfinity/llm",
+    "version": "1.2.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "new-base",
+      "base-x-encoder",
+      "itertools",
+      "asn1",
+      "sha2",
+      "xtended-numbers"
+    ],
+    "name": "rsa",
+    "repository": "https://github.com/edjcase/motoko_rsa",
+    "version": "0.0.2"
+  },
+  {
+    "dependencies": [],
+    "name": "splay",
+    "repository": "https://github.com/chenyan2002/motoko-splay",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "noise",
+    "repository": "https://github.com/jneums/noise",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "vector"
+    ],
+    "name": "icrc45",
+    "repository": "https://github.com/Neutrinomic/icrc45.mo",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "auction",
+    "repository": "https://github.com/research-ag/auction",
+    "version": "3.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "ed25519",
+    "repository": "https://github.com/imsk17/ed25519",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "name": "testpkg",
+    "repository": "https://github.com/dr-montasir/testpkg",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "itertools",
+      "augmented-btrees"
+    ],
+    "name": "bit-map",
+    "repository": "https://github.com/NatLabs/BitMap",
+    "version": "0.1.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stable-write-only",
+      "map9",
+      "vector",
+      "sha2",
+      "rep-indy-hash",
+      "cert",
+      "class-plus"
+    ],
+    "name": "icrc3-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc3.mo",
+    "version": "0.3.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map"
+    ],
+    "name": "icrc10-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc10.mo",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "linked-list"
+    ],
+    "name": "lru-cache",
+    "repository": "https://github.com/NatLabs/lru-cache",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "map9",
+      "map",
+      "vector",
+      "star",
+      "icrc1-mo",
+      "candy",
+      "stableheapbtreemap",
+      "ovs-fixed",
+      "timer-tool",
+      "ic-certification",
+      "rep-indy-hash",
+      "class-plus",
+      "base"
+    ],
+    "name": "icrc75-mo",
+    "repository": "https://github.com/icdevsorg/icrc75.mo",
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "class-plus",
+    "repository": "https://github.com/icdevsorg/class-plus",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [],
+    "name": "motoko-crc",
+    "repository": "https://github.com/stephenandrews/motoko-crc/tree/master",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [],
+    "name": "assets-api",
+    "repository": "https://github.com/vporton/assets_api.mo",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "linked-list",
+    "repository": "https://github.com/NatLabs/linked-list",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "time-consts",
+      "fuzz",
+      "certified-cache",
+      "serde"
+    ],
+    "name": "rbac-motoko",
+    "repository": "https://github.com/fury02/rbac-motoko",
+    "version": "0.1.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "cbor",
+      "map",
+      "rep-indy-hash",
+      "test",
+      "xtended-numbers",
+      "sha2",
+      "utilities",
+      "tecdsa"
+    ],
+    "name": "http-loopback",
+    "repository": "https://github.com/bittoko/http-loopback",
+    "version": "0.2.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "xtended-random",
+    "repository": "https://github.com/edjcase/motoko_random",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "memory-region",
+      "StableTrieMap",
+      "itertools",
+      "test",
+      "memory-buffer",
+      "vector",
+      "fuzz",
+      "bench"
+    ],
+    "name": "memory-hashlist",
+    "repository": "https://github.com/fGhost713/Memory-HashList",
+    "version": "2.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "ic-certification",
+      "sha2",
+      "http-parser",
+      "http-types",
+      "encoding",
+      "serde",
+      "map",
+      "vector"
+    ],
+    "name": "certified-assets",
+    "repository": "https://github.com/NatLabs/certified-assets",
+    "version": "0.5.1"
+  },
+  {
+    "dependencies": [
+      "bitcoin",
+      "sha2",
+      "base16"
+    ],
+    "name": "bitcoin-address-utils",
+    "repository": "https://github.com/Universelle-io/bitcoin-address-utils",
+    "version": "1.0.6"
+  },
+  {
+    "dependencies": [
+      "base",
+      "fuzz",
+      "stable-hash-map"
+    ],
+    "name": "maf",
+    "repository": "https://github.com/fury02/async-data-deliveries",
+    "version": "0.0.29"
+  },
+  {
+    "dependencies": [
+      "base",
+      "fuzz",
+      "stable-hash-map"
+    ],
+    "name": "mal",
+    "repository": "https://github.com/fury02/async-data-deliveries",
+    "version": "0.0.26"
+  },
+  {
+    "dependencies": [
+      "sha2"
+    ],
+    "name": "hmac",
+    "repository": "https://github.com/edjCase/motoko_hmac",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "xtended-numbers"
+    ],
+    "name": "cbor",
+    "repository": "https://github.com/edjcase/motoko_cbor",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stable-rbtree",
+      "stable-buffer",
+      "prng",
+      "stableheapbtreemap",
+      "sha2",
+      "cycles-simple",
+      "stablebuffer"
+    ],
+    "name": "nacdb",
+    "repository": "https://github.com/vporton/NacDB",
+    "version": "0.14.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "serde",
+      "http",
+      "moh",
+      "parser-combinators",
+      "encoding",
+      "fuzz"
+    ],
+    "name": "web-io",
+    "repository": "https://github.com/NatLabs/web-io",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "base16",
+    "repository": "https://github.com/diodechain/motoko_base16",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "itertools",
+      "serde",
+      "http",
+      "moh",
+      "parser-combinators",
+      "encoding",
+      "fuzz"
+    ],
+    "name": "web-api",
+    "repository": "https://github.com/NatLabs/web-io",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "star",
+      "map"
+    ],
+    "name": "ovs-fixed",
+    "repository": "https://github.com/icdevsorg/ovs-fixed",
+    "version": "0.1.4"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "simplemath",
+    "repository": "https://github.com/sam-thetutor/simpleMath",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "enumeration",
+    "repository": "https://github.com/research-ag/enumeration",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "stable-trie",
+    "repository": "https://github.com/research-ag/stable-trie",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "http-server"
+    ],
+    "name": "http-server",
+    "repository": "https://github.com/sazalo101/http-server",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "vector",
+      "sha2",
+      "encoding",
+      "array",
+      "motoko_numbers"
+    ],
+    "name": "rep-indy-hash",
+    "repository": "https://github.com/skilesare/RepIndyHash.mo",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "waterway-mops",
+    "repository": "https://github.com/jamesbeadle/waterway-mops",
+    "version": "2.8.9"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "idempotency-keys",
+    "repository": "https://github.com/Demali-876/idempotency-keys",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "xtended-numbers",
+      "xtended-text"
+    ],
+    "name": "xml",
+    "repository": "https://github.com/edjcase/motoko_xml",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [],
+    "name": "base",
+    "repository": "https://github.com/dfinity/motoko-base",
+    "version": "0.14.9"
+  },
+  {
+    "dependencies": [
+      "base-0.7.3",
+      "encoding",
+      "io"
+    ],
+    "name": "uuid",
+    "repository": "https://github.com/aviate-labs/uuid.mo",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "xtended-numbers"
+    ],
+    "name": "candid",
+    "repository": "https://github.com/edjcase/motoko_candid",
+    "version": "1.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "simplem",
+    "repository": "https://github.com/sam-thetutor/mopsTestPackage",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "sha2"
+    ],
+    "name": "bitcoin",
+    "repository": "https://github.com/dfinity/motoko-bitcoin",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "testpack",
+    "repository": "https://github.com/sam-thetutor/mopspackage",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "base-0.7.3",
+      "map9",
+      "candy_0_3_0",
+      "stablebuffer",
+      "stablebuffer_1_3_0",
+      "encoding_0_4_1",
+      "vector",
+      "rep-indy-hash",
+      "class-plus"
+    ],
+    "name": "icrc7-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc7.mo",
+    "version": "0.5.0"
+  },
+  {
+    "dependencies": [],
+    "name": "new-base",
+    "repository": "https://github.com/dfinity/new-motoko-base",
+    "version": "0.4.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "base-0.7.3",
+      "map9",
+      "candy_0_3_0",
+      "stablebuffer",
+      "stablebuffer_1_3_0",
+      "encoding_0_4_1",
+      "vector",
+      "rep-indy-hash",
+      "icrc7-mo"
+    ],
+    "name": "icrc30-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc30.mo",
+    "version": "0.3.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "base-0.7.3",
+      "map9",
+      "candy_0_3_0",
+      "stablebuffer",
+      "stablebuffer_1_3_0",
+      "encoding_0_4_1",
+      "vector",
+      "rep-indy-hash",
+      "icrc7-mo",
+      "map",
+      "class-plus"
+    ],
+    "name": "icrc37-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc37.mo",
+    "version": "0.5.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map",
+      "vector",
+      "timer-tool",
+      "star",
+      "stableheapbtreemap",
+      "sha2",
+      "candy",
+      "ovs-fixed",
+      "rep-indy-hash"
+    ],
+    "name": "icrc79-mo",
+    "repository": "https://github.com/PanIndustrial-org/icrc79.mo",
+    "version": "0.2.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stableheapbtreemap",
+      "star",
+      "map",
+      "ovs-fixed",
+      "class-plus"
+    ],
+    "name": "timer-tool",
+    "repository": "https://github.com/PanIndustrial-Org/timerTool",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "base-0.7.3",
+      "map9",
+      "candy_0_3_0",
+      "stablebuffer",
+      "stablebuffer_1_3_0",
+      "encoding_0_4_1",
+      "stable-write-only",
+      "cert",
+      "vector",
+      "rep-indy-hash",
+      "icrc3-mo",
+      "icrc37-mo",
+      "icrc7-mo",
+      "class-plus"
+    ],
+    "name": "icrc-nft-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc_nft.mo",
+    "version": "0.5.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "testpackage",
+    "repository": "https://github.com/sam-thetutor/testpackage",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "xtended-numbers"
+    ],
+    "name": "xtended-text",
+    "repository": "https://github.com/edjcase/motoko_text",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "stable-rbtree",
+    "repository": "https://github.com/canscale/StableRBTree",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "principal-ext",
+    "repository": "https://github.com/icdevsorg/principal-ext.mo",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "map"
+    ],
+    "name": "incremental-ids",
+    "repository": "https://github.com/NatLabs/incremental-ids",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "ovs-fixed",
+      "class-plus",
+      "timer-tool",
+      "star",
+      "map",
+      "icrc10-mo",
+      "vector"
+    ],
+    "name": "stable-local-log",
+    "repository": "https://github.com/PanIndustrial-Org/stable-local-log-mo",
+    "version": "0.1.2"
+  },
+  {
+    "dependencies": [
+      "map",
+      "base",
+      "serde"
+    ],
+    "name": "ussd-menu-builder",
+    "repository": "https://github.com/akimau/motoko-ussd-menu-builder",
+    "version": "1.0.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "base-0.7.3",
+      "map9",
+      "candy_0_3_0",
+      "stablebuffer",
+      "stablebuffer_1_3_0",
+      "encoding_0_4_1",
+      "vector",
+      "rep-indy-hash",
+      "icrc7-mo"
+    ],
+    "name": "icrc37-mo-lordrio",
+    "repository": "https://github.com/lordrio/icrc37.mo",
+    "version": "0.4.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stableheapbtreemap",
+      "star",
+      "map",
+      "vector",
+      "ovs-fixed",
+      "candy",
+      "class-plus",
+      "timer-tool"
+    ],
+    "name": "icrc72-subscriber-mo",
+    "repository": "https://github.com/PanIndustrial-Org/icrc72-subscriber-mo",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "candy_0_2_0",
+      "map_7_0_0",
+      "stable_buffer",
+      "map",
+      "matchers"
+    ],
+    "name": "kyc",
+    "repository": "https://github.com/ORIGYN_SA/kyc.mo",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "name": "map",
+    "repository": "https://github.com/ZhenyaUsenko/motoko-hash-map",
+    "version": "9.0.1"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "rxmo",
+    "repository": "https://github.com/infu/rxmo",
+    "version": "0.3.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "matchers"
+    ],
+    "name": "star",
+    "repository": "https://github.com/icdevs/star.mo",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "matchers",
+      "candid-old",
+      "xtendedNumbers",
+      "stablebuffer",
+      "stablebuffer_1_3_0",
+      "map7",
+      "map9",
+      "candy_0_1_12",
+      "candy_0_2_0",
+      "encoding_0_4_1",
+      "vector",
+      "principal-ext",
+      "base"
+    ],
+    "name": "candy",
+    "repository": "https://github.com/icdevs/candy_library",
+    "version": "0.3.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "new-base",
+      "base-x-encoder",
+      "asn1",
+      "sha2",
+      "tweetnacl"
+    ],
+    "name": "eddsa",
+    "repository": "https://github.com/edjcase/motoko_eddsa",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [],
+    "name": "mosup",
+    "repository": "https://github.com/Neutrinomic/mosup",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [],
+    "name": "hello",
+    "repository": "",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stable-hash-map",
+      "btree",
+      "array",
+      "encoding",
+      "stable-rbtree",
+      "stablebuffer",
+      "map",
+      "candy",
+      "stablebuffer_1_3_0",
+      "map9"
+    ],
+    "name": "candb",
+    "repository": "https://github.com/ORIGYN-SA/CanDB",
+    "version": "1.0.8"
+  },
+  {
+    "dependencies": [
+      "vector",
+      "map",
+      "base",
+      "prng",
+      "account",
+      "itertools",
+      "rechain",
+      "mosup",
+      "devefi-icrc-ledger",
+      "devefi-icp-ledger"
+    ],
+    "name": "devefi",
+    "repository": "https://github.com/Neutrinomic/devefi",
+    "version": "0.3.22"
+  },
+  {
+    "dependencies": [
+      "base",
+      "rxmo",
+      "stableheapbtreemap",
+      "vector",
+      "test"
+    ],
+    "name": "rxmodb",
+    "repository": "https://github.com/infu/rxmodb",
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [
+      "base-0.7.3",
+      "parser-combinators"
+    ],
+    "name": "json.mo",
+    "repository": "https://github.com/aviate-labs/json.mo",
+    "version": "0.1.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "rlp",
+      "libsecp256k1",
+      "sha3"
+    ],
+    "name": "evm-txs",
+    "repository": "https://github.com/av1ctor/evm-txs.mo",
+    "version": "0.1.3"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "itertools",
+    "repository": "https://github.com/NatLabs/Itertools",
+    "version": "0.2.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "array",
+      "crypto",
+      "hash",
+      "encoding",
+      "matchers",
+      "candy_0_1_10",
+      "candy_0_1_12",
+      "candy",
+      "principalmo",
+      "ext",
+      "httpparser",
+      "http",
+      "json",
+      "stablebuffer_0_2_0",
+      "droute_client",
+      "map_6_0_0",
+      "map_7_0_0",
+      "map7",
+      "map_8_1_0",
+      "map",
+      "stablebuffer",
+      "canistergeek",
+      "canistergeekold",
+      "icrc17_kyc",
+      "candy_0_2_0",
+      "stableBTree",
+      "star",
+      "StableBuffer",
+      "droute-client",
+      "motoko-hash-map"
+    ],
+    "name": "origyn-nft",
+    "repository": "https://github.com/ORIGYN_SA/origyn_nft",
+    "version": "0.1.5"
+  },
+  {
+    "dependencies": [
+      "base",
+      "candy3",
+      "stablebuffer_1_3_0",
+      "map9"
+    ],
+    "name": "candy-utils",
+    "repository": "https://github.com/ZhenyaUsenko/motoko-candy-utils",
+    "version": "0.7.0"
+  },
+  {
+    "dependencies": [],
+    "name": "ckbtc-types",
+    "repository": "https://github.com/ZenVoich/ckbtc-types",
+    "version": "0.1.2"
+  },
+  {
+    "dependencies": [
+      "base",
+      "gt-json",
+      "gt-encoding"
+    ],
+    "name": "http-parser",
+    "repository": "https://github.com/NatLabs/http-parser.mo",
+    "version": "0.3.4"
+  },
+  {
+    "dependencies": [
+      "base"
+    ],
+    "name": "libsecp256k1",
+    "repository": "https://github.com/av1ctor/libsecp256k1.mo",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "name": "canistergeek",
+    "repository": "https://github.com/usergeek/canistergeek-ic-motoko",
+    "version": "0.0.8"
+  },
+  {
+    "dependencies": [
+      "base",
+      "json",
+      "itertools",
+      "candid",
+      "xtended-numbers",
+      "parser-combinators"
+    ],
+    "name": "motoko-serde",
+    "repository": "https://github.com/NatLabs/serde",
+    "version": "0.1.4"
+  },
+  {
+    "dependencies": [
+      "base",
+      "stableheapbtreemap",
+      "vector",
+      "mosup",
+      "swbstable",
+      "map"
+    ],
+    "name": "chronotrinite",
+    "repository": "https://github.com/Neutrinomic/devefi_chronotrinite",
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "ic-certification",
+      "sha2",
+      "stableheapbtreemap"
+    ],
+    "name": "certified-http",
+    "repository": "https://github.com/infu/certified-http",
+    "version": "0.1.6"
+  },
+  {
+    "dependencies": [
+      "base",
+      "array",
+      "crypto",
+      "hash",
+      "encoding",
+      "matchers",
+      "candy_0_1_10",
+      "candy_0_1_12",
+      "candy",
+      "principalmo",
+      "ext",
+      "httpparser",
+      "http",
+      "json",
+      "format",
+      "stablebuffer_0_2_0",
+      "droute_client",
+      "map_6_0_0",
+      "map_7_0_0",
+      "map",
+      "stablebuffer",
+      "canistergeek",
+      "canistergeekold",
+      "icrc17_kyc",
+      "candy_0_2_0",
+      "stableBTree"
+    ],
+    "name": "origyn-nft-next",
+    "repository": "https://github.com/ORIGYN_SA/origyn_nft",
+    "version": "0.1.4"
+  },
+  {
+    "dependencies": [],
+    "name": "base-unofficial",
+    "repository": "https://github.com/dfinity/motoko-base",
+    "version": "0.7.3"
+  },
+  {
+    "dependencies": [
+      "sha2",
+      "cbor"
+    ],
+    "name": "ic-certification",
+    "repository": "https://github.com/nomeata/ic-certification",
+    "version": "0.1.3"
+  },
+  {
+    "dependencies": [
+      "base",
+      "candid",
+      "itertools",
+      "xtended-numbers"
+    ],
+    "name": "candid_stringify",
+    "repository": "https://github.com/ORIGYN-SA/candid_stringify",
+    "version": "0.1.1"
+  },
+  {
+    "dependencies": [
+      "vector",
+      "map",
+      "swb",
+      "stableheapbtreemap",
+      "itertools",
+      "base",
+      "mosup"
+    ],
+    "name": "devefi-icp-ledger",
+    "repository": "https://github.com/Neutrinomic/devefi_icp_ledger",
+    "version": "1.5.8"
+  },
+  {
+    "dependencies": [
+      "vector",
+      "stableheapbtreemap"
+    ],
+    "name": "devefi-icrc-sender",
+    "repository": "https://github.com/Neutrinomic/devefi_icrc_sender",
+    "version": "1.0.7"
+  },
+  {
+    "dependencies": [
+      "vector"
+    ],
+    "name": "devefi-icrc-reader",
+    "repository": "https://github.com/Neutrinomic/devefi_icrc_reader",
+    "version": "1.0.5"
+  },
+  {
+    "dependencies": [
+      "vector",
+      "map",
+      "swb",
+      "stableheapbtreemap",
+      "base",
+      "mosup"
+    ],
+    "name": "devefi-icrc-ledger",
+    "repository": "https://github.com/Neutrinomic/devefi_icrc_ledger",
+    "version": "1.5.8"
+  },
+  {
+    "dependencies": [
+      "base",
+      "rlp",
+      "sha3",
+      "merkle-patricia-trie"
+    ],
+    "name": "evm-proof-verifier",
+    "repository": "https://github.com/horizonx-tech/evm-proof-verifier-motoko",
+    "version": "0.0.1"
+  },
+  {
+    "dependencies": [
+      "base",
+      "rlp",
+      "sha3"
+    ],
+    "name": "merkle-patricia-trie",
+    "repository": "https://github.com/f0i/merkle-patricia-trie.mo",
+    "version": "1.0.0"
+  },
+  {
+    "dependencies": [
+      "base",
+      "ic-certification",
+      "sha2",
+      "stableheapbtreemap",
+      "map"
+    ],
+    "name": "motoko-certified-assets",
+    "repository": "https://github.com/fermartz/motoko-certified-assets",
+    "version": "1.0.1"
+  },
+  {
+    "dependencies": [
+      "new-base"
+    ],
+    "name": "snafu",
+    "repository": "https://github.com/christoph-dfinity/motoko-snafu",
+    "version": "0.1.1"
+  }
+]

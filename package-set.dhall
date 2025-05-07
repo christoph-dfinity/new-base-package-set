@@ -167,6 +167,7 @@
 { name = "evm-proof-verifier", repo = "https://github.com/horizonx-tech/evm-proof-verifier-motoko", version = "eb7463789813c7879451776d68f93dc3d524595a", dependencies = ["base", "rlp", "sha3", "merkle-patricia-trie"] : List Text },
 { name = "merkle-patricia-trie", repo = "https://github.com/f0i/merkle-patricia-trie.mo", version = "c7829dc9c0577953ad567c910500a7c3aace521e", dependencies = ["base", "rlp", "sha3"] : List Text },
 { name = "motoko-certified-assets", repo = "https://github.com/fermartz/motoko-certified-assets", version = "overridden", dependencies = ["base", "ic-certification", "sha2", "StableHeapBTreeMap", "map"] : List Text },
+{ name = "snafu", repo = "https://github.com/christoph-dfinity/motoko-snafu", version = "v0.1.1", dependencies = ["new-base"] : List Text },
 { name = "stable-write-only", repo = "https://github.com/skilesare/StableWriteOnly.mo", version = "v0.1.0", dependencies = ["base", "vector"] : List Text },
 { name = "StableHeapBTreeMap", repo = "https://github.com/canscale/StableHeapBTreeMap", version = "v0.3.4", dependencies = ["base"] : List Text },
 { name = "sequence", repo = "https://github.com/matthewhammer/motoko-sequence", version = "366c4191d856ed4842267f5ab89d7222ed2d71d0", dependencies = ["base"] : List Text },
