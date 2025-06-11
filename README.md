@@ -4,11 +4,13 @@
 
 ```
 cargo run init-overrides
+cargo run generate
 vessel verify --version 0.14.9
 ```
 
 ## Making changes to the cleaned manifests
 
+Edit `src/main.rs`, then run:
 ```
 cargo run generate && vessel verify --version 0.14.9
 ```
